@@ -1,0 +1,11 @@
+<mat-toolbar>
+  <h2 mat-dialog-title>{{data.name}}</h2>
+  <span class="example-spacer"></span>
+  <mat-icon (click)="closeDialog()" class="example-icon" matTooltip="close">close</mat-icon>
+</mat-toolbar>
+<mat-dialog-content class="mat-typography">
+  <div>
+    <img src="{{data.image}}">
+    <p>{{data.description}}</p>
+  </div>
+</mat-dialog-content>

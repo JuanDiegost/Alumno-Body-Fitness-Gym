@@ -1,0 +1,28 @@
+#button-login {
+  /*background-color: #64a19d;*/
+  /*box-shadow: 0 .1875rem .1875rem 0 rgba(0,0,0,.1)!important;*/
+  /*padding: 0.75rem 2rem;*/
+  /*font-family: 'Varela Round';*/
+  /*font-size: 90%;*/
+  /*text-transform: uppercase;*/
+  /*letter-spacing: .15rem;*/
+  /*border: 0;*/
+  /*width: max-content;*/
+  width: 100%;
+}
+
+#label-login {
+  font-size: 2em;
+}
+
+#mat-form-name-user {
+  margin-top: 2em
+}
+
+#mat-form-password {
+  margin-bottom: 2em;
+}
+
+mat-form-field {
+  width: 15em;
+}

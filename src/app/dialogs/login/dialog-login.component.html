@@ -1,0 +1,13 @@
+<form>
+  <mat-label id="label-login">Iniciar Sesión</mat-label>
+  <br>
+  <mat-form-field id="mat-form-name-user">
+    <input matInput placeholder="Nombre de Usuario" id="userName" required>
+  </mat-form-field>
+  <br>
+  <mat-form-field id="mat-form-password">
+    <input matInput placeholder="Constraseña" id="password" required>
+  </mat-form-field>
+  <br>
+  <button id="button-login" mat-flat-button (click)="loginUser($event)">Ingresar</button>
+</form>
