@@ -7,6 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class StudentMedicalHistoryComponent implements OnInit {
 
+  startDate = new Date(1990, 0, 1);
+
+  tiposSangre: string[] = ['A','B','O','AB'];
+  rHs: string[] = ['+ Positivo','- Negativo'];
+
   constructor() { }
 
   ngOnInit() {

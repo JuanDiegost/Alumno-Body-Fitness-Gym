@@ -1,3 +1,64 @@
-<p>
-  student-medical-history works!
-</p>
+<div class="center-div">
+  <h2>Cuestionario de Historial Medico</h2>
+
+  <mat-horizontal-stepper linear #stepper>
+    <mat-step [stepControl]="firstFormGroup">
+      <ng-template matStepLabel>Ingresa tus datos personales</ng-template>
+
+      <form [formGroup]="firstFormGroup">
+        <mat-form-field>
+          <input matInput [matDatepicker]="picker" placeholder="Fecha de Nacimiento">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker startView="year" [startAt]="startDate"></mat-datepicker>
+        </mat-form-field>
+
+        <mat-select placeholder="Tipo de Sangre">
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let tipo of tiposSangre" [value]="tipo">
+            {{tipo}}
+          </mat-option>
+        </mat-select>
+
+        <mat-select placeholder="Rh">
+          <mat-option>--</mat-option>
+          <mat-option *ngFor="let tipo of rHs" [value]="tipo">
+            {{tipo}}
+          </mat-option>
+        </mat-select>
+
+        <div>
+          <button mat-button matStepperNext>Siguiente</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step [stepControl]="secondFormGroup" [optional]="isOptional">
+      <form [formGroup]="secondFormGroup">
+        <ng-template matStepLabel>Selecciona si tienes una de estas enfermedades</ng-template>
+        <section class="example-section">
+            <mat-checkbox class="example-margin" [(ngModel)]="ataques">Ataques cardíacos</mat-checkbox> <br>
+            <mat-checkbox class="example-margin" [(ngModel)]="marcapazo">Marcapaso o cirugía del corazón</mat-checkbox> <br>
+            <mat-checkbox class="example-margin" [(ngModel)]="marcapazo">Incomodidad en el pecho cuando se realiza un esfuerzo</mat-checkbox> <br>
+            <mat-checkbox class="example-margin" [(ngModel)]="marcapazo">Incomodidad</mat-checkbox><br>
+            <mat-checkbox class="example-margin" [(ngModel)]="marcapazo">Prueba sadsa</mat-checkbox><br>
+            <mat-checkbox class="example-margin" [(ngModel)]="marcapazo">Y3487Y4 </mat-checkbox><br>
+
+          </section>
+        <div>
+          <button mat-button matStepperPrevious>Back</button>
+          <button mat-button matStepperNext>Next</button>
+        </div>
+      </form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Done</ng-template>
+      You are now done.
+      <div>
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-horizontal-stepper>
+
+
+
+</div>
