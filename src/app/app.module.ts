@@ -34,7 +34,8 @@ import { StudentProgressComponent } from "./student-progress/student-progress.co
 import { ProfileComponent } from "./profile/profile.component";
 import { from } from "rxjs";
 
-import {Globals} from './util/Global'
+import {Globals} from './util/Global';
+import { DatosAlumnoComponent } from './datos-alumno/datos-alumno.component'
 
 const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
@@ -48,7 +49,9 @@ const routes: Route[] = [
         path: RoutersApp.medicalHistory,
         component: StudentMedicalHistoryComponent
       },
-      { path: RoutersApp.profile, component: ProfileComponent }
+      { path: RoutersApp.profile, component: ProfileComponent },
+      { path: "datos-personales", component: DatosAlumnoComponent }
+
     ]
   }
   // {path: 'schedule', component: StudentScheduleComponent}
@@ -64,7 +67,8 @@ const routes: Route[] = [
     StudentScheduleComponent,
     StudentProgressComponent,
     StudentMedicalHistoryComponent,
-    ProfileComponent
+    ProfileComponent,
+    DatosAlumnoComponent
   ],
   imports: [
     BrowserModule,
