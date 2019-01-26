@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
-import { PreguntaService } from '../services/pregunta/pregunta.service'
+import { PreguntaService } from "../services/pregunta/pregunta.service";
+import {MatSnackBar} from '@angular/material';
 
 @Component({
   selector: "app-student-medical-history",
@@ -7,16 +8,27 @@ import { PreguntaService } from '../services/pregunta/pregunta.service'
   styleUrls: ["./student-medical-history.component.css"]
 })
 export class StudentMedicalHistoryComponent implements OnInit {
-  isEditable = false;
+  isEditable = true;
 
-  listaPreguntas=["Prsbnd s dsnfksdf","dsfsdn dsnfkdsn fdsfnds fdsofnds", "isdjfsd "];
+  listaPreguntas;
 
-  constructor(public _preguntaService:PreguntaService) {}
+  constructor(public _preguntaService: PreguntaService,private snackBar: MatSnackBar) {}
 
   ngOnInit() {
-    this._preguntaService.getPreguntas().subscribe(data=>{
-      console.log(data);
+    this._preguntaService.getPreguntas().subscribe(data => {
+      this.listaPreguntas = data;
     });
+  }
+
+  editar(){
+    if(!this.isEditable){
+       console.log("Guardar cambios");
+       this.snackBar.open("Se han guardado correctamente los cambios", "Bien", {
+        duration: 2000,
+      });
+    }
+    this.isEditable=!this.isEditable;
+
   }
 
   enviar() {}

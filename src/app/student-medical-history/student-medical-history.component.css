@@ -2,10 +2,21 @@
   padding: 20px;
   margin-top: 20px;
   margin-left: 20px;
-
+  width: 100%;
 }
 
-.center-div mat-select{
+.center-div mat-select {
   max-width: 200px;
   margin-left: 50px;
+}
+
+.preguntas {
+  width: 40%;
+  display: inline-flex;
+  margin-left: 69px;
+}
+
+.opciones {
+  margin-top: 20px;
+  text-align: center;
 }

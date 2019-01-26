@@ -75,7 +75,7 @@ const routes: Route[] = [
     HttpClientModule,
     KSSwiperModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes,{useHash: true})
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [DialogContentServiceComponent, DialogLoginComponent],

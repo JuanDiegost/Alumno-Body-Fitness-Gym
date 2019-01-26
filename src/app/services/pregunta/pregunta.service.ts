@@ -9,6 +9,6 @@ export class PreguntaService {
   constructor(public global:Globals,public http:HttpClient) {}
 
   getPreguntas() {
-    return this.http.get(this.global.URL_API+ "/preguntas");
+    return this.http.get("/preguntas");
   }
 }
