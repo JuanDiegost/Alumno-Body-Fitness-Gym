@@ -5,6 +5,7 @@
 
 }
 
-.center-div * {
-  margin: 10px;
+.center-div mat-select{
+  max-width: 200px;
+  margin-left: 50px;
 }
