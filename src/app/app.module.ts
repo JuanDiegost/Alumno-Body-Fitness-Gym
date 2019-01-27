@@ -13,6 +13,7 @@ import { RouterModule, Route } from "@angular/router";
 import { HomeComponent } from "./home/home.component";
 import { StudentRootComponent } from "./student-root/student-root.component";
 import { DialogContentServiceComponent } from "./dialogs/service/dialog-content-service.component";
+import { DialogEditUserComponent} from "./dialogs/edit-user/dialog-edit-user.component";
 import { DialogLoginComponent } from "./dialogs/login/dialog-login.component";
 import { StudentScheduleComponent } from "./student-schedule/student-schedule.component";
 import { StudentMedicalHistoryComponent } from "./student-medical-history/student-medical-history.component";
@@ -35,7 +36,6 @@ import { ProfileComponent } from "./profile/profile.component";
 import { from } from "rxjs";
 
 import {Globals} from './util/Global';
-import { DatosAlumnoComponent } from './datos-alumno/datos-alumno.component'
 
 const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
@@ -49,9 +49,7 @@ const routes: Route[] = [
         path: RoutersApp.medicalHistory,
         component: StudentMedicalHistoryComponent
       },
-      { path: RoutersApp.profile, component: ProfileComponent },
-      { path: "datos-personales", component: DatosAlumnoComponent }
-
+      { path: RoutersApp.profile, component: ProfileComponent }
     ]
   }
   // {path: 'schedule', component: StudentScheduleComponent}
@@ -68,7 +66,7 @@ const routes: Route[] = [
     StudentProgressComponent,
     StudentMedicalHistoryComponent,
     ProfileComponent,
-    DatosAlumnoComponent
+    DialogEditUserComponent
   ],
   imports: [
     BrowserModule,
@@ -82,7 +80,7 @@ const routes: Route[] = [
     RouterModule.forRoot(routes,{useHash: true})
   ],
   schemas: [NO_ERRORS_SCHEMA],
-  entryComponents: [DialogContentServiceComponent, DialogLoginComponent],
+  entryComponents: [DialogContentServiceComponent, DialogLoginComponent,DialogEditUserComponent],
   providers: [ServicePageHome, ServiceLogin,PreguntaService,Globals],
   bootstrap: [AppComponent]
 })
