@@ -1,0 +1,20 @@
+
+#Usuario {
+    display:none;
+}
+
+#Personal {
+    display:none;
+    top: 20px;
+    position: relative;
+    margin: 0%;
+    margin-top: 5px; 
+}
+#btnPerson {
+    display:none;
+    visibility: hidden;
+}
+#btnUser {
+    display:none;
+    visibility: hidden;
+}
