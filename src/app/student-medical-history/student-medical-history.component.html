@@ -1,7 +1,7 @@
 <div class="center-div">
   <h2>Cuestionario de Historial Medico</h2>
   <div class="preguntas" *ngFor="let pregunta of listaPreguntas">
-    <mat-checkbox [disabled]="isEditable" class="pregunta" [(ngModel)]="pregunta.select">{{pregunta.descripcionPregunta}}</mat-checkbox>
+    <mat-checkbox [disabled]="isEditable" class="pregunta" [(ngModel)]="pregunta.select">{{pregunta.nombrePregunta}}</mat-checkbox>
   </div>
   <div class="opciones">
     <button mat-raised-button (click)="editar()" id="toggle-linear">
