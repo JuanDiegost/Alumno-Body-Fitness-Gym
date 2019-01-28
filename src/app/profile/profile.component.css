@@ -43,6 +43,12 @@
 .porTerminar {
   color: orange;
 }
+.lejosdevencer{
+  color: green;
+}
+.vencido{
+  color: red;
+}
 
 .historial-pagos{
   width: 100%;

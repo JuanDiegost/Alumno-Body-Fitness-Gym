@@ -28,10 +28,11 @@ export class DialogLoginComponent implements OnInit {
     this.data.servicePageHome.login(username, password).subscribe(
       res => {
         console.log(res);
-        if (res) {
-          const user: User = {name: username, type: UserType.STUDENT};
+        if (res[0]["idAlumno"]!=undefined) {
+          const user: User = {name: username, type: UserType.STUDENT,id:res[0]["idAlumno"]};
           this.data.serviceLogin.setUserLoggedIn(user);
-          // localStorage.setItem('userName', username);
+          localStorage.setItem('idAlumno', res[0]["idAlumno"]);
+
         } else {
           alert('Usuario o contraseña incorrecta');
           elementPassword.value = '';

@@ -10,6 +10,7 @@ export enum UserType {
 
 export interface User {
   name: string;
+  id:number;
   type: UserType;
 }
 

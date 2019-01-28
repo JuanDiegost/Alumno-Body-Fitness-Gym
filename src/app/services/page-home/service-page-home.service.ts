@@ -12,14 +12,11 @@ export class ServicePageHome {
   constructor(private httpClient: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.httpClient.post('/apirest/students', {
-      email: username,
-      password: password,
-    });
+    return this.httpClient.get('login/alumno/'+username+"/"+password);
   }
 
   getRates() {
-    return this.httpClient.get('/apirest/cities').pipe(map(data => JSON.parse(JSON.stringify(data['0']))));
+    //return this.httpClient.get('/apirest/cities').pipe(map(data => JSON.parse(JSON.stringify(data['0']))));
   }
 
   getNews() {

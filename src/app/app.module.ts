@@ -26,6 +26,7 @@ import { KSSwiperModule } from "angular2-swiper";
 import { ServicePageHome } from "./services/page-home/service-page-home.service";
 import { ServiceLogin } from "./services/login/service-login.service";
 import { PreguntaService } from "./services/pregunta/pregunta.service"
+import { ServiceUserService } from "./services/services-user/service-user.service"
 
 // guards
 import { CanActiveVerifyLoginGuard } from "./guards/verify-login/can-active-verify-login.guard";
@@ -81,7 +82,7 @@ const routes: Route[] = [
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [DialogContentServiceComponent, DialogLoginComponent,DialogEditUserComponent],
-  providers: [ServicePageHome, ServiceLogin,PreguntaService,Globals],
+  providers: [ServicePageHome, ServiceLogin,PreguntaService,Globals,ServiceUserService],
   bootstrap: [AppComponent]
 })
 // @ts-ignore

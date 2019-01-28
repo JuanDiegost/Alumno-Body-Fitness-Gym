@@ -1,0 +1,34 @@
+.container-datos-alumno {
+  margin-top: 20px;
+  text-align: center;
+  display: inline-flex;
+  width: 100%;
+}
+
+.primero{
+  text-align: right;
+}
+
+.segundo {
+  text-align: left;
+}
+
+.primero ,.segundo {
+  width: 50%;
+  padding: 30px;
+}
+
+.mat-radio-button{
+  margin-right: 10px;
+  margin-top: 30px;
+}
+
+
+.controles {
+  text-align: center;
+  width: 100%;
+}
+
+.controles *{
+  margin-left: 40px;
+}

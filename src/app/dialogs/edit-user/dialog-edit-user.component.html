@@ -1,80 +1,80 @@
+<div class="modal-content">
+  <div class="modal-header text-center">
+    <button mdbBtn type="button" outline="true" class="btn btn-rounded btn-md lg-6 md-6" id="tablink" (click)="displayContentUser()"
+      color="primary" rounded="true" mdbWavesEffect>Usuario
+      <i class="fa fa-user-circle-o " aria-hidden="true"></i>
+    </button>
+    <button mdbBtn type="button" outline="true" class="btn btn-rounded btn-md lg-6 md-6" id="tablink" (click)="displayContentPersonal()"
+      color="primary" rounded="true" mdbWavesEffect>Informacion Personal
+      <i class="fa fa-address-card-o" aria-hidden="true"></i>
+    </button>
 
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <button mdbBtn type="button"  outline="true" class="btn btn-rounded btn-md lg-6 md-6" id="tablink" (click) = "displayContentUser()"color="primary"  rounded="true" mdbWavesEffect>Usuario
-            <i class="fa fa-user-circle-o " aria-hidden="true"></i>
-        </button>
-        <button mdbBtn type="button"  outline="true" class="btn btn-rounded btn-md lg-6 md-6" id="tablink" (click) = "displayContentPersonal()" color="primary" rounded="true" mdbWavesEffect>Informacion Personal
-            <i class="fa fa-address-card-o" aria-hidden="true"></i>
-        </button>
-       
-      </div>
-      <div id="Usuario" class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <i class="fa fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
-            mdbInputDirective>
-          <label data-error="wrong" data-success="right" for="orangeForm-name">Your name</label>
-        </div>
-        
-
-        <div class="md-form mb-4">
-          <i class="fa fa-lock prefix grey-text"></i>
-          <input type="password" id="orangeForm-pass" class="form-control validate" [formControl]="signupFormModalPassword"
-            mdbInputDirective>
-          <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-        </div>
-      </div>
-     
-     <div id="btnUser" class="modal-footer d-flex justify-content-center">
-          <button mdbBtn color="deep-orange" class="waves-light" mdbWavesEffect>Sign up</button>
-        </div>
-
-
-      <div id="Personal" class="modal-body mx-3">
-          <div class="md-form mb-5">
-            <i class="fa fa-user prefix grey-text"></i>
-            <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
-              mdbInputDirective>
-            <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
-          </div>
-          <div class="md-form mb-5">
-            <i class="fa fa-address-book prefix grey-text"></i>
-            <input type="number" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
-              mdbInputDirective>
-            <label data-error="wrong" data-success="right" for="orangeForm-email">Documento</label>
-          </div>
-          <div class="md-form mb-5">
-            <i class="fa fa-phone-square prefix grey-text"></i>
-            <input type="number" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
-              mdbInputDirective>
-            <label data-error="wrong" data-success="right" for="orangeForm-email">Telefono</label>
-          </div>
-          <div class="md-form mb-5">
-            <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="email" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
-              mdbInputDirective>
-            <label data-error="wrong" data-success="right" for="orangeForm-email">Correo</label>
-          </div>
-          <div class="md-form mb-5">
-            <i class="fa fa-calendar-o prefix grey-text"></i>
-            <input type="date" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
-              mdbInputDirective>
-            <label data-error="wrong" data-success="right" for="orangeForm-email"></label>
-          </div>
-          <div class="md-form mb-5">
-            <i class="fa fa-transgender prefix grey-text"></i>
-            <input type="text" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
-              mdbInputDirective>
-            <label data-error="wrong" data-success="right" for="orangeForm-email">Genero</label>
-          </div>
-  
-        </div>
-      
-      <div id="btnPerson" class="modal-footer d-flex justify-content-center">
-        <button mdbBtn color="deep-orange" class="waves-light" mdbWavesEffect>Sign up</button>
-      </div>
+  </div>
+  <div id="Usuario" class="modal-body mx-3">
+    <div class="md-form mb-5">
+      <i class="fa fa-user prefix grey-text"></i>
+      <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
+        mdbInputDirective>
+      <label data-error="wrong" data-success="right" for="orangeForm-name">Usuario</label>
     </div>
 
 
-    
+    <div class="md-form mb-4">
+      <i class="fa fa-lock prefix grey-text"></i>
+      <input type="password" id="orangeForm-pass" class="form-control validate" [formControl]="signupFormModalPassword"
+        mdbInputDirective>
+      <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
+    </div>
+  </div>
+
+  <div id="btnUser" class="modal-footer d-flex justify-content-center">
+    <button mdbBtn color="deep-orange" class="waves-light" mdbWavesEffect>Sign up</button>
+  </div>
+
+
+  <div id="Personal" class="modal-body mx-3">
+    <div class="md-form mb-5">
+      <i class="fa fa-user prefix grey-text"></i>
+      <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
+        mdbInputDirective [(ngModel)]="nombreAlumno">
+      <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
+    </div>
+
+    <div class="md-form mb-5">
+      <i class="fa fa-address-book prefix grey-text"></i>
+      <input type="text" id="orangeForm-documento" class="form-control validate" [formControl]="signupFormModalDni"
+        mdbInputDirective [(ngModel)]="dniAlumno">
+      <label data-error="wrong" data-success="right" for="orangeForm-documento">Documento</label>
+    </div>
+
+    <div class="md-form mb-5">
+      <i class="fa fa-phone-square prefix grey-text"></i>
+      <input type="text" id="orangeForm-telefono" class="form-control validate" [formControl]="signupFormModalTelefono"
+        mdbInputDirective [(ngModel)]="telefonoAlumno">
+      <label data-error="wrong" data-success="right" for="orangeForm-telefono">Telefono</label>
+    </div>
+    <div class="md-form mb-5">
+      <i class="fa fa-envelope prefix grey-text"></i>
+      <input type="email" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
+        mdbInputDirective [(ngModel)]="emailAlumno">
+      <label data-error="wrong" data-success="right" for="orangeForm-email">Correo</label>
+    </div>
+    <div class="md-form mb-5">
+      <i class="fa fa-calendar-o prefix grey-text"></i>
+      <input type="date" id="orangeForm-date" class="form-control validate" [formControl]="signupFormModalDate"
+        mdbInputDirective [ngModel]="BirthDate | date:'yyyy-MM-dd'" (ngModelChange)="BirthDate = $event" [value]="BirthDate | date:'yyyy-MM-dd'">
+      <label data-error="wrong" data-success="right" for="orangeForm-date"></label>
+    </div>
+    <div class="md-form mb-5">
+      <i class="fa fa-transgender prefix grey-text"></i>
+      <input type="text" id="orangeForm-genero" class="form-control validate" [formControl]="signupFormModalGenero"
+        mdbInputDirective [(ngModel)]="genero">
+      <label data-error="wrong" data-success="right" for="orangeForm-genero">Genero</label>
+    </div>
+
+  </div>
+
+  <div id="btnPerson" class="modal-footer d-flex justify-content-center">
+    <button mdbBtn color="deep-orange" class="waves-light" (click)="saveUser()" mdbWavesEffect mat-dialog-close>Guardar</button>
+  </div>
+</div>
