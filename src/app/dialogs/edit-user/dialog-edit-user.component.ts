@@ -82,6 +82,7 @@ export class DialogEditUserComponent implements OnInit {
   }
 
   saveUser() {
+
     this.userService.getUserData().subscribe(alumno => {
       alumno = alumno["value"];
       console.log(alumno);

@@ -42,7 +42,7 @@ const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
   {
     path: RoutersApp.student,
-    component: StudentRootComponent, // canActivate: [CanActiveVerifyLoginGuard],
+    component: StudentRootComponent,  //canActivate: [CanActiveVerifyLoginGuard],
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.progress, component: StudentProgressComponent },
