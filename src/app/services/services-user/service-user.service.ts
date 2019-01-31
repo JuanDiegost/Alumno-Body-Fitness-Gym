@@ -15,4 +15,3 @@ export class ServiceUserService {
     return this.http.put("/alumno",alumno);
   }
 }
-

@@ -49,7 +49,7 @@ export class ProfileComponent implements OnInit {
       this.fechaNacimiento = res["fechaNacimiento"];
       this.historialSuscripciones = res["historialSuscripcion"];
       this.genero = res["genero"];
-      this.historialSuscripciones = this.historialSuscripciones.reverse();
+      //this.historialSuscripciones = this.historialSuscripciones.reverse();
       this.ultimaSuscripcion = this.historialSuscripciones[0];
       let now = new Date();
       let date = new Date(
