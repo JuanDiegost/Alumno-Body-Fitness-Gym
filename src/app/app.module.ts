@@ -10,8 +10,8 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Route } from "@angular/router";
 
 //firebase
-import { AngularFireModule } from 'angularfire2';
-import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireModule } from "angularfire2";
+import { AngularFireStorageModule } from "angularfire2/storage";
 
 // components
 import { HomeComponent } from "./home/home.component";
@@ -31,6 +31,7 @@ import { ServicePageHome } from "./services/page-home/service-page-home.service"
 import { ServiceLogin } from "./services/login/service-login.service";
 import { PreguntaService } from "./services/pregunta/pregunta.service";
 import { ServiceUserService } from "./services/services-user/service-user.service";
+import { UploadService } from "./services/upload/upload.service";
 
 // guards
 import { CanActiveVerifyLoginGuard } from "./guards/verify-login/can-active-verify-login.guard";
@@ -74,7 +75,13 @@ const routes: Route[] = [
     DialogEditUserComponent
   ],
   imports: [
-    BrowserModule,
+    AngularFireModule.initializeApp({
+      apiKey: " AIzaSyA10YWRfQ3iExpaF6cP0PQf7YY9ZHnc7jE ",
+      authDomain: "body-fitnes-gym",
+      storageBucket: "body-fitnes-gym.appspot.com",
+      projectId: "body-fitnes-gym"
+    }),
+    AngularFireStorageModule,BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -82,13 +89,8 @@ const routes: Route[] = [
     HttpClientModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(routes, { useHash: true }),
-    AngularFireModule.initializeApp({
-      apiKey: " AIzaSyA10YWRfQ3iExpaF6cP0PQf7YY9ZHnc7jE ",
-      authDomain: "body-fitnes-gym",
-      storageBucket: "body-fitnes-gym.appspot.com",
-      projectId: "body-fitnes-gym"
-    }),AngularFireStorageModule
-    ],
+
+  ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [
     DialogContentServiceComponent,
@@ -98,7 +100,7 @@ const routes: Route[] = [
   providers: [
     ServicePageHome,
     ServiceLogin,
-    PreguntaService,
+    PreguntaService,UploadService,
     Globals,
     ServiceUserService
   ],

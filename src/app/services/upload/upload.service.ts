@@ -12,6 +12,7 @@ export class UploadService {
 
   pushFileToStorage(fileUpload: FileUpload, progress: { percentage: number }) {
     const storageRef = firebase.storage().ref();
+    console.log(storageRef);
     const uploadTask = storageRef
       .child(`${this.basePath}/${fileUpload.file.name}`)
       .put(fileUpload.file);
@@ -33,6 +34,7 @@ export class UploadService {
         // success
         fileUpload.url = uploadTask.snapshot.downloadURL;
         fileUpload.name = fileUpload.file.name;
+        console.log(fileUpload);
       }
     );
   }

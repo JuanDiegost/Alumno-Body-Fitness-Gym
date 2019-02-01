@@ -34,6 +34,12 @@
 
   <div id="Personal" class="modal-body mx-3">
     <div class="md-form mb-5">
+      <input type="file" id="orangeForm-img" (change)="onFileSelectedListener($event)">
+
+      <label data-error="wrong" data-success="right" for="orangeForm-name">Foto</label>
+    </div>
+
+    <div class="md-form mb-5">
       <i class="fa fa-user prefix grey-text"></i>
       <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
         mdbInputDirective [(ngModel)]="nombreAlumno">

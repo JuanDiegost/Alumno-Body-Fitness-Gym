@@ -5,6 +5,8 @@ import { MAT_DIALOG_DATA } from "@angular/material";
 import { ServiceUserService } from "../../services/services-user/service-user.service";
 import { DatePipe } from "@angular/common";
 import { MatSnackBar } from "@angular/material";
+import { UploadService } from "../../services/upload/upload.service";
+import { FileUpload } from "../../util/upload";
 
 @Component({
   selector: "app-dialog-edit-user",
@@ -29,11 +31,15 @@ export class DialogEditUserComponent implements OnInit {
   usuarioAlumno;
   genero;
   datePipeEn: DatePipe = new DatePipe("en-US");
+  selectedFiles;
+  currentFileUpload;
+  progress;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
     public userService: ServiceUserService,
-    private snackBar: MatSnackBar
+    private snackBar: MatSnackBar,
+    public uploadService: UploadService
   ) {}
 
   ngOnInit() {
@@ -82,7 +88,6 @@ export class DialogEditUserComponent implements OnInit {
   }
 
   saveUser() {
-
     this.userService.getUserData().subscribe(alumno => {
       alumno = alumno["value"];
       console.log(alumno);
@@ -103,6 +108,16 @@ export class DialogEditUserComponent implements OnInit {
         window.location.reload();
       });
     });
+  }
+
+  onFileSelectedListener(event) {
+    this.selectedFiles = event.target.files;
+    const file = this.selectedFiles.item(0);
+    console.log(file);
+    this.selectedFiles = undefined;
+
+    this.currentFileUpload = new FileUpload(file);
+    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress);
   }
 
   replaceAt(textr, index, replace) {
