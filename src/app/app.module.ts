@@ -22,6 +22,9 @@ import { AppComponent } from "./app.component";
 // cover-flow news
 import { KSSwiperModule } from "angular2-swiper";
 
+// carousel news
+import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+
 // servicios
 import { ServicePageHome } from "./services/page-home/service-page-home.service";
 import { ServiceLogin } from "./services/login/service-login.service";
@@ -42,7 +45,7 @@ const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
   {
     path: RoutersApp.student,
-    component: StudentRootComponent,  //canActivate: [CanActiveVerifyLoginGuard],
+    component: StudentRootComponent,  canActivate: [CanActiveVerifyLoginGuard],
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.progress, component: StudentProgressComponent },
@@ -77,8 +80,9 @@ const routes: Route[] = [
     MaterialModules,
     HttpClientModule,
     KSSwiperModule,
+    NgxHmCarouselModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes,{useHash: true})
+    RouterModule.forRoot(routes, {useHash: true}),
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [DialogContentServiceComponent, DialogLoginComponent,DialogEditUserComponent],

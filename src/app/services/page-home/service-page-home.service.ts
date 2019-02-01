@@ -22,4 +22,8 @@ export class ServicePageHome {
   getNews() {
     // return this.httpClient.get('http://localhost/apirest/cities').pipe(map(data => JSON.parse(JSON.stringify(data["0"]))));
   }
+
+  read(url) {
+    return this.httpClient.get(url);
+  }
 }
