@@ -25,7 +25,7 @@ export class StudentRootComponent implements OnInit {
 
   printOfBlack(element: HTMLButtonElement) {
     if (this.currentButtonPressedToolBar) {
-      this.currentButtonPressedToolBar.style.backgroundColor = '#353535';
+      this.currentButtonPressedToolBar.style.backgroundColor = '#2196f3';
     }
     this.currentButtonPressedToolBar = element;
     element.style.backgroundColor = 'black';

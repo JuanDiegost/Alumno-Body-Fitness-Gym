@@ -78,41 +78,59 @@
       <div id="div-two-news">
         <h2>Noticias</h2>
         <div class="myslides">
-          <ks-swiper-container [options]="example1SwipeOptions">
-            <ks-swiper-slide *ngFor="let new of dataSourceNews">
-              <!--<div class="card" style="width: auto; height: 20em; background-color: green">-->
-              <!--<img class="card-img-top" style="height: 10em" src="{{new.pathImage}}" alt="Card image cap">-->
-              <!--<div class="card-body">-->
-              <!--<h5 class="card-title">{{new.title}}</h5>-->
-              <!--&lt;!&ndash;<h5 class="card-subtitle">{{new.subTitle}}</h5>&ndash;&gt;-->
-              <!--<p class="card-text" style="text-align: justify">{{new.description}}</p>-->
-              <!--<button mat-stroked-button color="primary">Abrir</button>-->
-              <!--</div>-->
-              <!--</div>-->
-              <!--<div style="background-color: white">-->
-              <!--aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa-->
-              <!--</div>-->
-              <mat-card>
-                <mat-card-header>
-                  <mat-card-title>{{new.title}}</mat-card-title>
-                  <mat-card-subtitle>{{new.subTitle}}</mat-card-subtitle>
-                </mat-card-header>
-                <img class="img-card-news" mat-card-image src="{{new.pathImage}}">
-                <mat-card-content>
-                  <p id="p-description-news">
-                    {{new.description}}
-                  </p>
-                </mat-card-content>
-                <mat-card-actions style="text-align: center">
-                  <button mat-stroked-button color="primary">Abrir</button>
-                </mat-card-actions>
-              </mat-card>
-            </ks-swiper-slide>
-          </ks-swiper-container>
-          <div style="background-color: greenyellow">
-            <button mat-flat-button color="primary" (click)="movePrev()">Anterior</button>
-            <button mat-flat-button color="primary" style="float: right" (click)="moveNext()">Siguiente</button>
-          </div>
+          <ngx-hm-carousel
+            [(ngModel)]="configCarousel.index"
+            [autoplay-speed]="configCarousel.speed"
+            [autoplay]="configCarousel.autoplay"
+            [autoplay-direction]="configCarousel.direction"
+            [infinite]="configCarousel.infinite"
+            [data]="dataSourceNews"
+            onclick="document.getElementById('article-news').click()"
+            class="carousel">
+
+            <section ngx-hm-carousel-container class="content">
+              <article (click)="openNews(news)" id="article-news" class="item cursor-pointer visible_important"
+                       ngx-hm-carousel-item
+                       *ngFor="let news of dataSourceNews; let i = index">
+                <div class="img"
+                     [style.backgroundImage]="'url('+news.urlImagen+')'">
+                </div>
+                <div id="div-article-news">
+                  <h2>{{news.titular}}</h2>
+                  <h5>{{news.contenido}}</h5>
+                </div>
+              </article>
+              <ng-template #infiniteContainer></ng-template>
+            </section>
+
+            <ng-template #carouselContent let-avatar let-i="index">
+              <article class="item cursor-pointer visible_important">
+                <div class="img">
+                </div>
+              </article>
+            </ng-template>
+
+            <ng-template #carouselPrev>
+              <div class="click-area">
+                <i class="material-icons">keyboard_arrow_left</i>
+              </div>
+            </ng-template>
+            <ng-template #carouselNext>
+              <div class="click-area">
+                <i class="material-icons">keyboard_arrow_right</i>
+              </div>
+            </ng-template>
+
+            <ng-template #carouselDot let-model>
+              <div class="ball bg-accent"
+                   [class.visible]="model.index === model.currentIndex"></div>
+            </ng-template>
+
+            <ng-template #carouselProgress let-progress>
+              <div class="progress"></div>
+            </ng-template>
+
+          </ngx-hm-carousel>
         </div>
       </div>
     </div>
@@ -128,7 +146,7 @@
       <table>
         <th>
           <mat-chip-list class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of availableColors" selected [color]="chip.color"
+            <mat-chip *ngFor="let chip of availablePrograms" selected [color]="chip.color"
                       (click)="openDialogService(chip)">
               {{chip.name}}
             </mat-chip>
@@ -147,9 +165,9 @@
         <td mat-cell *matCellDef="let element"> {{element.name}}</td>
       </ng-container>
 
-      <ng-container matColumnDef="id">
+      <ng-container matColumnDef="value">
         <th mat-header-cell *matHeaderCellDef> Valor</th>
-        <td mat-cell *matCellDef="let element"> {{element.id}}</td>
+        <td mat-cell *matCellDef="let element"> {{element.value}}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
