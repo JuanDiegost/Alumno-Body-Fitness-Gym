@@ -1,16 +1,19 @@
 {
   "hosting": {
-    "public": "dist",
+    "public": "dist/Body-fitness-Gym",
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
-      {
-        "source": "**",
-        "destination": "/index.html"
-      }
-    ]
+    "redirects": [ {
+      "source": "//*",
+      "destination": "https://spring-body-fitness-gym.herokuapp.com",
+      "type": 301
+    }],
+    "rewrites": [{
+      "source": "**",
+      "destination": "/index.html"
+    }]
   }
 }

@@ -1,7 +1,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule, NO_ERRORS_SCHEMA } from "@angular/core";
 import { MDBBootstrapModule } from "angular-bootstrap-md";
-import { FormsModule, ReactiveFormsModule} from "@angular/forms"
+import { FormsModule, ReactiveFormsModule } from "@angular/forms";
 
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
 import { MaterialModules } from "./materialModules";
@@ -9,11 +9,15 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { RouterModule, Route } from "@angular/router";
 
+//firebase
+import { AngularFireModule } from 'angularfire2';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+
 // components
 import { HomeComponent } from "./home/home.component";
 import { StudentRootComponent } from "./student-root/student-root.component";
 import { DialogContentServiceComponent } from "./dialogs/service/dialog-content-service.component";
-import { DialogEditUserComponent} from "./dialogs/edit-user/dialog-edit-user.component";
+import { DialogEditUserComponent } from "./dialogs/edit-user/dialog-edit-user.component";
 import { DialogLoginComponent } from "./dialogs/login/dialog-login.component";
 import { StudentScheduleComponent } from "./student-schedule/student-schedule.component";
 import { StudentMedicalHistoryComponent } from "./student-medical-history/student-medical-history.component";
@@ -25,8 +29,8 @@ import { KSSwiperModule } from "angular2-swiper";
 // servicios
 import { ServicePageHome } from "./services/page-home/service-page-home.service";
 import { ServiceLogin } from "./services/login/service-login.service";
-import { PreguntaService } from "./services/pregunta/pregunta.service"
-import { ServiceUserService } from "./services/services-user/service-user.service"
+import { PreguntaService } from "./services/pregunta/pregunta.service";
+import { ServiceUserService } from "./services/services-user/service-user.service";
 
 // guards
 import { CanActiveVerifyLoginGuard } from "./guards/verify-login/can-active-verify-login.guard";
@@ -36,13 +40,13 @@ import { StudentProgressComponent } from "./student-progress/student-progress.co
 import { ProfileComponent } from "./profile/profile.component";
 import { from } from "rxjs";
 
-import {Globals} from './util/Global';
+import { Globals } from "./util/Global";
 
 const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
   {
     path: RoutersApp.student,
-    component: StudentRootComponent,  //canActivate: [CanActiveVerifyLoginGuard],
+    component: StudentRootComponent, //canActivate: [CanActiveVerifyLoginGuard],
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.progress, component: StudentProgressComponent },
@@ -76,13 +80,28 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     MaterialModules,
     HttpClientModule,
-    KSSwiperModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes,{useHash: true})
-  ],
+    RouterModule.forRoot(routes, { useHash: true }),
+    AngularFireModule.initializeApp({
+      apiKey: " AIzaSyA10YWRfQ3iExpaF6cP0PQf7YY9ZHnc7jE ",
+      authDomain: "body-fitnes-gym",
+      storageBucket: "body-fitnes-gym.appspot.com",
+      projectId: "body-fitnes-gym"
+    }),AngularFireStorageModule
+    ],
   schemas: [NO_ERRORS_SCHEMA],
-  entryComponents: [DialogContentServiceComponent, DialogLoginComponent,DialogEditUserComponent],
-  providers: [ServicePageHome, ServiceLogin,PreguntaService,Globals,ServiceUserService],
+  entryComponents: [
+    DialogContentServiceComponent,
+    DialogLoginComponent,
+    DialogEditUserComponent
+  ],
+  providers: [
+    ServicePageHome,
+    ServiceLogin,
+    PreguntaService,
+    Globals,
+    ServiceUserService
+  ],
   bootstrap: [AppComponent]
 })
 // @ts-ignore
