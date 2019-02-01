@@ -28,7 +28,7 @@ export class DialogLoginComponent implements OnInit {
     this.data.servicePageHome.login(username, password).subscribe(
       res => {
         console.log(res);
-        if (res[0]["idAlumno"]!=undefined) {
+        if (res[0]["dniAlumno"]!=undefined) {
           const user: User = {name: username, type: UserType.STUDENT,id:res[0]["idAlumno"]};
           this.data.serviceLogin.setUserLoggedIn(user);
           localStorage.setItem('idAlumno', res[0]["dniAlumno"]);
