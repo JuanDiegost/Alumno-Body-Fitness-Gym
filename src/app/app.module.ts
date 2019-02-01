@@ -50,11 +50,7 @@ const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
   {
     path: RoutersApp.student,
-<<<<<<< HEAD
-    component: StudentRootComponent, //canActivate: [CanActiveVerifyLoginGuard],
-=======
     component: StudentRootComponent,  canActivate: [CanActiveVerifyLoginGuard],
->>>>>>> 1470cb195a4c5ab719de9e687737fa64313e16c8
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.progress, component: StudentProgressComponent },
@@ -94,16 +90,10 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     MaterialModules,
     HttpClientModule,
-<<<<<<< HEAD
-    MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes, { useHash: true }),
-
-=======
     KSSwiperModule,
     NgxHmCarouselModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(routes, {useHash: true}),
->>>>>>> 1470cb195a4c5ab719de9e687737fa64313e16c8
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [
