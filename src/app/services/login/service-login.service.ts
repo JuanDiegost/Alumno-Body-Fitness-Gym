@@ -9,6 +9,7 @@ export class ServiceLogin {
   private userLoggedIn;
   public userLogged: User;
   private keyUserLocalStorage = 'currentUser';
+  private idUser='idAlumno';
 
   constructor() {
     this.userLoggedIn = false;
@@ -25,7 +26,7 @@ export class ServiceLogin {
   }
 
   isUserLoggedIn(): boolean {
-    return this.userLoggedIn;
+    return localStorage.getItem(this.idUser)!=undefined;
   }
 
   closeSession() {

@@ -31,9 +31,10 @@
   margin-top: 20px;
 }
 
-.info *{
+.info * {
   margin: 5px;
 }
+
 .usuario .nombre {
   font-size: 24px;
   width: auto;
@@ -43,14 +44,16 @@
 .porTerminar {
   color: orange;
 }
-.lejosdevencer{
+
+.lejosdevencer {
   color: green;
 }
-.vencido{
+
+.vencido {
   color: red;
 }
 
-.historial-pagos{
+.historial-pagos {
   width: 100%;
   padding: 20px;
   margin-top: 20px;
@@ -64,4 +67,8 @@
 .example-headers-align .mat-expansion-panel-header-description {
   justify-content: space-between;
   align-items: center;
+}
+
+.img-perfil {
+  max-width:200px;
 }

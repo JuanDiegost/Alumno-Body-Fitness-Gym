@@ -1,6 +1,7 @@
 import { Injectable } from "@angular/core";
 import { FileUpload } from "../../util/upload";
 import * as firebase from "firebase";
+import { Observable } from "rxjs";
 
 @Injectable({
   providedIn: "root"
@@ -10,37 +11,18 @@ export class UploadService {
 
   constructor() {}
 
-  pushFileToStorage(fileUpload: FileUpload, progress: { percentage: number }) {
+  pushFileToStorage(fileUpload: FileUpload) {
     const storageRef = firebase.storage().ref();
     console.log(storageRef);
-    const uploadTask = storageRef
-      .child(`${this.basePath}/${fileUpload.file.name}`)
+    return storageRef
+      .child(`${this.basePath}/${fileUpload.name}`)
       .put(fileUpload.file);
 
-    uploadTask.on(
-      firebase.storage.TaskEvent.STATE_CHANGED,
-      snapshot => {
-        // in progress
-        const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-        progress.percentage = Math.round(
-          (snap.bytesTransferred / snap.totalBytes) * 100
-        );
-      },
-      error => {
-        // fail
-        console.log(error);
-      },
-      () => {
-        // success
-        fileUpload.url = uploadTask.snapshot.downloadURL;
-        fileUpload.name = fileUpload.file.name;
-        console.log(fileUpload);
-      }
-    );
+
   }
 
-  deleteFileUpload(fileUpload: FileUpload) {
-    this.deleteFileStorage(fileUpload.name);
+  deleteFileUpload(name: string) {
+    this.deleteFileStorage(name);
   }
 
   private deleteFileStorage(name: string) {

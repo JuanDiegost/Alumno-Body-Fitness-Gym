@@ -30,6 +30,7 @@ export class ProfileComponent implements OnInit {
   fechaNacimiento;
   genero;
 
+
   ngOnInit() {
     this.getDataUser();
   }
@@ -72,7 +73,8 @@ export class ProfileComponent implements OnInit {
         emailAlumno: this.emailAlumno,
         usuarioAlumno: this.usuarioAlumno,
         fechaNacimiento: this.fechaNacimiento,
-        genero: this.genero
+        genero: this.genero,
+        urlImg:this.urlImagenUsuario
       }
     });
     this.showScreenDark(dialogRef);

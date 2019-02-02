@@ -13,6 +13,7 @@ import { RouterModule, Route } from "@angular/router";
 import { AngularFireModule } from "angularfire2";
 import { AngularFireStorageModule } from "angularfire2/storage";
 
+
 // components
 import { HomeComponent } from "./home/home.component";
 import { StudentRootComponent } from "./student-root/student-root.component";
@@ -78,13 +79,7 @@ const routes: Route[] = [
     DialogEditUserComponent
   ],
   imports: [
-    AngularFireModule.initializeApp({
-      apiKey: " AIzaSyA10YWRfQ3iExpaF6cP0PQf7YY9ZHnc7jE ",
-      authDomain: "body-fitnes-gym",
-      storageBucket: "body-fitnes-gym.appspot.com",
-      projectId: "body-fitnes-gym"
-    }),
-    AngularFireStorageModule,BrowserModule,
+   BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -93,7 +88,13 @@ const routes: Route[] = [
     KSSwiperModule,
     NgxHmCarouselModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes, {useHash: true}),
+    RouterModule.forRoot(routes, {useHash: true}), AngularFireModule.initializeApp({
+      apiKey: " AIzaSyA10YWRfQ3iExpaF6cP0PQf7YY9ZHnc7jE ",
+      authDomain: "body-fitnes-gym",
+      storageBucket: "body-fitnes-gym.appspot.com",
+      projectId: "body-fitnes-gym"
+    }),
+    AngularFireStorageModule
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [

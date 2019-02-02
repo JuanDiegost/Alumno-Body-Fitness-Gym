@@ -7,6 +7,7 @@ import { DatePipe } from "@angular/common";
 import { MatSnackBar } from "@angular/material";
 import { UploadService } from "../../services/upload/upload.service";
 import { FileUpload } from "../../util/upload";
+import * as firebase from "firebase";
 
 @Component({
   selector: "app-dialog-edit-user",
@@ -34,6 +35,7 @@ export class DialogEditUserComponent implements OnInit {
   selectedFiles;
   currentFileUpload;
   progress;
+  urlImg;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -53,7 +55,7 @@ export class DialogEditUserComponent implements OnInit {
     this.usuarioAlumno = this.data.usuarioAlumno;
     this.genero = this.data.genero;
     this.dniAlumno = this.data.dniAlumno;
-
+    this.urlImg = this.data.urlImg;
     this.displayContentPersonal();
   }
 
@@ -89,6 +91,7 @@ export class DialogEditUserComponent implements OnInit {
 
   saveUser() {
     this.userService.getUserData().subscribe(alumno => {
+ //TODO Borrar imagen angular     //this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
       alumno = alumno["value"];
       console.log(alumno);
       alumno["idAlumno"] = this.idAlumno;
@@ -98,6 +101,7 @@ export class DialogEditUserComponent implements OnInit {
       alumno["usuarioAlumno"] = this.usuarioAlumno;
       alumno["genero"] = this.genero;
       alumno["dniAlumno"] = this.dniAlumno;
+      alumno["urlImagenUsuario"] = this.urlImg;
       alumno["fechaNacimiento"] =
         this.datePipeEn.transform(this.BirthDate, "yyyy-MM-dd") + "-00:00:00";
       alumno["historialSuscripcion"] = alumno["historialSuscripcion"].reverse();
@@ -111,13 +115,43 @@ export class DialogEditUserComponent implements OnInit {
   }
 
   onFileSelectedListener(event) {
+    let myDiv = document.getElementById("progress-element");
+    myDiv.style.display = "flex";
     this.selectedFiles = event.target.files;
     const file = this.selectedFiles.item(0);
-    console.log(file);
+    let fileExtension = "." + file.name.split(".").pop();
+    let name =
+      Math.random()
+        .toString(36)
+        .substring(7) +
+      new Date().getTime() +
+      fileExtension;
     this.selectedFiles = undefined;
 
-    this.currentFileUpload = new FileUpload(file);
-    this.uploadService.pushFileToStorage(this.currentFileUpload, this.progress);
+    this.currentFileUpload = new FileUpload(file, name);
+    const uploadTask = this.uploadService.pushFileToStorage(
+      this.currentFileUpload
+    );
+    uploadTask.on(
+      firebase.storage.TaskEvent.STATE_CHANGED,
+      snapshot => {
+        // in progress
+        const snap = snapshot as firebase.storage.UploadTaskSnapshot;
+        this.progress = Math.round(
+          (snap.bytesTransferred / snap.totalBytes) * 100
+        );
+      },
+      error => {
+        // fail
+        console.log(error);
+      },
+      () => {
+        // success
+        this.currentFileUpload.url = uploadTask.snapshot.downloadURL;
+        this.urlImg = this.currentFileUpload.url;
+        myDiv.style.display = "none";
+      }
+    );
   }
 
   replaceAt(textr, index, replace) {

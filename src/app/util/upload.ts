@@ -5,7 +5,8 @@ export class FileUpload {
   url: string;
   file: File;
 
-  constructor(file: File) {
+  constructor(file: File,name) {
     this.file = file;
+    this.name=name;
   }
 }
