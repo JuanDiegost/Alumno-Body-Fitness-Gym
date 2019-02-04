@@ -30,6 +30,10 @@ export class StudentRootComponent implements OnInit {
     this.currentButtonPressedToolBar = element;
     element.style.backgroundColor = 'black';
   }
+  printOfBlackOut(element: HTMLButtonElement){
+    this.printOfBlack(element);
+    localStorage.removeItem("idAlumno");
+  }
 
   getRouterHome(): string {
     return RoutersApp.home;
