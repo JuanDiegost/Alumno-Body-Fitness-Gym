@@ -11,8 +11,19 @@
 
   </div>
   <div id="Usuario" class="modal-body mx-3">
+
+      <div class="avatar mx-auto white">
+          <img src="" [src]="urlImg" alt="avatar mx-auto white" class="img-perfil rounded-circle mx-auto d-block">
+          <div id="progress-element" style="display: none" class="progress">
+            <div class="progress-bar" role="progressbar" [ngStyle]="{'width': progress +'%'}" aria-valuenow="{{progress}}"
+              aria-valuemin="0" aria-valuemax="100"></div>
+          </div>
+          <div class="md-form mb-5">
+            <input type="file" id="orangeForm-img" (change)="onFileSelectedListener($event)">
+          </div>
+        </div>
     <div class="md-form mb-5">
-      <i class="fa fa-user prefix grey-text"></i>
+      <i class="fa fa-user prefix blue-text"aria-hidden="true" style="color:#00cc6a;"></i>
       <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
         mdbInputDirective>
       <label data-error="wrong" data-success="right" for="orangeForm-name">Usuario</label>
@@ -20,7 +31,7 @@
 
 
     <div class="md-form mb-4">
-      <i class="fa fa-lock prefix grey-text"></i>
+      <i class="fa fa-lock prefix blue-text"></i>
       <input type="password" id="orangeForm-pass" class="form-control validate" [formControl]="signupFormModalPassword"
         mdbInputDirective>
       <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
@@ -33,51 +44,42 @@
 
 
   <div id="Personal" class="modal-body mx-3">
-    <div class="avatar mx-auto white">
-      <img src="" [src]="urlImg" alt="avatar mx-auto white" class="img-perfil rounded-circle mx-auto d-block">
-      <div id="progress-element" style="display: none" class="progress">
-        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': progress +'%'}" aria-valuenow="{{progress}}"
-          aria-valuemin="0" aria-valuemax="100"></div>
-      </div>
-      <div class="md-form mb-5">
-        <input type="file" id="orangeForm-img" (change)="onFileSelectedListener($event)">
-      </div>
-    </div>
+    
 
     <div class="md-form mb-5">
-      <i class="fa fa-user prefix grey-text"></i>
+      <i class="fa fa-user prefix blue-text"></i>
       <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
         mdbInputDirective [(ngModel)]="nombreAlumno">
       <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
     </div>
 
     <div class="md-form mb-5">
-      <i class="fa fa-address-book prefix grey-text"></i>
+      <i class="fa fa-address-book prefix blue-text"></i>
       <input type="text" id="orangeForm-documento" class="form-control validate" [formControl]="signupFormModalDni"
         mdbInputDirective [(ngModel)]="dniAlumno">
       <label data-error="wrong" data-success="right" for="orangeForm-documento">Documento</label>
     </div>
 
     <div class="md-form mb-5">
-      <i class="fa fa-phone-square prefix grey-text"></i>
+      <i class="fa fa-phone-square prefix blue-text"></i>
       <input type="text" id="orangeForm-telefono" class="form-control validate" [formControl]="signupFormModalTelefono"
         mdbInputDirective [(ngModel)]="telefonoAlumno">
       <label data-error="wrong" data-success="right" for="orangeForm-telefono">Telefono</label>
     </div>
     <div class="md-form mb-5">
-      <i class="fa fa-envelope prefix grey-text"></i>
+      <i class="fa fa-envelope prefix blue-text"></i>
       <input type="email" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
         mdbInputDirective [(ngModel)]="emailAlumno">
       <label data-error="wrong" data-success="right" for="orangeForm-email">Correo</label>
     </div>
     <div class="md-form mb-5">
-      <i class="fa fa-calendar-o prefix grey-text"></i>
+      <i class="fa fa-calendar-o prefix blue-text"></i>
       <input type="date" id="orangeForm-date" class="form-control validate" [formControl]="signupFormModalDate"
         mdbInputDirective [ngModel]="BirthDate | date:'yyyy-MM-dd'" (ngModelChange)="BirthDate = $event" [value]="BirthDate | date:'yyyy-MM-dd'">
       <label data-error="wrong" data-success="right" for="orangeForm-date"></label>
     </div>
     <div class="md-form mb-5">
-      <i class="fa fa-transgender prefix grey-text"></i>
+      <i class="fa fa-transgender prefix blue-text"></i>
       <input type="text" id="orangeForm-genero" class="form-control validate" [formControl]="signupFormModalGenero"
         mdbInputDirective [(ngModel)]="genero">
       <label data-error="wrong" data-success="right" for="orangeForm-genero">Genero</label>
