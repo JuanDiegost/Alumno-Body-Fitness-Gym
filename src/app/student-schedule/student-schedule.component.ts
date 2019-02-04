@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import{HorarioService} from './../services/horario/horario.service'
 @Component({
   selector: 'app-student-schedule',
   templateUrl: './student-schedule.component.html',
@@ -8,17 +8,27 @@ import { Component, OnInit } from '@angular/core';
 // @ts-ignore
 export class StudentScheduleComponent implements OnInit {
   tableData: object[] = [
-    { first: 'Mark', last: 'Otto', username: '@mdo', email: 'markotto@gmail.com', country: 'USA', city: 'San Francisco' },
-    { first: 'Jacob', last: 'Thornton', username: '@fat', email: 'jacobt@gmail.com', country: 'France', city: 'Paris' },
-    { first: 'Larry', last: 'the Bird', username: '@twitter', email: 'larrybird@gmail.com', country: 'Germany', city: 'Berlin' },
-    { first: 'Paul', last: 'Topolski', username: '@P_Topolski', email: 'ptopolski@gmail.com', country: 'Poland', city: 'Warsaw' },
-    { first: 'Anna', last: 'Doe', username: '@andy', email: 'annadoe@gmail.com', country: 'Spain', city: 'Madrid' }
+    { lunes: 'Mark', martes: 'Otto', miercoles: '', jueves: 'markotto@gmail.com', viernes: 'USA', sabado: 'San Francisco',domingo:'' },
+    { lunes: '', martes: 'Thornton', miercoles: '', jueves: 'jacobt@gmail.com', viernes: 'France', sabado: 'Paris',domingo:''  },
+    { lunes: 'Larry', martes: 'the Bird', miercoles: '', jueves: '', viernes: 'Germany', sabado: 'Berlin' ,domingo:'' },
+    { lunes: '', martes: 'Topolski', miercoles: '@P_Topolski', jueves: 'ptopolski@gmail.com', viernes: 'Poland', sabado: 'Warsaw',domingo:''  },
+    { lunes: 'Anna', martes: 'Doe', miercoles: '@andy', jueves: 'annadoe@gmail.com', viernes: 'Spain', sabado: 'Madrid',domingo:''  }
   ];
   private sorted = false;
+  listaHoraio;
+  dia;
+  dia1;
 
-  constructor() { }
+  constructor(public _horarioService: HorarioService,) { }
 
   ngOnInit() {
+    this._horarioService.getHorario().subscribe(data => {
+      this.listaHoraio= data;
+      console.log(this.listaHoraio);
+      this.dia = this.yyyymmdd();
+      this.dia1=this.yyyymmdd1();
+    });
+  
   }
 
   sortBy(by: string | any): void {
@@ -36,4 +46,35 @@ export class StudentScheduleComponent implements OnInit {
 
     this.sorted = !this.sorted;
   }
+   yyyymmdd() {
+    var x = new Date();
+    var y = x.getFullYear().toString();
+    var m = (x.getMonth() + 1).toString();
+    var d = x.getDate().toString();
+    (d.length == 1) && (d = '0' + d);
+    (m.length == 1) && (m = '0' + m);
+    var yyyymmdd = y + m + d;
+    return yyyymmdd;
+  }
+
+  yyyymmdd1() {
+    var x = new Date();
+    var y = x.getFullYear().toString();
+    var m = (x.getMonth() + 1).toString();
+    var d = x.getDate().toString();
+    (d.length == 1) && (d = '0' + d);
+    (m.length == 1) && (m = '0' + m);
+    var yyyymmdd = y + m + d;
+    
+    return this.diaSemana(d,m,y);
+}
+
+     diaSemana(dia,mes,anio){
+      var dias=["dom", "lun", "mar", "mie", "jue", "vie", "sab"];
+      var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
+      var result = dias[dt.getUTCDay()];  
+      console.log(result);
+      return result;  
+  }
+
 }

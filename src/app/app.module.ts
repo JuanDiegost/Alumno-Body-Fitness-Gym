@@ -36,6 +36,7 @@ import { ServiceLogin } from "./services/login/service-login.service";
 import { PreguntaService } from "./services/pregunta/pregunta.service";
 import { ServiceUserService } from "./services/services-user/service-user.service";
 import { UploadService } from "./services/upload/upload.service";
+import { HorarioService } from "./services/horario/horario.service";
 
 // guards
 import { CanActiveVerifyLoginGuard } from "./guards/verify-login/can-active-verify-login.guard";
@@ -105,7 +106,7 @@ const routes: Route[] = [
   providers: [
     ServicePageHome,
     ServiceLogin,
-    PreguntaService,UploadService,
+    PreguntaService,UploadService,HorarioService,
     Globals,
     ServiceUserService
   ],

@@ -1,5 +1,5 @@
 
-<mdb-progress-bar class="progress primary-color-dark" mode="indeterminate"></mdb-progress-bar>
+
 
 
 
@@ -8,38 +8,19 @@
         <!--Card image-->
         <div class="view view-cascade gradient-card-header blue-gradient narrower py-2 mx-4 mb-3 d-flex justify-content-between align-items-center">
       
-          <div>
-            <button mdbBtn color="white" outline="true" rounded="true" size="sm" type="button" class="px-2" mdbWavesEffect>
-              <mdb-icon fas icon="th-large" class="mt-0"></mdb-icon>
-            </button>
-            <button mdbBtn color="white" outline="true" rounded="true" size="sm" type="button" class="px-2" mdbWavesEffect>
-              <mdb-icon fas icon="columns" class="mt-0"></mdb-icon>
-            </button>
-          </div>
-      
-          <a href="" class="white-text mx-3">Table name</a>
+   
           <div class="month">      
               <ul>
-                <li class="prev">&#10094;</li>
-                <li class="next">&#10095;</li>
+                <li class="prev"><i class="fa fa-chevron-left prefix white-text" style="font-size: 20px;"></i></li>
+                <li class="next"><i class="fa fa-chevron-right prefix white-text" aria-hidden="true" style="font-size: 20px;"></i></li>
                 <li>
-                  August<br>
-                  <span style="font-size:18px">2017</span>
+                    February<br>
+                  <span style="font-size:18px">{{dia}}</span>
                 </li>
               </ul>
             </div>
       
-          <div>
-            <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
-              <mdb-icon fas icon="pencil-alt" class="mt-0"></mdb-icon>
-            </button>
-            <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
-              <mdb-icon fas icon="times" class="mt-0"></mdb-icon>
-            </button>
-            <button type="button" mdbBtn color="white" outline="true" rounded="true" size="sm" class="px-2" mdbWavesEffect>
-              <mdb-icon  icon="fa fa-circle" class="mt-0"></mdb-icon>
-            </button>
-          </div>
+          
       
         </div>
         <!--/Card image-->
@@ -57,33 +38,31 @@
                   <mdb-checkbox></mdb-checkbox>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('first')">First Name
-                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                  <a (click)="sortBy('lunes')">lunes 
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('last')">Last Name
-                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                  <a (click)="sortBy('martes')">martes 
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('username')">Username
-                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                  <a (click)="sortBy('miercoles')">miercoles
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('email')">Email
-                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                  <a (click)="sortBy('jueves')">jueves
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('country')">Country
-                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                  <a (click)="sortBy('viernes')">viernes
                   </a>
                 </th>
                 <th class="th-lg">
-                  <a (click)="sortBy('city')">City
-                    <mdb-icon fas icon="sort" class="ml-1"></mdb-icon>
+                  <a (click)="sortBy('sabado')">sabado
+                  </a>
+                </th>
+                <th class="th-lg">
+                  <a (click)="sortBy('domingo')">domingo
                   </a>
                 </th>
               </tr>
@@ -94,14 +73,9 @@
               <tbody>
               <tr *ngFor="let row of tableData;let i = index">
                 <th scope="row">
-                  <mdb-checkbox></mdb-checkbox>
+                    {{dia}}
                 </th>
-                <td>{{row.first}}</td>
-                <td>{{row.last}}</td>
-                <td>{{row.username}}</td>
-                <td>{{row.email}}</td>
-                <td>{{row.country}}</td>
-                <td>{{row.city}}</td>
+                <td>{{dia1}}</td>
               </tr>
               </tbody>
               <!--Table body-->
