@@ -10,6 +10,7 @@
     </button>
 
   </div>
+
   <div id="Usuario" class="modal-body mx-3">
 
       <div class="avatar mx-auto white">
@@ -24,27 +25,20 @@
         </div>
     <div class="md-form mb-5">
       <i class="fa fa-user prefix blue-text"aria-hidden="true" style="color:#00cc6a;"></i>
-      <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
+      <input type="text" id="orangeForm-name-user" [(ngModel)]="usuarioAlumno" class="form-control validate" [formControl]="signupFormModalUser"
         mdbInputDirective>
       <label data-error="wrong" data-success="right" for="orangeForm-name">Usuario</label>
     </div>
 
-
-    <div class="md-form mb-4">
-      <i class="fa fa-lock prefix blue-text"></i>
-      <input type="password" id="orangeForm-pass" class="form-control validate" [formControl]="signupFormModalPassword"
-        mdbInputDirective>
-      <label data-error="wrong" data-success="right" for="orangeForm-pass">Your password</label>
-    </div>
     <div id="btnUser" class="modal-footer d-flex justify-content-center">
-      <button mdbBtn color="deep-orange" class="waves-light" mdbWavesEffect>Sign up</button>
+      <button mdbBtn color="deep-orange" class="waves-light" (click)="guardarDatos()"  mdbWavesEffect>Guardar Cambios</button>
     </div>
   </div>
 
 
 
   <div id="Personal" class="modal-body mx-3">
-    
+
 
     <div class="md-form mb-5">
       <i class="fa fa-user prefix blue-text"></i>
@@ -56,7 +50,7 @@
     <div class="md-form mb-5">
       <i class="fa fa-address-book prefix blue-text"></i>
       <input type="text" id="orangeForm-documento" class="form-control validate" [formControl]="signupFormModalDni"
-        mdbInputDirective [(ngModel)]="dniAlumno">
+        mdbInputDirective [(ngModel)]="dniAlumno" disabled>
       <label data-error="wrong" data-success="right" for="orangeForm-documento">Documento</label>
     </div>
 

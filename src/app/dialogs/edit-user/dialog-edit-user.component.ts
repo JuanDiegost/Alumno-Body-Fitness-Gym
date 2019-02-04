@@ -15,6 +15,7 @@ import * as firebase from "firebase";
   styleUrls: ["./dialog-edit-user.component.css"]
 })
 export class DialogEditUserComponent implements OnInit {
+  signupFormModalUser = new FormControl("", Validators.required);
   signupFormModalName = new FormControl("", Validators.required);
   signupFormModalEmail = new FormControl("", Validators.email);
   signupFormModalPassword = new FormControl("", Validators.required);
@@ -94,20 +95,29 @@ export class DialogEditUserComponent implements OnInit {
  //TODO Borrar imagen angular     //this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
       alumno = alumno["value"];
       console.log(alumno);
-      alumno["idAlumno"] = this.idAlumno;
       alumno["nombreAlumno"] = this.nombreAlumno;
       alumno["telefonoAlumno"] = this.telefonoAlumno;
       alumno["emailAlumno"] = this.emailAlumno;
       alumno["usuarioAlumno"] = this.usuarioAlumno;
       alumno["genero"] = this.genero;
-      alumno["dniAlumno"] = this.dniAlumno;
-      alumno["urlImagenUsuario"] = this.urlImg;
       alumno["fechaNacimiento"] =
         this.datePipeEn.transform(this.BirthDate, "yyyy-MM-dd") + "-00:00:00";
       alumno["historialSuscripcion"] = alumno["historialSuscripcion"].reverse();
       this.snackBar.open("Se han actualizado los datos", "Ok", {
         duration: 2000
       });
+      this.userService.updateUser(alumno).subscribe(dt => {
+        window.location.reload();
+      });
+    });
+  }
+
+  guardarDatos(){
+    this.userService.getUserData().subscribe(alumno => {
+      alumno = alumno["value"];
+      console.log(alumno);
+      alumno["usuarioAlumno"]=this.usuarioAlumno;
+      alumno["urlImagenUsuario"] = this.urlImg;
       this.userService.updateUser(alumno).subscribe(dt => {
         window.location.reload();
       });
