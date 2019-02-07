@@ -6,6 +6,7 @@ import { ServiceUserService } from "../services/services-user/service-user.servi
   templateUrl: "./student-progress.component.html",
   styleUrls: ["./student-progress.component.css"]
 })
+
 export class StudentProgressComponent implements OnInit {
   /* public chartType: string = 'horizontalBar'; */
   public chartType: string = "line";
@@ -14,7 +15,7 @@ export class StudentProgressComponent implements OnInit {
   public chartDatasetsGrasaCorporal: Array<any> = [];
 
   public chartLabelsFechas: Array<any>=[];
-  loading = true;
+  public loading = true;
   public chartColors: Array<any> = [
     {
       backgroundColor: "rgba(105, 0, 132, .2)",

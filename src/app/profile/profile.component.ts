@@ -14,7 +14,14 @@ export class ProfileComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     public userService: ServiceUserService
-  ) {}
+  ) {
+    this.dialog.afterAllClosed.subscribe(data => {
+      this.loading=true;
+      setTimeout(() => {
+        this.getDataUser();
+      }, 1000);
+    });
+  }
 
   idAlumno: number;
   dniAlumno: String;
@@ -30,13 +37,17 @@ export class ProfileComponent implements OnInit {
   fechaNacimiento;
   genero;
 
+  public loading=true;
 
   ngOnInit() {
     this.getDataUser();
   }
 
   getDataUser() {
+    this.loading=true;
+
     this.userService.getUserData().subscribe(res => {
+      this.loading=false;
       res = res["value"];
       console.log(res);
       this.idAlumno = res["idAlumno"];
@@ -74,14 +85,11 @@ export class ProfileComponent implements OnInit {
         usuarioAlumno: this.usuarioAlumno,
         fechaNacimiento: this.fechaNacimiento,
         genero: this.genero,
-        urlImg:this.urlImagenUsuario
+        urlImg:this.urlImagenUsuario,
       }
     });
     this.showScreenDark(dialogRef);
-    dialogRef.afterClosed().subscribe(data => {
-      //this.getDataUser();
-      window.location.reload();
-    });
+
   }
 
   private showScreenDark(dialogRef) {

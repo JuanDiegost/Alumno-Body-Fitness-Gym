@@ -9,6 +9,8 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { RouterModule, Route } from "@angular/router";
 
+import { NgxLoadingModule } from 'ngx-loading';
+
 //firebase
 import { AngularFireModule } from "angularfire2";
 import { AngularFireStorageModule } from "angularfire2/storage";
@@ -95,7 +97,8 @@ const routes: Route[] = [
       storageBucket: "body-fitnes-gym.appspot.com",
       projectId: "body-fitnes-gym"
     }),
-    AngularFireStorageModule
+    AngularFireStorageModule,
+    NgxLoadingModule.forRoot({})
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [

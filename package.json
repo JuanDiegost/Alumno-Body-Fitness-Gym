@@ -35,8 +35,11 @@
     "jquery": "^3.3.1",
     "ng-snotify": "^4.3.1",
     "ngx-hm-carousel": "^1.6.4",
+    "ngx-loading": "^2.0.1",
     "popper.js": "^1.14.4",
     "rxjs": "^6.0.0",
+    "sweetalert": "^2.1.2",
+    "sweetalert2": "^8.0.6",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

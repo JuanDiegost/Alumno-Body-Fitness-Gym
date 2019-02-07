@@ -1,5 +1,7 @@
 <!--Section: Testimonials v.1-->
-<section class="section pb-3 text-center">
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+
+<section class="section pb-3 text-center" *ngIf="!loading">
 
   <!--Section heading-->
   <h1 class="section-heading h1 pt-4">Perfil</h1>

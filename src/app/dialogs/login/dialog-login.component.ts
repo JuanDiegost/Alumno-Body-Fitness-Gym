@@ -3,8 +3,9 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { HomeComponent } from "../../home/home.component";
 import { PackageRouterService, User, UserType } from "../../interfaces";
 
+import {Messages} from '../../util/Messages';
 import { RoutersApp } from "../../util/RoutersApp";
-import { Notifies } from "../../util/Notifies";
+import {Confirms} from '../../util/Confirms';
 
 @Component({
   templateUrl: "./dialog-login.component.html",
@@ -13,10 +14,10 @@ import { Notifies } from "../../util/Notifies";
 // @ts-ignore
 export class DialogLoginComponent implements OnInit {
   // @ts-ignore
+
   constructor(
     public dialogRef: MatDialogRef<HomeComponent>,
     @Inject(MAT_DIALOG_DATA) private data: PackageRouterService,
-    public notifies: Notifies
   ) {}
 
   ngOnInit() {}
@@ -34,8 +35,7 @@ export class DialogLoginComponent implements OnInit {
 
     this.data.servicePageHome.login(username, password).subscribe(
       res => {
-        console.log(res);
-        if (res[0]["dniAlumno"] != undefined) {
+        if (res[0] !== undefined) {
           const user: User = {
             name: username,
             type: UserType.STUDENT,
@@ -44,20 +44,14 @@ export class DialogLoginComponent implements OnInit {
           this.data.serviceLogin.setUserLoggedIn(user);
           localStorage.setItem("idAlumno", res[0]["dniAlumno"]);
         } else {
-          this.notifies.showError(
-            "Error de credenciales",
-            "Usuario o contraseña incorrecta"
-          );
+          Confirms.showErrorType(Messages.titleErrorData, Messages.messageErrorLogin);
           elementPassword.value = "";
           return;
         }
       },
       error => {
         console.error(error);
-        this.notifies.showWarning(
-          "Error de servidor",
-          "No podemos conectarnos con el servidor en este momento, por favor comprueba tu conexion a internet o intenta mas tarde."
-        );
+        Confirms.showErrorType(Messages.titleErrorData, Messages.messageErrorLogin);
         elementPassword.value = "";
       },
       () => this.navigate(RoutersApp.student)

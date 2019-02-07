@@ -1,13 +1,14 @@
 import { Component, OnInit } from "@angular/core";
 import { FormControl, Validators } from "@angular/forms";
 import { Inject, LOCALE_ID } from "@angular/core";
-import { MAT_DIALOG_DATA } from "@angular/material";
+import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { ServiceUserService } from "../../services/services-user/service-user.service";
 import { DatePipe } from "@angular/common";
 import { MatSnackBar } from "@angular/material";
 import { UploadService } from "../../services/upload/upload.service";
 import { FileUpload } from "../../util/upload";
 import * as firebase from "firebase";
+import {Confirms} from '../../util/Confirms';
 
 @Component({
   selector: "app-dialog-edit-user",
@@ -37,6 +38,8 @@ export class DialogEditUserComponent implements OnInit {
   currentFileUpload;
   progress;
   urlImg;
+  public loading = false;
+  public dialog;
 
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: any,
@@ -103,11 +106,10 @@ export class DialogEditUserComponent implements OnInit {
       alumno["fechaNacimiento"] =
         this.datePipeEn.transform(this.BirthDate, "yyyy-MM-dd") + "-00:00:00";
       alumno["historialSuscripcion"] = alumno["historialSuscripcion"].reverse();
-      this.snackBar.open("Se han actualizado los datos", "Ok", {
-        duration: 2000
-      });
+      this.loading=true;
       this.userService.updateUser(alumno).subscribe(dt => {
-        window.location.reload();
+        this.loading=true;
+        Confirms.showSuccessType("Correcto","Se ha actualizado su infromación personal");
       });
     });
   }

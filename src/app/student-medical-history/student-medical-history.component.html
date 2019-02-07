@@ -1,3 +1,5 @@
+<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+
 <div class="center-div">
   <h2>Cuestionario de Historial Medico</h2>
   <div class="preguntas" *ngFor="let pregunta of listaPreguntas">
@@ -8,4 +10,4 @@
       {{isEditable ? 'Editar' : 'Guardar Cambios'}}
     </button>
   </div>
-  </div>
+</div>
