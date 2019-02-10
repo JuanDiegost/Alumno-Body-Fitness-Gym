@@ -49,6 +49,18 @@ import { ProfileComponent } from "./profile/profile.component";
 import { from } from "rxjs";
 
 import { Globals } from "./util/Global";
+import { CalendarModule, DateAdapter } from 'angular-calendar';
+import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+
+//calendar
+import { CommonModule } from '@angular/common';
+import { Subject } from 'rxjs';
+import { addDays } from 'date-fns';
+import {
+  CalendarEvent,
+  CalendarEventTimesChangedEvent
+} from 'angular-calendar';
+//end calendar
 
 const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
@@ -81,6 +93,7 @@ const routes: Route[] = [
     ProfileComponent,
     DialogEditUserComponent
   ],
+  exports:[StudentScheduleComponent],
   imports: [
    BrowserModule,
     FormsModule,
@@ -98,7 +111,12 @@ const routes: Route[] = [
       projectId: "body-fitnes-gym"
     }),
     AngularFireStorageModule,
-    NgxLoadingModule.forRoot({})
+    NgxLoadingModule.forRoot({}),
+    CalendarModule.forRoot({
+      provide: DateAdapter,
+      useFactory: adapterFactory
+    })
+
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [

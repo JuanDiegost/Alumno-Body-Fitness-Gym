@@ -8,7 +8,7 @@ export class RoutersApp {
   static readonly profile = 'profile';
 
   static readonly progress = 'progress';
-  static readonly completeStudentSchedule = RoutersApp.student + '/' + RoutersApp.profile;
+  static readonly completeStudentSchedule = RoutersApp.student + '/' + RoutersApp.student;
   static readonly profiles = RoutersApp.profile + '/' + RoutersApp.profile;
   // static readonly completeStudentProgress = RoutersApp.progress + '/' + RoutersApp.progress;
 
