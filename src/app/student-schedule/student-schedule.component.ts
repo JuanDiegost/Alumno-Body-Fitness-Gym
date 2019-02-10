@@ -186,13 +186,13 @@ export class StudentScheduleComponent implements OnInit {
     this.loading=true;
     this._horarioService.getHorario().subscribe(data => {
       // console.log(data);
-      this.listaHoraio= data;
+      this.listaHoraio = data;
       //console.log(this.listaHoraio);
       this.dia = this.yyyymmdd();
       this.dia1=this.yyyymmdd1();
 
       console.log(this.listaHoraio);
-      for (let row of data){
+      for (let row of this.listaHoraio){
         
         var initialHourDate = row[1].split("-");
         var anio =initialHourDate[0];
