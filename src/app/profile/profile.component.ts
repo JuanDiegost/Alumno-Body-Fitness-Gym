@@ -2,6 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { MatDialog } from "@angular/material";
 import { DialogEditUserComponent } from "./../dialogs/edit-user/dialog-edit-user.component";
 import { ServiceUserService } from "../services/services-user/service-user.service";
+import { DialogEditPassComponent } from "../dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component";
 
 @Component({
   selector: "app-profile",
@@ -16,7 +17,7 @@ export class ProfileComponent implements OnInit {
     public userService: ServiceUserService
   ) {
     this.dialog.afterAllClosed.subscribe(data => {
-      this.loading=true;
+      this.loading = true;
       setTimeout(() => {
         this.getDataUser();
       }, 1000);
@@ -37,17 +38,17 @@ export class ProfileComponent implements OnInit {
   fechaNacimiento;
   genero;
 
-  public loading=true;
+  public loading = true;
 
   ngOnInit() {
     this.getDataUser();
   }
 
   getDataUser() {
-    this.loading=true;
+    this.loading = true;
 
     this.userService.getUserData().subscribe(res => {
-      this.loading=false;
+      this.loading = false;
       res = res["value"];
       console.log(res);
       this.idAlumno = res["idAlumno"];
@@ -85,11 +86,23 @@ export class ProfileComponent implements OnInit {
         usuarioAlumno: this.usuarioAlumno,
         fechaNacimiento: this.fechaNacimiento,
         genero: this.genero,
-        urlImg:this.urlImagenUsuario,
+        urlImg: this.urlImagenUsuario
       }
     });
     this.showScreenDark(dialogRef);
+  }
 
+  openDialogEditPasswordUser() {
+    const dialogRef = this.dialog.open(DialogEditPassComponent, {
+      width: "500px",
+      data: { username: this.usuarioAlumno }
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log("The dialog was closed");
+    });
+
+    this.showScreenDark(dialogRef);
   }
 
   private showScreenDark(dialogRef) {

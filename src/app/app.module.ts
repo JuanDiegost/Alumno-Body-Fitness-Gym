@@ -60,6 +60,7 @@ import {
   CalendarEvent,
   CalendarEventTimesChangedEvent
 } from 'angular-calendar';
+import { DialogEditPassComponent } from './dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component';
 //end calendar
 
 const routes: Route[] = [
@@ -91,7 +92,8 @@ const routes: Route[] = [
     StudentProgressComponent,
     StudentMedicalHistoryComponent,
     ProfileComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,
+    DialogEditPassComponent
   ],
   exports:[StudentScheduleComponent],
   imports: [
@@ -122,7 +124,7 @@ const routes: Route[] = [
   entryComponents: [
     DialogContentServiceComponent,
     DialogLoginComponent,
-    DialogEditUserComponent
+    DialogEditUserComponent,DialogEditPassComponent
   ],
   providers: [
     ServicePageHome,

@@ -4,7 +4,7 @@ import{HorarioService} from './../services/horario/horario.service';
 //import { colors } from './../demo-modules/demo-utils/colors';
 import { CommonModule } from '@angular/common';
 import {
- 
+
   ViewChild,
   TemplateRef
 } from '@angular/core';
@@ -52,7 +52,7 @@ const colors: any = {
 })
 // @ts-ignore
 export class StudentScheduleComponent implements OnInit {
-  
+
   private sorted = false;
   listaHoraio;
   dia;
@@ -96,7 +96,7 @@ export class StudentScheduleComponent implements OnInit {
               refresh: Subject<any> = new Subject();
 
               events: CalendarEvent[] = [
-                
+
               ];
 
               activeDayIsOpen: boolean = true;
@@ -192,14 +192,14 @@ export class StudentScheduleComponent implements OnInit {
       this.dia1=this.yyyymmdd1();
 
       console.log(this.listaHoraio);
-      for (let row of data){
-        
+      for (let row of this.listaHoraio){
+
         var initialHourDate = row[1].split("-");
         var anio =initialHourDate[0];
         var mes =initialHourDate[1];
         var diaS =initialHourDate[2];
         var initialDate = initialHourDate[3];
-        
+
         var hours= initialDate.split(":");
         var initHour = new Date(anio, mes-1, diaS, hours[0], hours[1], hours[2]);
         console.log(initHour);
@@ -210,26 +210,26 @@ export class StudentScheduleComponent implements OnInit {
         var anioF =finHourClass[0];
         var mesF =finHourClass[1];
         var diaF =finHourClass[2];
-        
+
         var finDate = finHourClass[3].split(":");
-        
+
         var FinHour = new Date(anioF, mesF-1,diaF, finDate[0], finDate[1],finDate[2]);
         console.log(FinHour);
-                
+
         var descripcion = row[3];
 
         this.addEvent1(initHour,FinHour,descripcion,hours[0]);
         this.addHour(initHour,FinHour,hours[0]);
-        
+
       }
       this.result= this.diaSemana(2019,2,5);
       console.log(this.result);
     });
-    
+
     this.loading=false;
   }
 
- 
+
    yyyymmdd() {
     var x = new Date();
     console.log(x+"esta esssssssssssssss");
@@ -250,16 +250,16 @@ export class StudentScheduleComponent implements OnInit {
     (d.length == 1) && (d = '0' + d);
     (m.length == 1) && (m = '0' + m);
     var yyyymmdd = y + m + d;
-    
+
     return this.diaSemana(d,m,y);
 }
 
      diaSemana(anio,mes,dia){
       var dias=["dom", "lunes", "martes", "mie", "jue", "vie", "sab"];
       var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
-      var result = dias[dt.getUTCDay()];  
-      
-      return result;  
+      var result = dias[dt.getUTCDay()];
+
+      return result;
   }
 
 }

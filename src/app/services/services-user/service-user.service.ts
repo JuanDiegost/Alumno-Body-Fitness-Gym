@@ -14,4 +14,8 @@ export class ServiceUserService {
   updateUser(alumno){
     return this.http.put("/alumno",alumno);
   }
+
+  changePass(username:string,actualPass:string,newPass:string){
+    return this.http.get("/cambiarContrasenia/"+username+"/"+actualPass+"/"+newPass);
+  }
 }

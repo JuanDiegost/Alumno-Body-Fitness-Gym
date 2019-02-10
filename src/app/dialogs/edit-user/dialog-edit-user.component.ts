@@ -8,7 +8,7 @@ import { MatSnackBar } from "@angular/material";
 import { UploadService } from "../../services/upload/upload.service";
 import { FileUpload } from "../../util/upload";
 import * as firebase from "firebase";
-import {Confirms} from '../../util/Confirms';
+import { Confirms } from "../../util/Confirms";
 
 @Component({
   selector: "app-dialog-edit-user",
@@ -95,7 +95,7 @@ export class DialogEditUserComponent implements OnInit {
 
   saveUser() {
     this.userService.getUserData().subscribe(alumno => {
- //TODO Borrar imagen angular     //this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
+      //TODO Borrar imagen angular     //this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
       alumno = alumno["value"];
       console.log(alumno);
       alumno["nombreAlumno"] = this.nombreAlumno;
@@ -106,22 +106,31 @@ export class DialogEditUserComponent implements OnInit {
       alumno["fechaNacimiento"] =
         this.datePipeEn.transform(this.BirthDate, "yyyy-MM-dd") + "-00:00:00";
       alumno["historialSuscripcion"] = alumno["historialSuscripcion"].reverse();
-      this.loading=true;
+      this.loading = true;
       this.userService.updateUser(alumno).subscribe(dt => {
-        this.loading=true;
-        Confirms.showSuccessType("Correcto","Se ha actualizado su infromación personal");
+        this.loading = true;
+        Confirms.showSuccessType(
+          "Correcto",
+          "Se ha actualizado su infromación personal"
+        );
       });
     });
   }
 
-  guardarDatos(){
+  guardarDatos() {
     this.userService.getUserData().subscribe(alumno => {
       alumno = alumno["value"];
       console.log(alumno);
-      alumno["usuarioAlumno"]=this.usuarioAlumno;
+      alumno["usuarioAlumno"] = this.usuarioAlumno;
       alumno["urlImagenUsuario"] = this.urlImg;
       this.userService.updateUser(alumno).subscribe(dt => {
-        window.location.reload();
+        this.loading = true;
+        Confirms.showSuccessType(
+          "Correcto",
+          "Se ha actualizado su infromación personal"
+        );
+      },error=>{
+        Confirms.showErrorType("Error","No se ha podido cambia porque, nombre de usuario ya esta en uso");
       });
     });
   }
