@@ -14,6 +14,6 @@ export class AppComponent implements OnInit {
   constructor(private router: Router,public firebase:FirebaseApp) {}
 
   ngOnInit() {
-    this.router.navigateByUrl(RoutersApp.student);
+    this.router.navigateByUrl(RoutersApp.student+"/"+RoutersApp.profile);
   }
 }

@@ -54,7 +54,7 @@ export class DialogLoginComponent implements OnInit {
         Confirms.showErrorType(Messages.titleErrorData, Messages.messageErrorLogin);
         elementPassword.value = "";
       },
-      () => this.navigate(RoutersApp.student)
+      () => this.navigate(RoutersApp.student+"/"+RoutersApp.profile)
     );
   }
 

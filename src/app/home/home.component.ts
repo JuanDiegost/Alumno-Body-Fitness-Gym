@@ -165,7 +165,7 @@ export class HomeComponent implements OnInit {
 
   openDialogLogin() {
     if (this.serviceLogin.isUserLoggedIn()) {
-      this.navigate(RoutersApp.student);
+      this.navigate(RoutersApp.student+"/"+RoutersApp.profile);
       return;
     }
     const dataRouterService: PackageRouterService = {router: this.router, servicePageHome: this.servicePageHome,
