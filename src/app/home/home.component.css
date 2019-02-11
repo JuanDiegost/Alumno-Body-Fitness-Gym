@@ -2,6 +2,14 @@
   padding: 0 1em;
 }
 
+.about-div{
+  background-color: #000;
+  opacity: .7;
+  padding: 10px;
+  color: white;
+  border-radius: 5px;
+}
+
 .example-spacer {
   flex: 1 1 auto;
 }

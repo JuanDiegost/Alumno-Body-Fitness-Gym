@@ -16,7 +16,7 @@ export class StudentRootComponent implements OnInit {
 
   ngOnInit() {
     if (!this.isScreenLow()) {
-      this.printOfBlack(<HTMLButtonElement>document.getElementById('button-schedule'));
+      this.printOfBlack(<HTMLButtonElement>document.getElementById('button-profile'));
     } else {
       document.getElementById('div-menu-full').hidden = true;
     }
