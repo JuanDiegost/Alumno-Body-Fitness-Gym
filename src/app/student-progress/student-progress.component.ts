@@ -1,5 +1,6 @@
 import { Component, OnInit } from "@angular/core";
 import { ServiceUserService } from "../services/services-user/service-user.service";
+import { GalleryItem, ImageItem } from '@ngx-gallery/core';
 
 @Component({
   selector: "app-student-progress",
@@ -13,6 +14,7 @@ export class StudentProgressComponent implements OnInit {
 
   public chartDatasetsMasaCorporal: Array<any> = [];
   public chartDatasetsGrasaCorporal: Array<any> = [];
+  public images: GalleryItem[]=[];
 
   public chartLabelsFechas: Array<any>=[];
   public loading = true;
@@ -51,6 +53,7 @@ export class StudentProgressComponent implements OnInit {
       dataGrasa.push(data["grasaCorporal"]);
       dataMasa.push(data["masaCorporal"]);
       this.chartLabelsFechas.push(data["fechaProgresoImagen"]);
+      this.images.push(new ImageItem({ src: data.url, thumb: data.url }));
     });
     console.log(dataGrasa);
     this.chartDatasetsMasaCorporal.push({data:dataMasa,label: 'My First dataset'});
