@@ -8,6 +8,7 @@ import { Observable } from "rxjs";
 })
 export class UploadService {
   private basePath = "/uploads";
+  private basePathProgress = "/progress";
 
   constructor() {}
 
@@ -19,6 +20,14 @@ export class UploadService {
       .put(fileUpload.file);
 
 
+  }
+
+  pushFileToStorageProgress(fileUpload: FileUpload) {
+    const storageRef = firebase.storage().ref();
+    console.log(storageRef);
+    return storageRef
+      .child(`${this.basePathProgress}/${localStorage.getItem("idAlumno")}/${fileUpload.name}`)
+      .put(fileUpload.file);
   }
 
   deleteFileUpload(name: string) {

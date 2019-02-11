@@ -30,7 +30,7 @@
       <mdb-card-body cascade="true" class="text-center">
         <!--Card content-->
         <div style="display: block">
-          <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasetsMasaCorporal" [colors]="chartColors"
+          <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasetsMasaCorporal" [colors]="chartColors"  [labels]="chartLabelsFechas"
             [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
           </canvas>
         </div>
@@ -76,3 +76,6 @@
     </mdb-card>
 
   </div>
+
+  <button type="button" class="btn btn-info btn-rounded btn-md" (click)="openDialogAddProgress()">Agregar Progreso<i class="fa fa-plus "
+    aria-hidden="true"></i></button>

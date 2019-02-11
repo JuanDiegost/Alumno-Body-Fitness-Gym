@@ -130,7 +130,7 @@ export class DialogEditUserComponent implements OnInit {
           "Se ha actualizado su infromación personal"
         );
       },error=>{
-        Confirms.showErrorType("Error","No se ha podido cambia porque, nombre de usuario ya esta en uso");
+        Confirms.showErrorType("Error","No se ha podido cambiar, nombre de usuario ya esta en uso");
       });
     });
   }
