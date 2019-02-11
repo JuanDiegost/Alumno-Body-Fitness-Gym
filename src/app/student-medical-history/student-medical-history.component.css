@@ -20,3 +20,9 @@
   margin-top: 20px;
   text-align: center;
 }
+.text-center{
+  position: absolute;
+  top: 10%;
+  left: 10%;
+  right: 10%;
+}
