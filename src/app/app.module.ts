@@ -9,12 +9,12 @@ import { HttpClientModule } from "@angular/common/http";
 
 import { RouterModule, Route } from "@angular/router";
 
-import { NgxLoadingModule } from 'ngx-loading';
+import { NgxLoadingModule } from "ngx-loading";
+import { GalleryModule } from "@ngx-gallery/core";
 
 //firebase
 import { AngularFireModule } from "angularfire2";
 import { AngularFireStorageModule } from "angularfire2/storage";
-
 
 // components
 import { HomeComponent } from "./home/home.component";
@@ -30,7 +30,7 @@ import { AppComponent } from "./app.component";
 import { KSSwiperModule } from "angular2-swiper";
 
 // carousel news
-import { NgxHmCarouselModule } from 'ngx-hm-carousel';
+import { NgxHmCarouselModule } from "ngx-hm-carousel";
 
 // servicios
 import { ServicePageHome } from "./services/page-home/service-page-home.service";
@@ -49,25 +49,26 @@ import { ProfileComponent } from "./profile/profile.component";
 import { from } from "rxjs";
 
 import { Globals } from "./util/Global";
-import { CalendarModule, DateAdapter } from 'angular-calendar';
-import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
+import { CalendarModule, DateAdapter } from "angular-calendar";
+import { adapterFactory } from "angular-calendar/date-adapters/date-fns";
 
 //calendar
-import { CommonModule } from '@angular/common';
-import { Subject } from 'rxjs';
-import { addDays } from 'date-fns';
+import { CommonModule } from "@angular/common";
+import { Subject } from "rxjs";
+import { addDays } from "date-fns";
 import {
   CalendarEvent,
   CalendarEventTimesChangedEvent
-} from 'angular-calendar';
-import { DialogEditPassComponent } from './dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component';
+} from "angular-calendar";
+import { DialogEditPassComponent } from "./dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component";
 //end calendar
 
 const routes: Route[] = [
   { path: RoutersApp.home, component: HomeComponent },
   {
     path: RoutersApp.student,
-    component: StudentRootComponent,  canActivate: [CanActiveVerifyLoginGuard],
+    component: StudentRootComponent,
+    canActivate: [CanActiveVerifyLoginGuard],
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.progress, component: StudentProgressComponent },
@@ -95,9 +96,9 @@ const routes: Route[] = [
     DialogEditUserComponent,
     DialogEditPassComponent
   ],
-  exports:[StudentScheduleComponent],
+  exports: [StudentScheduleComponent],
   imports: [
-   BrowserModule,
+    BrowserModule,
     FormsModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
@@ -105,8 +106,10 @@ const routes: Route[] = [
     HttpClientModule,
     KSSwiperModule,
     NgxHmCarouselModule,
+    GalleryModule,
     MDBBootstrapModule.forRoot(),
-    RouterModule.forRoot(routes, {useHash: true}), AngularFireModule.initializeApp({
+    RouterModule.forRoot(routes, { useHash: true }),
+    AngularFireModule.initializeApp({
       apiKey: " AIzaSyA10YWRfQ3iExpaF6cP0PQf7YY9ZHnc7jE ",
       authDomain: "body-fitnes-gym",
       storageBucket: "body-fitnes-gym.appspot.com",
@@ -118,18 +121,20 @@ const routes: Route[] = [
       provide: DateAdapter,
       useFactory: adapterFactory
     })
-
   ],
   schemas: [NO_ERRORS_SCHEMA],
   entryComponents: [
     DialogContentServiceComponent,
     DialogLoginComponent,
-    DialogEditUserComponent,DialogEditPassComponent
+    DialogEditUserComponent,
+    DialogEditPassComponent
   ],
   providers: [
     ServicePageHome,
     ServiceLogin,
-    PreguntaService,UploadService,HorarioService,
+    PreguntaService,
+    UploadService,
+    HorarioService,
     Globals,
     ServiceUserService
   ],
