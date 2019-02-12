@@ -3,11 +3,13 @@
 <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
 
 <div *ngIf="!loading">
+  <button type="button" class="btn btn-info btn-rounded btn-md" (click)="openDialogAddProgress()">
+    Nuevo Progreso <i class="fa fa-plus " aria-hidden="true"></i>
+  </button>
   <div class="card-deck">
     <!--Card-->
 
     <mdb-card cascade="true" narrower="true">
-
       <div class="view view-cascade  gradient-card-header purple-gradient">
         <h2 class="card-header-title">Masa Corporal</h2>
         <p>Progresos</p>
@@ -30,18 +32,17 @@
       <mdb-card-body cascade="true" class="text-center">
         <!--Card content-->
         <div style="display: block">
-          <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasetsMasaCorporal" [colors]="chartColors"  [labels]="chartLabelsFechas"
-            [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)" (chartClick)="chartClicked($event)">
+          <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasetsMasaCorporal" [colors]="chartColors"
+            [labels]="chartLabelsFechas" [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)">
           </canvas>
         </div>
       </mdb-card-body>
       <!--/.Card content-->
-
     </mdb-card>
     <!--/.Card-->
 
     <mdb-card cascade="true" narrower="true">
-
       <div class="view view-cascade  gradient-card-header purple-gradient">
         <h2 class="card-header-title">Grasa Corporal</h2>
         <p>Progresos</p>
@@ -71,11 +72,12 @@
         </div>
       </mdb-card-body>
       <!--/.Card content-->
-
-
     </mdb-card>
-
   </div>
 
-  <button type="button" class="btn btn-info btn-rounded btn-md" (click)="openDialogAddProgress()">Agregar Progreso<i class="fa fa-plus "
-    aria-hidden="true"></i></button>
+  <div class="row justify-content-md-center">
+    <div class="col-md-auto">
+      <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+    </div>
+  </div>
+</div>

@@ -10,8 +10,7 @@ import { HttpClientModule } from "@angular/common/http";
 import { RouterModule, Route } from "@angular/router";
 
 import { NgxLoadingModule } from "ngx-loading";
-import { GalleryModule } from "@ngx-gallery/core";
-
+import { NgxGalleryModule } from "ngx-gallery";
 //firebase
 import { AngularFireModule } from "angularfire2";
 import { AngularFireStorageModule } from "angularfire2/storage";
@@ -108,7 +107,7 @@ const routes: Route[] = [
     HttpClientModule,
     KSSwiperModule,
     NgxHmCarouselModule,
-    GalleryModule,
+    NgxGalleryModule,
     MDBBootstrapModule.forRoot(),
     RouterModule.forRoot(routes, { useHash: true }),
     AngularFireModule.initializeApp({

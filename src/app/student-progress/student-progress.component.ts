@@ -1,8 +1,13 @@
 import { Component, OnInit } from "@angular/core";
 import { ServiceUserService } from "../services/services-user/service-user.service";
-import { GalleryItem, ImageItem } from "@ngx-gallery/core";
+import {
+  NgxGalleryOptions,
+  NgxGalleryImage,
+  NgxGalleryAnimation
+} from "ngx-gallery";
 import { MatDialog } from "@angular/material";
 import { DialogAddProgressComponent } from "../dialogs/dialog-add-progress/dialog-add-progress.component";
+
 
 @Component({
   selector: "app-student-progress",
@@ -15,7 +20,8 @@ export class StudentProgressComponent implements OnInit {
 
   public chartDatasetsMasaCorporal: Array<any> = [];
   public chartDatasetsGrasaCorporal: Array<any> = [];
-  public images: GalleryItem[] = [];
+  galleryOptions: NgxGalleryOptions[];
+  galleryImages: NgxGalleryImage[];
 
   public chartLabelsFechas: Array<any> = [];
   public loading = true;
@@ -52,8 +58,14 @@ export class StudentProgressComponent implements OnInit {
 
   ngOnInit() {
     this.getData();
+    this.galleryOptions = [
+      { "imageDescription": true },
+      { "breakpoint": 500, "width": "300px", "height": "300px", "thumbnailsColumns": 3 },
+      { "breakpoint": 300, "width": "100%", "height": "200px", "thumbnailsColumns": 2 }
+      ] ;
+    this.galleryImages = [];
   }
-  getData(){
+  getData() {
     this.servicesUser.getUserData().subscribe(data => {
       this.addDataImagenProgres(data["value"]["historialProgresoImagen"]);
     });
@@ -74,12 +86,18 @@ export class StudentProgressComponent implements OnInit {
     });
     let dataMasa = [];
     let dataGrasa = [];
-    this.chartLabelsFechas=[];
+    this.chartLabelsFechas = [];
+    this.galleryImages=[];
     historiaImagen.forEach(data => {
       dataGrasa.push(data["grasaCorporal"]);
       dataMasa.push(data["masaCorporal"]);
       this.chartLabelsFechas.push(data["fechaProgresoImagen"].substring(0, 9));
-      this.images.push(new ImageItem({ src: data.url, thumb: data.url }));
+      this.galleryImages.push({
+        small: data.url,
+        medium: data.url,
+        big: data.url,
+        description:"Fecha: "+data.fechaProgresoImagen.substring(0, 9)
+      });
     });
     this.chartDatasetsMasaCorporal = [];
     console.log(dataGrasa);
@@ -87,7 +105,7 @@ export class StudentProgressComponent implements OnInit {
       data: dataMasa,
       label: "Masa corporal"
     });
-    this.chartDatasetsGrasaCorporal=[];
+    this.chartDatasetsGrasaCorporal = [];
     this.chartDatasetsGrasaCorporal.push({
       data: dataGrasa,
       label: "Grasa Corporal"
