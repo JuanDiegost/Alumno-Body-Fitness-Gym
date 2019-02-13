@@ -91,12 +91,12 @@ export class StudentProgressComponent implements OnInit {
     historiaImagen.forEach(data => {
       dataGrasa.push(data["grasaCorporal"]);
       dataMasa.push(data["masaCorporal"]);
-      this.chartLabelsFechas.push(data["fechaProgresoImagen"].substring(0, 9));
+      this.chartLabelsFechas.push(data["fechaProgresoImagen"].substring(0, 10));
       this.galleryImages.push({
         small: data.url,
         medium: data.url,
         big: data.url,
-        description:"Fecha: "+data.fechaProgresoImagen.substring(0, 9)
+        description:"Fecha: "+data.fechaProgresoImagen.substring(0, 10)
       });
     });
     this.chartDatasetsMasaCorporal = [];
