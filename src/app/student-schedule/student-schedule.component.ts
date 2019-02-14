@@ -219,7 +219,7 @@ export class StudentScheduleComponent implements OnInit {
         var descripcion = row[3];
 
         this.addEvent1(initHour,FinHour,descripcion,hours[0]);
-        this.addHour(initHour,FinHour,hours[0]);
+        //this.addHour(initHour,FinHour,hours[0]);
 
       }
       this.result= this.diaSemana(2019,2,5);
