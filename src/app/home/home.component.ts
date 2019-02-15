@@ -16,6 +16,7 @@ import {ServiceLogin} from '../services/login/service-login.service';
 import {RoutersApp} from '../util/RoutersApp';
 import {Messages} from '../util/Messages';
 
+
 declare var $: any;
 
 @Component({
@@ -138,6 +139,7 @@ export class HomeComponent implements OnInit {
 
     const divServices = document.getElementById('div-image-services');
     divServices.style.height = screen.height + 'px';
+    
   }
 
   scrollEvent(event) {

@@ -59,44 +59,44 @@
       <h1 [@EnterLeave]="'flyIn'" class="cyan-text">Body Firness Gym</h1>
       <h2 [@EnterLeave]="'flyIn'"class="cyan-text" >Una manera sana de desarrollar las capacidades musculares.</h2>
       <!-- <button [@EnterLeave]="'flyIn'" mat-flat-button (click)="scrollToElement('div-image-aboutOf')">Iniciar Recorrido</button> -->
-      <button [@EnterLeave]="'flyIn'" mdbBtn class=" btn-large" type="button"(click)="scrollToElement('div-image-aboutOf')" gradient="aqua" rounded="true" mdbWavesEffect>Iniciar Recorrido
+      <button [@EnterLeave]="'flyIn'" data-aos="fade-right" mdbBtn class=" btn-large" type="button"(click)="scrollToElement('div-image-aboutOf')" gradient="aqua" rounded="true" mdbWavesEffect>Iniciar Recorrido
           <i class="fa fa-sync-alt fa-spin"></i>
       </button>
     </div>
   </div>
 
-  <div id="div-image-aboutOf">
+  <div id="div-image-aboutOf"  data-aos="fade-up" data-aos-once="true">
     
-    <mdb-card class="text-center " borderColor="border-info" >
+    <mdb-card class="text-center " borderColor="border-info" style="background-color:#e9ecef">
         <mdb-card-header><h2 class="text-primary">Acerca de</h2></mdb-card-header>
         
         <mdb-card-body>
 
-            <mdb-card cascade="true" wider="true" reverse="true" class="my-4">
+            <mdb-card cascade="true" wider="true" reverse="true" class="my-4" style="background-color:#e9ecef">
                
               
                 <!-- Card content -->
-                <mdb-card-body cascade="true" class="text-center">
+                <mdb-card-body cascade="true" class="text-center"style="background-color:#e9ecef" >
               
                   <!--Title-->
                   <mdb-card-title>
-                    <h4 >
-                      <strong><h3 class="text-primary">Mision</h3>
+                    <h4 class="animated bounceInLeft">
+                      <strong><h3 class="text-primary ">Mision</h3>
                         </strong>
                     </h4>
                     <mdb-card-text>
-                    <p>Llegar cada vez, día a día a más personas y crearles conciencia sobre la importancia de la actividad
+                    <p class="animated bounceInRight">Llegar cada vez, día a día a más personas y crearles conciencia sobre la importancia de la actividad
                         física en el
                         desarrollo de una excelente calidad de vida</p>
                       </mdb-card-text>
                   </mdb-card-title>
               
                   <h5 class="indigo-text">
-                    <strong><h3 class="text-primary">Vision</h3></strong>
+                    <strong><h3 class="text-primary" data-aos="fade-right">Vision</h3></strong>
                   </h5>
               
-                  <mdb-card-text>
-                      <p>Crear un centro de acondicionamiento físico que tenga, las instalaciones, la maquinaria, la tecnología,
+                  <mdb-card-text data-aos="fade-right" data-aos-once="true">
+                      <p data-aos="fade-right" data-aos-once="true">Crear un centro de acondicionamiento físico que tenga, las instalaciones, la maquinaria, la tecnología,
                           el
                           personal que labora en el, totalmente profesional y un ambiente de trabajo ideal para la atención y
                           asesoría a sus
@@ -114,7 +114,7 @@
   </div>
 
   <!-- News-->
-  <mdb-card id="div-image-news" class="text-center " borderColor="border-info" >
+  <mdb-card id="div-image-news" class="text-center "data-aos="fade-right" borderColor="border-info" >
           
             <mdb-card-body>
 
@@ -122,12 +122,12 @@
                
               
                     <!-- Card content -->
-                    <mdb-card-body cascade="true" class="text-center">
+                    <mdb-card-body cascade="true" class="text-center" >
 
-                        <mdb-card-text style="left:10%; right:5%;">
+                        <mdb-card-text >
                               
                                   <h2 class="text-primary" >Noticias</h2>
-                                  <div class="myslides">
+                                  <div class="myslides" >
                                     <ngx-hm-carousel [(ngModel)]="configCarousel.index" [autoplay-speed]="configCarousel.speed" [autoplay]="configCarousel.autoplay"
                                       [autoplay-direction]="configCarousel.direction" [infinite]="configCarousel.infinite" [data]="dataSourceNews"
                                       onclick="document.getElementById('article-news').click()" class="carousel">
@@ -182,7 +182,7 @@
           </mdb-card-body>
           
   </mdb-card>
-  <div id="div-image-services">
+  <div id="div-image-services" data-aos="fade-right" data-aos-once="true">
    
     <div>
       <h2 class="text-primary"style="text-decoration: underline;" aria-pressed="true" mdbWavesEffect>Servicios
@@ -203,7 +203,7 @@
     </div>
   </div>
 
-  <div id="div-image-rates">
+  <div id="div-image-rates"  data-aos="fade-right">
     <h2 class="text-primary animated fadeInUpBig">Tarifas</h2>
     <table mat-table [dataSource]="dataSourceTableRates">
       <ng-container matColumnDef="name">
@@ -289,5 +289,7 @@
             someone@example.com</a>.</p>
     </div>
     <!-- Copyright -->
-
-
+    
+    <script>
+        AOS.init();
+      </script>

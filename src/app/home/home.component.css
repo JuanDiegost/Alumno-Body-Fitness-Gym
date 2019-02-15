@@ -6,7 +6,8 @@
   /* background-color:  #162a9e; */
   opacity: 0.85;
   padding: 10px;
-  color: black;
+  color: blue
+  ;
   border-radius: 5px;
 }
 
@@ -139,7 +140,7 @@ mat-chip {
 
 #div-image-init button {
   background-color: #64a19d;
-  box-shadow: 0 .1875rem .1875rem 0 rgba(0,0,0,.1)!important;
+  box-shadow: 0 .1875rem .1875rem 0 rgba(75, 57, 241, 0.1)!important;
   padding: 0.75rem 2rem;
   font-family: 'Varela Round';
   font-size: 90%;
@@ -159,7 +160,8 @@ a {
 }
 
 mat-toolbar {
-  background-color: transparent;
+ /*  background-color: transparent; */
+  background-color: #2196f3;
   color: white;
   /*border: medium solid black;*/
   position: fixed;
@@ -225,6 +227,8 @@ table {
   margin: 2.5rem 0px;
   color: grey;
   font-size: xx-large;
+  position: relative;
+  
 }
 
 @media (max-width: 1000px) {
