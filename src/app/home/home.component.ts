@@ -145,7 +145,7 @@ export class HomeComponent implements OnInit {
   scrollEvent(event) {
     const toolbar = document.getElementById('mat-toolbar-home');
     if (scrollY > 180) {
-      toolbar.style.backgroundColor = 'black';
+      toolbar.style.backgroundColor = '#2196f3';
     } else {
       toolbar.style.backgroundColor = 'transparent';
     }
