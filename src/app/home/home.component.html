@@ -65,7 +65,7 @@
     </div>
   </div>
 
-  <div id="div-image-aboutOf"  data-aos="fade-up" data-aos-once="true">
+  <div id="div-image-aboutOf"  data-aos="fade-down">
     
     <mdb-card class="text-center " borderColor="border-info" style="background-color:#e9ecef">
         <mdb-card-header><h2 class="text-primary">Acerca de</h2></mdb-card-header>
@@ -80,12 +80,12 @@
               
                   <!--Title-->
                   <mdb-card-title>
-                    <h4 class="animated bounceInLeft">
-                      <strong><h3 class="text-primary ">Mision</h3>
+                    <h4 >
+                      <strong><h3 class="text-primary "  data-aos="fade-left">Mision</h3>
                         </strong>
                     </h4>
                     <mdb-card-text>
-                    <p class="animated bounceInRight">Llegar cada vez, día a día a más personas y crearles conciencia sobre la importancia de la actividad
+                    <p data-aos="fade-left">Llegar cada vez, día a día a más personas y crearles conciencia sobre la importancia de la actividad
                         física en el
                         desarrollo de una excelente calidad de vida</p>
                       </mdb-card-text>
@@ -95,8 +95,8 @@
                     <strong><h3 class="text-primary" data-aos="fade-right">Vision</h3></strong>
                   </h5>
               
-                  <mdb-card-text data-aos="fade-right" data-aos-once="true">
-                      <p data-aos="fade-right" data-aos-once="true">Crear un centro de acondicionamiento físico que tenga, las instalaciones, la maquinaria, la tecnología,
+                  <mdb-card-text  >
+                      <p data-aos="zoom-in-left">Crear un centro de acondicionamiento físico que tenga, las instalaciones, la maquinaria, la tecnología,
                           el
                           personal que labora en el, totalmente profesional y un ambiente de trabajo ideal para la atención y
                           asesoría a sus
@@ -114,7 +114,7 @@
   </div>
 
   <!-- News-->
-  <mdb-card id="div-image-news" class="text-center "data-aos="fade-right" borderColor="border-info" >
+  <mdb-card id="div-image-news" class="text-center "data-aos="fade-up" borderColor="border-info" >
           
             <mdb-card-body>
 
@@ -137,8 +137,8 @@
                                           ngx-hm-carousel-item *ngFor="let news of dataSourceNews; let i = index">
                                           <div class="img" [style.backgroundImage]="'url('+news.urlImagen+')'">
                                           </div>
-                                          <div id="div-article-news">
-                                            <h2>{{news.titular}}</h2>
+                                          <div data-aos="fade-down-left" id="div-article-news">
+                                            <h2 data-aos="fade-down-left">{{news.titular}}</h2>
                                             <h5>{{news.contenido}}</h5>
                                           </div>
                                         </article>
@@ -182,7 +182,7 @@
           </mdb-card-body>
           
   </mdb-card>
-  <div id="div-image-services" data-aos="fade-right" data-aos-once="true">
+  <div id="div-image-services" data-aos="fade-right">
    
     <div>
       <h2 class="text-primary"style="text-decoration: underline;" aria-pressed="true" mdbWavesEffect>Servicios
@@ -192,7 +192,7 @@
       <table>
         <th>
           <mat-chip-list class="mat-chip-list-stacked">
-            <mat-chip *ngFor="let chip of availablePrograms" selected [color]="chip.color" (click)="openDialogService(chip)">
+            <mat-chip  data-aos="fade-down-right" *ngFor="let chip of availablePrograms" selected [color]="chip.color" (click)="openDialogService(chip)">
               {{chip.name}}
             </mat-chip>
           </mat-chip-list>
@@ -203,17 +203,17 @@
     </div>
   </div>
 
-  <div id="div-image-rates"  data-aos="fade-right">
+  <div id="div-image-rates"  data-aos="flip-left">
     <h2 class="text-primary animated fadeInUpBig">Tarifas</h2>
     <table mat-table [dataSource]="dataSourceTableRates">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nombre</th>
-        <td mat-cell *matCellDef="let element"> {{element.name}}</td>
+        <td mat-cell *matCellDef="let element" data-aos="fade-down-left"> {{element.name}}</td>
       </ng-container>
 
       <ng-container matColumnDef="value">
         <th mat-header-cell *matHeaderCellDef> Valor</th>
-        <td mat-cell *matCellDef="let element"> {{element.value}}</td>
+        <td mat-cell *matCellDef="let element" data-aos="fade-down-left"> {{element.value}}</td>
       </ng-container>
 
       <tr mat-header-row *matHeaderRowDef="displayedColumns; sticky: true"></tr>
@@ -234,7 +234,8 @@
     
   </div>
 
-  <footer id="div-image-contact">
+  <footer id="div-image-contact" data-aos="fade-up"
+  data-aos-anchor-placement="center-bottom">
             <!-- Footer -->
 <footer class="page-footer font-small cyan darken-3">
 

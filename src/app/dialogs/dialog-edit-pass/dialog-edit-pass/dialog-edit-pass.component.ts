@@ -23,7 +23,7 @@ export class DialogEditPassComponent implements OnInit {
   ) {}
 
   ngOnInit() {
-this.username=this.data.username;
+    this.username=this.data.username;
   }
 
   updatePass(){
