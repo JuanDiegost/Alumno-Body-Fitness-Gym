@@ -3,6 +3,8 @@ import { MatDialog } from "@angular/material";
 import { DialogEditUserComponent } from "./../dialogs/edit-user/dialog-edit-user.component";
 import { ServiceUserService } from "../services/services-user/service-user.service";
 import { DialogEditPassComponent } from "../dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component";
+import {Router} from '@angular/router';
+import {RoutersApp} from '../util/RoutersApp';
 
 @Component({
   selector: "app-profile",
@@ -12,7 +14,7 @@ import { DialogEditPassComponent } from "../dialogs/dialog-edit-pass/dialog-edit
 export class ProfileComponent implements OnInit {
   panelOpenState = false;
 
-  constructor(
+  constructor(private router: Router,
     public dialog: MatDialog,
     public userService: ServiceUserService
   ) {
@@ -70,6 +72,9 @@ export class ProfileComponent implements OnInit {
       );
       this.diasdif = date.getTime() - now.getTime();
       this.diasdif = Math.round(this.diasdif / (1000 * 60 * 60 * 24));
+    },err=>{
+      localStorage.removeItem("idAlumno");
+      this.router.navigateByUrl(RoutersApp.home);
     });
   }
 
