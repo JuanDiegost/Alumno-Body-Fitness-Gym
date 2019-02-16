@@ -40,96 +40,153 @@
   </mat-toolbar>
 
   <div id="div-image-init">
-    <img src="assets/img/4.jpeg">
+      <mdb-carousel [animation]="'slide'">
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/img/1.jpeg" alt="First slide">
+          </mdb-carousel-item>
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/img/4.jpeg" alt="Second slide">
+          </mdb-carousel-item>
+          <mdb-carousel-item>
+            <img class="d-block w-100" src="assets/img/2.jpeg" alt="Third slide">
+          </mdb-carousel-item>
+        </mdb-carousel>
+
+
+
+    <!-- <img src="assets/img/4.jpeg"> -->
     <div>
-      <h1 [@EnterLeave]="'flyIn'">Body Firness Gym</h1>
-      <h2 [@EnterLeave]="'flyIn'">Una manera sana de desarrollar las capacidades musculares.</h2>
-      <button [@EnterLeave]="'flyIn'" mat-flat-button (click)="scrollToElement('div-image-aboutOf')">Iniciar Recorrido</button>
+      <h1 [@EnterLeave]="'flyIn'" class="cyan-text">Body Firness Gym</h1>
+      <h2 [@EnterLeave]="'flyIn'"class="cyan-text" >Una manera sana de desarrollar las capacidades musculares.</h2>
+      <!-- <button [@EnterLeave]="'flyIn'" mat-flat-button (click)="scrollToElement('div-image-aboutOf')">Iniciar Recorrido</button> -->
+      <button [@EnterLeave]="'flyIn'" data-aos="fade-right" mdbBtn class=" btn-large" type="button"(click)="scrollToElement('div-image-aboutOf')" gradient="aqua" rounded="true" mdbWavesEffect>Iniciar Recorrido
+          <i class="fa fa-sync-alt fa-spin"></i>
+      </button>
     </div>
   </div>
 
-  <div id="div-image-aboutOf">
-    <img src="assets/img/1.jpeg">
-    <div id="div-one-aboutOf">
-      <div id="div-two-aboutOf">
-          <div class="about-div">
-            <h2 class="text-primary">Acerca de</h2>
-            <h3 class="text-primary">Mision</h3>
-            <p>Llegar cada vez, día a día a más personas y crearles conciencia sobre la importancia de la actividad
-              física en el
-              desarrollo de una excelente calidad de vida</p>
-            <h3>Vision</h3>
-            <p>Crear un centro de acondicionamiento físico que tenga, las instalaciones, la maquinaria, la tecnología,
-              el
-              personal que labora en el, totalmente profesional y un ambiente de trabajo ideal para la atención y
-              asesoría a sus
-              usuarios en el acondicionamiento físico</p>
-            </div>
-      </div>
-    </div>
+  <div id="div-image-aboutOf"  data-aos="fade-up" data-aos-once="true">
+    
+    <mdb-card class="text-center " borderColor="border-info" style="background-color:#e9ecef">
+        <mdb-card-header><h2 class="text-primary">Acerca de</h2></mdb-card-header>
+        
+        <mdb-card-body>
+
+            <mdb-card cascade="true" wider="true" reverse="true" class="my-4" style="background-color:#e9ecef">
+               
+              
+                <!-- Card content -->
+                <mdb-card-body cascade="true" class="text-center"style="background-color:#e9ecef" >
+              
+                  <!--Title-->
+                  <mdb-card-title>
+                    <h4 class="animated bounceInLeft">
+                      <strong><h3 class="text-primary ">Mision</h3>
+                        </strong>
+                    </h4>
+                    <mdb-card-text>
+                    <p class="animated bounceInRight">Llegar cada vez, día a día a más personas y crearles conciencia sobre la importancia de la actividad
+                        física en el
+                        desarrollo de una excelente calidad de vida</p>
+                      </mdb-card-text>
+                  </mdb-card-title>
+              
+                  <h5 class="indigo-text">
+                    <strong><h3 class="text-primary" data-aos="fade-right">Vision</h3></strong>
+                  </h5>
+              
+                  <mdb-card-text data-aos="fade-right" data-aos-once="true">
+                      <p data-aos="fade-right" data-aos-once="true">Crear un centro de acondicionamiento físico que tenga, las instalaciones, la maquinaria, la tecnología,
+                          el
+                          personal que labora en el, totalmente profesional y un ambiente de trabajo ideal para la atención y
+                          asesoría a sus
+                          usuarios en el acondicionamiento físico</p>
+                  </mdb-card-text>
+              
+                  
+                </mdb-card-body>
+              
+              </mdb-card>
+
+              </mdb-card-body>
+            </mdb-card>
+            
   </div>
 
   <!-- News-->
+  <mdb-card id="div-image-news" class="text-center "data-aos="fade-right" borderColor="border-info" >
+          
+            <mdb-card-body>
 
-  <div id="div-image-news">
-    <img src="assets/img/2.jpeg">
-    <div id="div-one-news">
-      <div id="div-two-news">
-        <h2 class="text-primary">Noticias</h2>
-        <div class="myslides">
-          <ngx-hm-carousel [(ngModel)]="configCarousel.index" [autoplay-speed]="configCarousel.speed" [autoplay]="configCarousel.autoplay"
-            [autoplay-direction]="configCarousel.direction" [infinite]="configCarousel.infinite" [data]="dataSourceNews"
-            onclick="document.getElementById('article-news').click()" class="carousel">
+                <mdb-card cascade="true" wider="true" reverse="true" class="my-4">
+               
+              
+                    <!-- Card content -->
+                    <mdb-card-body cascade="true" class="text-center" >
 
-            <section ngx-hm-carousel-container class="content">
-              <article (click)="openNews(news)" id="article-news" class="item cursor-pointer visible_important"
-                ngx-hm-carousel-item *ngFor="let news of dataSourceNews; let i = index">
-                <div class="img" [style.backgroundImage]="'url('+news.urlImagen+')'">
-                </div>
-                <div id="div-article-news">
-                  <h2>{{news.titular}}</h2>
-                  <h5>{{news.contenido}}</h5>
-                </div>
-              </article>
-              <ng-template #infiniteContainer></ng-template>
-            </section>
+                        <mdb-card-text >
+                              
+                                  <h2 class="text-primary" >Noticias</h2>
+                                  <div class="myslides" >
+                                    <ngx-hm-carousel [(ngModel)]="configCarousel.index" [autoplay-speed]="configCarousel.speed" [autoplay]="configCarousel.autoplay"
+                                      [autoplay-direction]="configCarousel.direction" [infinite]="configCarousel.infinite" [data]="dataSourceNews"
+                                      onclick="document.getElementById('article-news').click()" class="carousel">
 
-            <ng-template #carouselContent let-avatar let-i="index">
-              <article class="item cursor-pointer visible_important">
-                <div class="img">
-                </div>
-              </article>
-            </ng-template>
+                                      <section ngx-hm-carousel-container class="content">
+                                        <article (click)="openNews(news)" id="article-news" class="item cursor-pointer visible_important"
+                                          ngx-hm-carousel-item *ngFor="let news of dataSourceNews; let i = index">
+                                          <div class="img" [style.backgroundImage]="'url('+news.urlImagen+')'">
+                                          </div>
+                                          <div id="div-article-news">
+                                            <h2>{{news.titular}}</h2>
+                                            <h5>{{news.contenido}}</h5>
+                                          </div>
+                                        </article>
+                                        <ng-template #infiniteContainer></ng-template>
+                                      </section>
 
-            <ng-template #carouselPrev>
-              <div class="click-area">
-                <i class="material-icons">keyboard_arrow_left</i>
-              </div>
-            </ng-template>
-            <ng-template #carouselNext>
-              <div class="click-area">
-                <i class="material-icons">keyboard_arrow_right</i>
-              </div>
-            </ng-template>
+                                      <ng-template #carouselContent let-avatar let-i="index">
+                                        <article class="item cursor-pointer visible_important">
+                                          <div class="img">
+                                          </div>
+                                        </article>
+                                      </ng-template>
 
-            <ng-template #carouselDot let-model>
-              <div class="ball bg-accent" [class.visible]="model.index === model.currentIndex"></div>
-            </ng-template>
+                                      <ng-template #carouselPrev>
+                                        <div class="click-area">
+                                          <i class="material-icons">keyboard_arrow_left</i>
+                                        </div>
+                                      </ng-template>
+                                      <ng-template #carouselNext>
+                                        <div class="click-area">
+                                          <i class="material-icons">keyboard_arrow_right</i>
+                                        </div>
+                                      </ng-template>
 
-            <ng-template #carouselProgress let-progress>
-              <div class="progress"></div>
-            </ng-template>
+                                      <ng-template #carouselDot let-model>
+                                        <div class="ball bg-accent" [class.visible]="model.index === model.currentIndex"></div>
+                                      </ng-template>
 
-          </ngx-hm-carousel>
-        </div>
-      </div>
-    </div>
-  </div>
+                                      <ng-template #carouselProgress let-progress>
+                                        <div class="progress"></div>
+                                      </ng-template>
 
-  <div id="div-image-services">
-    <img src="assets/img/3.jpeg">
+                                    </ngx-hm-carousel>
+                                  
+                                </div>
+                        </mdb-card-text>
+                    </mdb-card-body>
+              
+                </mdb-card>
+           
+          </mdb-card-body>
+          
+  </mdb-card>
+  <div id="div-image-services" data-aos="fade-right" data-aos-once="true">
+   
     <div>
-      <h2 class="text-primary">Servicios</h2>
+      <h2 class="text-primary"style="text-decoration: underline;" aria-pressed="true" mdbWavesEffect>Servicios
+          <i class="fa fa-sync-alt fa-spin"></i></h2>
       <p style="color: white">Selecciona alguno para ver mas informacion</p>
       <!--<hr class="hr-footer">-->
       <table>
@@ -141,12 +198,13 @@
           </mat-chip-list>
         </th>
       </table>
+      <hr>
       <!--<hr class="hr-footer">-->
     </div>
   </div>
 
-  <div id="div-image-rates">
-    <h2 class="text-primary">Tarifas</h2>
+  <div id="div-image-rates"  data-aos="fade-right">
+    <h2 class="text-primary animated fadeInUpBig">Tarifas</h2>
     <table mat-table [dataSource]="dataSourceTableRates">
       <ng-container matColumnDef="name">
         <th mat-header-cell *matHeaderCellDef> Nombre</th>
@@ -173,50 +231,65 @@
     <!--<td>{{dessert.value}}</td>-->
     <!--</tr>-->
     <!--</table>-->
-
+    
   </div>
 
   <footer id="div-image-contact">
+            <!-- Footer -->
+<footer class="page-footer font-small cyan darken-3">
 
-    <table id="table-footer">
-      <th>
-        <div class="card-footer">
-          <div class="space-card">
-            <mat-icon class="example-icon">map</mat-icon>
-            <h4 style="margin-top: 0">Direccion</h4>
-            <hr class="hr-footer">
-            <h4>Calle</h4>
+    <!-- Footer Elements -->
+    <div class="container">
+
+      <!-- Grid row-->
+      <div class="row">
+
+        <!-- Grid column -->
+        <div class="col-md-12 py-5 text-center" >
+          <div class="mb-5 flex-center">
+
+            <!-- Facebook -->
+            <a class="fb-ic">
+                <i class="fa fa-facebook-official white-text mr-md-5 mr-3" style="font-size:2em;" aria-hidden="true"></i>
+            </a>
+            <!-- Twitter -->
+            <a class="tw-ic">
+                <i class="fa fa-twitter white-text mr-md-5 mr-3" style="font-size:2em;" aria-hidden="true"></i>
+            </a>
+            <!-- Google +-->
+            <a class="gplus-ic">
+                <i class="fa fa-google-plus white-text mr-md-5 mr-3" style="font-size:2em;" aria-hidden="true"></i>
+            </a>
+            <!--Linkedin -->
+            <a class="li-ic">
+                <i class="fa fa-linkedin white-text mr-md-5 mr-3" style="font-size:2em;" aria-hidden="true"></i>
+            </a>
+            <!--Instagram-->
+            <a class="ins-ic">
+                <i class="fa fa-instagram white-text mr-md-5 mr-3" style="font-size:2em;" aria-hidden="true"></i>
+            </a>
+            <!--Pinterest-->
+            <a class="pin-ic">
+                <i class="fa fa-pinterest-square white-text mr-md-5 mr-3" style="font-size:2em;" aria-hidden="true"></i>
+            </a>
           </div>
         </div>
-      </th>
+        <!-- Grid column -->
 
-      <th>
-        <div class="card-footer">
-          <div class="space-card">
-            <mat-icon class="example-icon">map</mat-icon>
-            <h4 style="margin-top: 0">Direccion</h4>
-            <hr class="hr-footer">
-            <h4>Calle</h4>
-          </div>
-        </div>
-      </th>
-
-      <th>
-        <div class="card-footer">
-          <div class="space-card">
-            <mat-icon class="example-icon">map</mat-icon>
-            <h4 style="margin-top: 0">Direccion</h4>
-            <hr class="hr-footer">
-            <h4>Calle</h4>
-          </div>
-        </div>
-      </th>
-    </table>
-
-    <div class="div-footer">
-      <p>Posted by: Hege Refsnes</p>
-      <p>Contact information: <a href="mailto:someone@example.com">
-          someone@example.com</a>.</p>
+      </div>
+      <!-- Grid row-->
+      
     </div>
-  </footer>
-</div>
+    <!-- Footer Elements -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+        <p>Posted by: Hege Refsnes</p>
+        <p>Contact information: <a href="mailto:someone@example.com">
+            someone@example.com</a>.</p>
+    </div>
+    <!-- Copyright -->
+    
+    <script>
+        AOS.init();
+      </script>

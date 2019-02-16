@@ -3,10 +3,11 @@
 }
 
 .about-div{
-  background-color:  #162a9e;
+  /* background-color:  #162a9e; */
   opacity: 0.85;
   padding: 10px;
-  color: white;
+  color: blue
+  ;
   border-radius: 5px;
 }
 
@@ -46,21 +47,30 @@ h1 {
   line-height: 1.2;
   font-size: 2rem;
   margin-bottom: 3rem;
-  color: #fff!important;
+  /* color: #fff!important; */
 }
 
 #div-image-aboutOf h2 {
-  text-align: center;
+  /* text-align: center; */
+ font-size: 
+}
+.center-div{
+  font-style: italic;
 }
 
 #div-image-aboutOf p {
-  color: rgba(255,255,255,.5)!important;
+ /*  color: rgba(255,255,255,.5)!important; */
   font-size: 1.2rem;
   text-align: justify;
+ /*  position: relative; */
+  left: 10%;
+  right:  10%;
+  font-style: italic;
 }
 
 #div-image-aboutOf h3 {
   font-size: 1.5rem;
+  
 }
 
 #div-image-init div, #div-image-services div {
@@ -130,7 +140,7 @@ mat-chip {
 
 #div-image-init button {
   background-color: #64a19d;
-  box-shadow: 0 .1875rem .1875rem 0 rgba(0,0,0,.1)!important;
+  box-shadow: 0 .1875rem .1875rem 0 rgba(75, 57, 241, 0.1)!important;
   padding: 0.75rem 2rem;
   font-family: 'Varela Round';
   font-size: 90%;
@@ -150,7 +160,8 @@ a {
 }
 
 mat-toolbar {
-  background-color: transparent;
+ /*  background-color: transparent; */
+  background-color: #2196f3;
   color: white;
   /*border: medium solid black;*/
   position: fixed;
@@ -216,6 +227,8 @@ table {
   margin: 2.5rem 0px;
   color: grey;
   font-size: xx-large;
+  position: relative;
+  
 }
 
 @media (max-width: 1000px) {
@@ -269,4 +282,18 @@ table {
   #div-one-aboutOf p {
     font-size: 1rem;
   }
+}
+
+
+body {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,p {
+  font-family: 'Lato', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
 }

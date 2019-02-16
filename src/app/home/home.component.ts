@@ -16,6 +16,7 @@ import {ServiceLogin} from '../services/login/service-login.service';
 import {RoutersApp} from '../util/RoutersApp';
 import {Messages} from '../util/Messages';
 
+
 declare var $: any;
 
 @Component({
@@ -138,12 +139,13 @@ export class HomeComponent implements OnInit {
 
     const divServices = document.getElementById('div-image-services');
     divServices.style.height = screen.height + 'px';
+    
   }
 
   scrollEvent(event) {
     const toolbar = document.getElementById('mat-toolbar-home');
     if (scrollY > 180) {
-      toolbar.style.backgroundColor = 'black';
+      toolbar.style.backgroundColor = '#2196f3';
     } else {
       toolbar.style.backgroundColor = 'transparent';
     }

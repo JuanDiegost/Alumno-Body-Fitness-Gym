@@ -3,6 +3,7 @@ import { RoutersApp } from "./util/RoutersApp";
 import { Router } from "@angular/router";
 import { FirebaseApp } from "angularfire2";
 import { from } from "rxjs";
+import * as AOS from 'aos';
 
 @Component({
   selector: "app-root",
@@ -15,5 +16,6 @@ export class AppComponent implements OnInit {
 
   ngOnInit() {
     this.router.navigateByUrl(RoutersApp.student+"/"+RoutersApp.profile);
+    AOS.init();
   }
 }
