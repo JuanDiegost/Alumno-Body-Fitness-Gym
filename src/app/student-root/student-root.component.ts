@@ -20,7 +20,7 @@ export class StudentRootComponent implements OnInit {
     } else {
       document.getElementById('div-menu-full').hidden = true;
     }
-    this.router.navigateByUrl(RoutersApp.home);
+    this.router.navigateByUrl(RoutersApp.profile);
   }
 
   printOfBlack(element: HTMLButtonElement) {
