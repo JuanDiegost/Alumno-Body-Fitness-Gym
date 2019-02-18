@@ -24,7 +24,7 @@ export class DialogEditUserComponent implements OnInit {
   signupFormModalGenero = new FormControl("", Validators.required);
   signupFormModalTelefono = new FormControl("", Validators.required);
   signupFormModalDate = new FormControl("", Validators.required);
-
+  
   BirthDate: Date;
   idAlumno;
   dniAlumno;

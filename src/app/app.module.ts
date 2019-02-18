@@ -85,7 +85,7 @@ const routes: Route[] = [
   { path: "list/students", component: ListStudentsComponent },
   { path: RoutersApp.studentDetail, component: StudentDetailComponent },
   { path: "**", pathMatch: "full", redirectTo: "RoutersApp.home" }
-  // {path: 'schedule', component: StudentScheduleComponent}
+
 ];
 
 @NgModule({
