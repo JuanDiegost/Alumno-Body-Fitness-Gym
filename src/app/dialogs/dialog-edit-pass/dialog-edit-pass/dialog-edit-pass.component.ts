@@ -5,6 +5,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from "@angular/material";
 import { MatSnackBar } from "@angular/material";
 import { ServiceUserService } from "../../../services/services-user/service-user.service";
 import {Confirms} from '../../../util/Confirms';
+import {ProfileComponent} from '../../../profile/profile.component';
 
 
 
@@ -17,7 +18,7 @@ export class DialogEditPassComponent implements OnInit {
   actualPass:string;
   newPass:string;
   username:string;
-  constructor(
+  constructor(public dialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     private snackBar: MatSnackBar,public userService:ServiceUserService
   ) {}
@@ -33,6 +34,10 @@ export class DialogEditPassComponent implements OnInit {
     },error=>{
       Confirms.showErrorType("Incorrecto","Credenciales incorrectas");
     })
+  }
+
+  closeDialogEditPass() {
+    this.dialogRef.close();
   }
 
 }

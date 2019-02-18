@@ -149,7 +149,7 @@ export class StudentScheduleComponent implements OnInit {
 
               addEvent1(initDate,finDate,descripcion,init,trainer): void {
                 this.events.push({
-                  title: descripcion +"dictada por "+trainer,
+                  title: descripcion +"dictada por "+"::"+trainer,
                   start: addHours(startOfDay(initDate),init),
                   end: finDate,
                   color: colors.blue,

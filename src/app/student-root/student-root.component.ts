@@ -21,6 +21,9 @@ export class StudentRootComponent implements OnInit {
       document.getElementById('div-menu-full').hidden = true;
     }
     this.router.navigateByUrl(RoutersApp.completeStudentProfile);
+
+
+    
   }
 
   printOfBlack(element: HTMLButtonElement) {
