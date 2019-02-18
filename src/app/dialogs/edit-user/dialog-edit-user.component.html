@@ -44,7 +44,7 @@
     <div class="md-form mb-5">
       <i class="fa fa-user prefix blue-text"></i>
       <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
-        mdbInputDirective [(ngModel)]="nombreAlumno">
+        mdbInputDirective [(ngModel)]="nombreAlumno" ngModel pattern="[a-zA-Z ]*">
       <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
     </div>
 

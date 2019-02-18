@@ -147,9 +147,9 @@ export class StudentScheduleComponent implements OnInit {
                 this.refresh.next();
               }
 
-              addEvent1(initDate,finDate,descripcion,init): void {
+              addEvent1(initDate,finDate,descripcion,init,trainer): void {
                 this.events.push({
-                  title: descripcion,
+                  title: descripcion +"dictada por "+trainer,
                   start: addHours(startOfDay(initDate),init),
                   end: finDate,
                   color: colors.blue,
@@ -162,11 +162,11 @@ export class StudentScheduleComponent implements OnInit {
                 });
                 this.refresh.next();
               }
-              addHour(initDate,finDate,initial){
+              addHour(initDate,finDate,initial,trainer){
                 this.events.push({
                   start: addHours(startOfDay(initDate),initial),
                   end: finDate,
-                  title: 'A draggable and resizable event',
+                  title: "dictada por::"+trainer+"::",
                   color: colors.yellow,
                   actions: this.actions,
                   resizable: {
@@ -218,8 +218,8 @@ export class StudentScheduleComponent implements OnInit {
 
         var descripcion = row[3];
 
-        this.addEvent1(initHour,FinHour,descripcion,hours[0]);
-        //this.addHour(initHour,FinHour,hours[0]);
+        this.addEvent1(initHour,FinHour,descripcion,hours[0],row[4]);
+        //this.addHour(initHour,FinHour,hours[0],row[4]);
 
       }
       this.result= this.diaSemana(2019,2,5);

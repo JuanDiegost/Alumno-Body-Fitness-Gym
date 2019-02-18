@@ -80,8 +80,8 @@ const routes: Route[] = [
       { path: RoutersApp.profile, component: ProfileComponent }
     ]
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'RoutersApp.home' }
-  // {path: 'schedule', component: StudentScheduleComponent}
+  { path: '**', pathMatch: 'full', redirectTo: 'RoutersApp.profile' },
+  //{path: 'schedule', component: StudentScheduleComponent}
 ];
 
 @NgModule({
