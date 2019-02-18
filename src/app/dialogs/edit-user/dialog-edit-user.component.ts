@@ -21,7 +21,7 @@ export class DialogEditUserComponent implements OnInit {
   signupFormModalEmail = new FormControl("", Validators.email);
   signupFormModalPassword = new FormControl("", Validators.required);
   signupFormModalDni = new FormControl("", Validators.required);
-  signupFormModalGenero = new FormControl("", Validators.required,Validators.pattern("/^[a-zA-Z]+$/"));
+  signupFormModalGenero = new FormControl("", Validators.required);
   signupFormModalTelefono = new FormControl("", Validators.required);
   signupFormModalDate = new FormControl("", Validators.required);
   
