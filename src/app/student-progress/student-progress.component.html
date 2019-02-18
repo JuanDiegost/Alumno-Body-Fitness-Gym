@@ -1,13 +1,24 @@
 <h1></h1>
 
-<ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+<ngx-loading
+  [show]="loading"
+  [config]="{ backdropBorderRadius: '3px' }"
+></ngx-loading>
 
 <div *ngIf="!loading">
-  <button type="button" class="btn btn-info btn-rounded btn-md" (click)="openDialogAddProgress()">
+  <button
+    type="button"
+    class="btn btn-info btn-rounded btn-md"
+    (click)="openDialogAddProgress()"
+  >
     Nuevo Progreso <i class="fa fa-plus " aria-hidden="true"></i>
   </button>
 
-  <button type="button" class="btn btn-info btn-rounded btn-md" (click)="generatePdf()">
+  <button
+    type="button"
+    class="btn btn-info btn-rounded btn-md"
+    (click)="generatePdf()"
+  >
     Generar Pdf <i class="fa fa-plus " aria-hidden="true"></i>
   </button>
   <div class="card-deck">
@@ -19,15 +30,27 @@
         <p>Progresos</p>
         <div class="text-center">
           <!--Facebook-->
-          <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect>
+          <a
+            type="button"
+            class="btn-floating btn-small waves-light"
+            mdbWavesEffect
+          >
             <i class="fa fa-facebook-f"></i>
           </a>
           <!--Twitter-->
-          <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect>
+          <a
+            type="button"
+            class="btn-floating btn-small waves-light"
+            mdbWavesEffect
+          >
             <i class="fa fa-twitter"></i>
           </a>
           <!--Google +-->
-          <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect>
+          <a
+            type="button"
+            class="btn-floating btn-small waves-light"
+            mdbWavesEffect
+          >
             <i class="fa fa-google-plus"></i>
           </a>
         </div>
@@ -36,9 +59,17 @@
       <mdb-card-body cascade="true" class="text-center">
         <!--Card content-->
         <div style="display: block">
-          <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasetsMasaCorporal" [colors]="chartColors"
-            [labels]="chartLabelsFechas" [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)">
+          <canvas
+            mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasetsMasaCorporal"
+            [colors]="chartColors"
+            [labels]="chartLabelsFechas"
+            [options]="chartOptions"
+            [legend]="false"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
           </canvas>
         </div>
       </mdb-card-body>
@@ -52,15 +83,27 @@
         <p>Progresos</p>
         <div class="text-center">
           <!--Facebook-->
-          <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect>
+          <a
+            type="button"
+            class="btn-floating btn-small waves-light"
+            mdbWavesEffect
+          >
             <i class="fa fa-facebook-f"></i>
           </a>
           <!--Twitter-->
-          <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect>
+          <a
+            type="button"
+            class="btn-floating btn-small waves-light"
+            mdbWavesEffect
+          >
             <i class="fa fa-twitter"></i>
           </a>
           <!--Google +-->
-          <a type="button" class="btn-floating btn-small waves-light" mdbWavesEffect>
+          <a
+            type="button"
+            class="btn-floating btn-small waves-light"
+            mdbWavesEffect
+          >
             <i class="fa fa-google-plus"></i>
           </a>
         </div>
@@ -69,9 +112,17 @@
       <mdb-card-body cascade="true" class="text-center">
         <!--Card content-->
         <div style="display: block">
-          <canvas mdbChart [chartType]="chartType" [datasets]="chartDatasetsGrasaCorporal" [labels]="chartLabelsFechas"
-            [colors]="chartColors" [options]="chartOptions" [legend]="false" (chartHover)="chartHovered($event)"
-            (chartClick)="chartClicked($event)">
+          <canvas
+            mdbChart
+            [chartType]="chartType"
+            [datasets]="chartDatasetsGrasaCorporal"
+            [labels]="chartLabelsFechas"
+            [colors]="chartColors"
+            [options]="chartOptions"
+            [legend]="false"
+            (chartHover)="chartHovered($event)"
+            (chartClick)="chartClicked($event)"
+          >
           </canvas>
         </div>
       </mdb-card-body>
@@ -81,9 +132,14 @@
 
   <div class="row justify-content-md-center">
     <div class="col-md-auto">
-      <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
+      <ngx-gallery
+        [options]="galleryOptions"
+        [images]="galleryImages"
+      ></ngx-gallery>
     </div>
   </div>
+  <!--
+
   <div class="justify-content-center">
     <div class="col-md-12">
       <div class="list-group">
@@ -95,5 +151,6 @@
       </div>
     </div>
   </div>
-  <hr>
+  -->
+  <hr />
 </div>
