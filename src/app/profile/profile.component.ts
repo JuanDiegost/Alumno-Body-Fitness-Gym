@@ -48,7 +48,6 @@ export class ProfileComponent implements OnInit {
 
   getDataUser() {
     this.loading = true;
-
     this.userService.getUserData().subscribe(res => {
       this.loading = false;
       res = res["value"];
@@ -73,6 +72,7 @@ export class ProfileComponent implements OnInit {
       this.diasdif = date.getTime() - now.getTime();
       this.diasdif = Math.round(this.diasdif / (1000 * 60 * 60 * 24));
     },err=>{
+      console.log(err);
       localStorage.removeItem("idAlumno");
       this.router.navigateByUrl(RoutersApp.home);
     });

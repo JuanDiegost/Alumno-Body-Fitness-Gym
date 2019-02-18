@@ -52,7 +52,7 @@ export class StudentRootComponent implements OnInit {
   }
 
   getRouterProfile() {
-    return RoutersApp.profiles;
+    return RoutersApp.profile;
   }
 
   getRouterLogin(): string {
