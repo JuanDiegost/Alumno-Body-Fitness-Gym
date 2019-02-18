@@ -33,6 +33,7 @@ export class StudentRootComponent implements OnInit {
   printOfBlackOut(element: HTMLButtonElement){
     this.printOfBlack(element);
     localStorage.removeItem("idAlumno");
+
   }
 
   getRouterHome(): string {
