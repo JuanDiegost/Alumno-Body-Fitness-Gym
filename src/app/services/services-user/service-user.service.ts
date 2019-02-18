@@ -34,4 +34,9 @@ export class ServiceUserService {
   getListAlumn(){
     return this.http.get("/alumnos");
   }
+
+  generatePdf(){
+    window.open("http://spring-body-fitness-gym.herokuapp.com/alumno/"+localStorage.getItem("idAlumno")+"/reporte.pdf",'_self')
+  }
+
 }

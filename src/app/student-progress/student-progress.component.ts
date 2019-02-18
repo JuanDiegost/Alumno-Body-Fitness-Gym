@@ -131,6 +131,10 @@ export class StudentProgressComponent implements OnInit {
     });
   }
 
+  generatePdf(){
+    this.servicesUser.generatePdf();
+  }
+
   isScreenLow(): boolean {
     return window.screen.width < 900;
   }
