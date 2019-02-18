@@ -12,5 +12,8 @@ export class RoutersApp {
   static readonly profiles = RoutersApp.profile + '/' + RoutersApp.profile;
   // static readonly completeStudentProgress = RoutersApp.progress + '/' + RoutersApp.progress;
 
+  static readonly studentDetail = 'student/:id';
+
+
   constructor() { }
 }

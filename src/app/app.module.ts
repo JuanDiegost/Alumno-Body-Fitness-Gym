@@ -61,7 +61,9 @@ import {
 } from "angular-calendar";
 import { DialogEditPassComponent } from "./dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component";
 import { DialogAddProgressComponent } from "./dialogs/dialog-add-progress/dialog-add-progress.component";
-import { TrainerClassComponent } from './trainer/class/trainer-class.component';
+import { TrainerClassComponent } from "./trainer/class/trainer-class.component";
+import { ListStudentsComponent } from "./list-students/list-students.component";
+import { StudentDetailComponent } from './student-detail/student-detail.component';
 //end calendar
 
 const routes: Route[] = [
@@ -80,7 +82,9 @@ const routes: Route[] = [
       { path: RoutersApp.profile, component: ProfileComponent }
     ]
   },
-  { path: '**', pathMatch: 'full', redirectTo: 'RoutersApp.home' }
+  { path: "list/students", component: ListStudentsComponent },
+  { path: RoutersApp.studentDetail, component: StudentDetailComponent },
+  { path: "**", pathMatch: "full", redirectTo: "RoutersApp.home" }
   // {path: 'schedule', component: StudentScheduleComponent}
 ];
 
@@ -98,7 +102,9 @@ const routes: Route[] = [
     DialogEditUserComponent,
     DialogEditPassComponent,
     DialogAddProgressComponent,
-    TrainerClassComponent
+    TrainerClassComponent,
+    ListStudentsComponent,
+    StudentDetailComponent
   ],
   exports: [StudentScheduleComponent],
   imports: [

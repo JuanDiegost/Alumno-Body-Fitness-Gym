@@ -1,0 +1,74 @@
+.text-center {
+  /* position: relative; */
+  right: 30%;
+  padding-right: 10%;
+  padding-left: 10%;
+}
+
+.controles {
+  display: flex;
+  flex-direction: row;
+  justify-content: left;
+}
+
+.controles button {
+  margin-left: 20px;
+}
+
+.usuario {
+  width: 100%;
+  display: flex;
+  padding: 20px;
+}
+
+.usuario img {
+  width: 20%;
+}
+
+.usuario .info {
+  margin-left: 20px;
+  width: 70%;
+  margin-top: 20px;
+}
+
+.info * {
+  margin: 5px;
+}
+
+.usuario .nombre {
+  font-size: 24px;
+  width: auto;
+  font-weight: 1000;
+}
+
+.porTerminar {
+  color: orange;
+}
+
+.lejosdevencer {
+  color: green;
+}
+
+.vencido {
+  color: red;
+}
+
+.historial-pagos {
+  width: 100%;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+  flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.img-perfil {
+  max-width:200px;
+}

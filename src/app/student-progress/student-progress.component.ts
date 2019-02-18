@@ -23,6 +23,8 @@ export class StudentProgressComponent implements OnInit {
   galleryOptions: NgxGalleryOptions[];
   galleryImages: NgxGalleryImage[];
 
+  private student;
+
   public chartLabelsFechas: Array<any> = [];
   public loading = true;
   public chartColors: Array<any> = [
@@ -67,6 +69,7 @@ export class StudentProgressComponent implements OnInit {
   }
   getData() {
     this.servicesUser.getUserData().subscribe(data => {
+      this.student=data["value"];
       this.addDataImagenProgres(data["value"]["historialProgresoImagen"]);
     });
   }
@@ -84,6 +87,7 @@ export class StudentProgressComponent implements OnInit {
     historiaImagen.sort(function(a, b) {
       return a.id - b.id;
     });
+    this.student.historialProgresoImagen=historiaImagen;
     let dataMasa = [];
     let dataGrasa = [];
     this.chartLabelsFechas = [];
@@ -120,6 +124,13 @@ export class StudentProgressComponent implements OnInit {
     }
     this.setEventOpacityScreen(dialogRef);
   }
+
+  eliminarProgeso(id){
+    this.servicesUser.deletProgres(id).subscribe(data=>{
+      console.log(data);
+    });
+  }
+
   isScreenLow(): boolean {
     return window.screen.width < 900;
   }

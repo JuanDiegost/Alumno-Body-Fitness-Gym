@@ -17,7 +17,7 @@ import { Confirms } from "../../util/Confirms";
 })
 export class DialogEditUserComponent implements OnInit {
   signupFormModalUser = new FormControl("", Validators.required);
-  signupFormModalName = new FormControl("", Validators.required);
+  signupFormModalName = new FormControl("/[^A-Za-zñáéíóú ]+/g", Validators.required);
   signupFormModalEmail = new FormControl("", Validators.email);
   signupFormModalPassword = new FormControl("", Validators.required);
   signupFormModalDni = new FormControl("", Validators.required);
@@ -174,6 +174,24 @@ export class DialogEditUserComponent implements OnInit {
       }
     );
   }
+
+  _onliLetters(event: any) {
+    const pattern = /[A-Za-zñáéíóú ]+/g;
+    let inputChar = String.fromCharCode(event.charCode);
+
+    if (!pattern.test(inputChar)) {
+      event.preventDefault();
+    }
+}
+
+_onliNumbers(event: any) {
+  const pattern = /^[0-9]*$/gm;
+  let inputChar = String.fromCharCode(event.charCode);
+
+  if (!pattern.test(inputChar)) {
+    event.preventDefault();
+  }
+}
 
   replaceAt(textr, index, replace) {
     return textr.substring(0, index) + replace + textr.substring(index + 1);

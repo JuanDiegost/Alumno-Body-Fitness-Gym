@@ -1,0 +1,49 @@
+<!--Grid row-->
+<div *ngIf="!loading" class="container">
+
+  <div class="row mt-5">
+
+    <!--Grid column-->
+    <div *ngFor="let student of students" class="col-md-3">
+
+      <mdb-card class="testimonial-card">
+        <!--Bacground color-->
+        <div class="card-up indigo lighten-1">
+        </div>
+
+        <!--Avatar-->
+        <div class="usuario avatar mx-auto">
+          <img [src]="student.urlImagenUsuario" class="rounded-circle avatar mx-auto white">
+        </div>
+
+        <mdb-card-body>
+          <!--Name-->
+          <mdb-card-title>
+            <h4>{{student.nombreAlumno | titlecase }}</h4>
+          </mdb-card-title>
+          <hr>
+          <!--Quotation-->
+          <div class="list-group">
+            <li class="list-group-item active waves-light" mdbWavesEffect>
+              Historial Médico
+            </li>
+            <li *ngFor="let historial of student.historialMedico" class="list-group-item list-group-item-action waves-light"
+              mdbWavesEffect>
+              {{historial.nombrePregunta}}
+            </li>
+          </div>
+          <div class="text-center">
+
+            <a [routerLink]="[ '/student', student.dniAlumno ]" mdbBtn color="secondary" rounded="true" mdbWavesEffect>Ver
+              más</a>
+          </div>
+        </mdb-card-body>
+      </mdb-card>
+
+    </div>
+
+
+  </div>
+  <!--Grid row-->
+
+</div>

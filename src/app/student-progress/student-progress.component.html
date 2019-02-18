@@ -80,4 +80,16 @@
       <ngx-gallery [options]="galleryOptions" [images]="galleryImages"></ngx-gallery>
     </div>
   </div>
+  <div class="justify-content-center">
+    <div class="col-md-12">
+      <div class="list-group">
+        <p *ngFor="let item of student.historialProgresoImagen" class="list-group-item waves-light" mdbWavesEffect>
+          Fecha: {{item.fechaProgresoImagen}}, Masa Corporal: {{item.masaCorporal}}, Grasa Corporal:
+          {{item.grasaCorporal}}
+          <button type="button" mdbBtn color="danger" (click)="eliminarProgeso(item.id)" mdbWavesEffect>Borrar</button>
+        </p>
+      </div>
+    </div>
+  </div>
+  <hr>
 </div>

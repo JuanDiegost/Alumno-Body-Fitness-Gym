@@ -44,7 +44,7 @@
     <div class="md-form mb-5">
       <i class="fa fa-user prefix blue-text"></i>
       <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
-        mdbInputDirective [(ngModel)]="nombreAlumno">
+        mdbInputDirective [(ngModel)]="nombreAlumno" (keyup)="_onliLetters($event)" pattern="[A-Za-zñáéíóú ]+">
       <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
     </div>
 
@@ -58,7 +58,7 @@
     <div class="md-form mb-5">
       <i class="fa fa-phone-square prefix blue-text"></i>
       <input type="text" id="orangeForm-telefono" class="form-control validate" [formControl]="signupFormModalTelefono"
-        mdbInputDirective [(ngModel)]="telefonoAlumno">
+        mdbInputDirective [(ngModel)]="telefonoAlumno" (keyup)="_onliNumbers($event)"  pattern="[0-9]*">
       <label data-error="wrong" data-success="right" for="orangeForm-telefono">Telefono</label>
     </div>
     <div class="md-form mb-5">

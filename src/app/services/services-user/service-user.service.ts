@@ -11,6 +11,10 @@ export class ServiceUserService {
     return this.http.get("/alumno/"+localStorage.getItem("idAlumno"));
   }
 
+  getStudentData(id){
+    return this.http.get("/alumno/"+id);
+  }
+
   updateUser(alumno){
     return this.http.put("/alumno",alumno);
   }
@@ -21,5 +25,13 @@ export class ServiceUserService {
 
   addProgress(data){
     return this.http.post("/progresoImagen/"+localStorage.getItem("idAlumno"),data);
+  }
+
+  deletProgres(id){
+    return this.http.delete("progresoImagen/"+id);
+  }
+
+  getListAlumn(){
+    return this.http.get("/alumnos");
   }
 }
