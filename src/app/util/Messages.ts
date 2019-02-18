@@ -60,6 +60,10 @@ export class Messages {
   static readonly titleGuardadoCambios='Correcto';
   static readonly messageErrorGuardadoCambios='No se han podido guardar los cambios'
   static readonly errorSave = 'Error de guardado';
+  static readonly titleErrorPatternOnlyLettersAndSpace = 'Error de Caracteres';
+  static readonly messageErrorPatternOnlyLettersAndSpace = 'El campo nombre solo puede contener letras, y espacios';
+  static readonly messageErrorPatternOnlyNumbers = 'El campo telefono solo puede contener numeros';
+
 
 }
 

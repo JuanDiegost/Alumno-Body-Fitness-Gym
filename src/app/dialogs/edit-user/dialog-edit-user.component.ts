@@ -9,6 +9,8 @@ import { UploadService } from "../../services/upload/upload.service";
 import { FileUpload } from "../../util/upload";
 import * as firebase from "firebase";
 import { Confirms } from "../../util/Confirms";
+import { Constants } from "../../util/Constants";
+import { Messages } from "../../util/Messages";
 
 @Component({
   selector: "app-dialog-edit-user",
@@ -99,7 +101,15 @@ export class DialogEditUserComponent implements OnInit {
       alumno = alumno["value"];
       console.log(alumno);
       alumno["nombreAlumno"] = this.nombreAlumno;
+      if (this.nombreAlumno.match(Constants.regexOnlyLetterAndSpace) === null) {
+        Confirms.showErrorType(Messages.titleErrorPatternOnlyLettersAndSpace, Messages.messageErrorPatternOnlyLettersAndSpace);
+        return;
+      }
       alumno["telefonoAlumno"] = this.telefonoAlumno;
+      if (this.telefonoAlumno.match(Constants.regexOnlyNumbers) === null) {
+        Confirms.showErrorType(Messages.titleErrorPatternOnlyLettersAndSpace, Messages.messageErrorPatternOnlyNumbers);
+        return;
+      }
       alumno["emailAlumno"] = this.emailAlumno;
       alumno["usuarioAlumno"] = this.usuarioAlumno;
       alumno["genero"] = this.genero;
