@@ -58,7 +58,7 @@ export class DialogLoginComponent implements OnInit {
         Confirms.showErrorType(Messages.titleErrorData, Messages.messageErrorLogin);
         elementPassword.value = "";
       },
-      () => this.navigate(RoutersApp.student+RoutersApp.profile)
+      () => this.navigate(RoutersApp.student+"/"+RoutersApp.profile)
     );
   }
   loginUsers() {
@@ -109,7 +109,7 @@ export class DialogLoginComponent implements OnInit {
         console.log(event);
         
         if (event.keyCode === KEY_CODE.ENTER) {
-          this.loginUsers();
+          this.loginUser(null);
         }
 
     

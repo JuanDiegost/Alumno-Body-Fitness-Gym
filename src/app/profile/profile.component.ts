@@ -18,12 +18,7 @@ export class ProfileComponent implements OnInit {
     public dialog: MatDialog,
     public userService: ServiceUserService
   ) {
-    this.dialog.afterAllClosed.subscribe(data => {
-      this.loading = true;
-      setTimeout(() => {
-        this.getDataUser();
-      }, 1000);
-    });
+   
   }
 
   idAlumno: number;
@@ -105,7 +100,15 @@ export class ProfileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
+      if(result){
+       this.loading = true;
+       this.getDataUser();
+    }
     });
+    /* this.dialog.afterAllClosed.subscribe(data => {
+      setTimeout(() => {
+      }, 1000);
+    }); */
 
     this.showScreenDark(dialogRef);
   }
@@ -148,5 +151,13 @@ export class ProfileComponent implements OnInit {
   }
   replaceAt(textr, index, replace) {
     return textr.substring(0, index) + replace + textr.substring(index + 1);
+  }
+  guardar(){
+    this.dialog.afterAllClosed.subscribe(data => {
+      this.loading = true;
+      setTimeout(() => {
+        this.getDataUser();
+      }, 1000);
+    });
   }
 }

@@ -31,6 +31,7 @@ export class DialogEditPassComponent implements OnInit {
     this.userService.changePass(this.username,this.actualPass,this.newPass).subscribe(data=>{
       console.log(data);
       Confirms.showSuccessType("Correcto","Se ha actualizado su contraseña");
+      this.dialogRef.close(this.username);
     },error=>{
       Confirms.showErrorType("Incorrecto","Credenciales incorrectas");
     })
