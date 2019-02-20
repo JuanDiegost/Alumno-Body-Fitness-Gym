@@ -147,9 +147,9 @@ export class StudentScheduleComponent implements OnInit {
                 this.refresh.next();
               }
 
-              addEvent1(initDate,finDate,descripcion,init,trainer): void {
+              addEvent1(initDate,finDate,descripcion,init,trainer,cupos): void {
                 this.events.push({
-                  title: descripcion +"  dictada por "+"::"+trainer,
+                  title: descripcion +"  dictada por "+"::"+trainer+" cupos disponibles>>"+cupos,
                   start: addHours(startOfDay(initDate),init),
                   end: finDate,
                   color: colors.blue,
@@ -194,7 +194,7 @@ export class StudentScheduleComponent implements OnInit {
       console.log(this.listaHoraio);
       for (let row of this.listaHoraio){
 
-        var initialHourDate = row[0].split("-");
+        var initialHourDate = row[1].split("-");
         var anio =initialHourDate[0];
         var mes =initialHourDate[1];
         var diaS =initialHourDate[2];
@@ -205,7 +205,7 @@ export class StudentScheduleComponent implements OnInit {
         console.log(initHour);
 
 
-        var diaLastWeek = row[1];
+        var diaLastWeek = row[2];
         var finHourClass = diaLastWeek.split("-");
         var anioF =finHourClass[0];
         var mesF =finHourClass[1];
@@ -218,7 +218,7 @@ export class StudentScheduleComponent implements OnInit {
 
         var descripcion = row[3];
 
-        this.addEvent1(initHour,FinHour,descripcion,hours[0],row[4]);
+        this.addEvent1(initHour,FinHour,descripcion,hours[0],row[5],row[0]);
         //this.addHour(initHour,FinHour,hours[0],row[4]);
 
       }
