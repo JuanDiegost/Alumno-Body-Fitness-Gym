@@ -150,9 +150,12 @@ export class ProfileComponent implements OnInit {
       "  opacity: 1;      /* fx, safari, opera */";
   }
   replaceAt(textr, index, replace) {
+    if (!textr) {
+      return '';
+    }
     return textr.substring(0, index) + replace + textr.substring(index + 1);
   }
-  guardar(){
+  guardar() {
     this.dialog.afterAllClosed.subscribe(data => {
       this.loading = true;
       setTimeout(() => {
