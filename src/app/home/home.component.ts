@@ -177,6 +177,11 @@ export class HomeComponent implements OnInit {
       height: 'max-content',
       data: dataRouterService,
     });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        window.removeEventListener('scroll', this.scrollEvent);
+      }
+    });
     this.setEventOpacityScreen(dialogRef);
   }
 

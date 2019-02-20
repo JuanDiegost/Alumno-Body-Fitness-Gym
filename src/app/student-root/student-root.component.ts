@@ -21,9 +21,6 @@ export class StudentRootComponent implements OnInit {
       document.getElementById('div-menu-full').hidden = true;
     }
     this.router.navigateByUrl(RoutersApp.completeStudentProfile);
-
-
-    
   }
 
   printOfBlack(element: HTMLButtonElement) {
@@ -33,10 +30,10 @@ export class StudentRootComponent implements OnInit {
     this.currentButtonPressedToolBar = element;
     element.style.backgroundColor = 'black';
   }
+
   printOfBlackOut(element: HTMLButtonElement){
     this.printOfBlack(element);
     localStorage.removeItem("idAlumno");
-
   }
 
   getRouterHome(): string {
@@ -71,5 +68,4 @@ export class StudentRootComponent implements OnInit {
   isScreenLow(): boolean {
     return window.screen.width < 900;
   }
-
 }

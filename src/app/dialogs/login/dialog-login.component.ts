@@ -52,8 +52,7 @@ export class DialogLoginComponent implements OnInit {
           elementPassword.value = "";
           return;
         }
-        this.dialogRef.close();
-
+        this.dialogRef.close(res[0]);
       },
       error => {
         console.error(error);
