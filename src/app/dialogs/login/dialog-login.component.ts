@@ -26,7 +26,7 @@ export class DialogLoginComponent implements OnInit {
 
   ngOnInit() {}
 
-  loginUser(event: Event) {
+  loginUser() {
     const elementUserName = <HTMLInputElement>(
       document.getElementById("userName")
     );
@@ -35,7 +35,7 @@ export class DialogLoginComponent implements OnInit {
     );
     const username: string = elementUserName.value;
     const password: string = elementPassword.value;
-    event.preventDefault();
+    // event.preventDefault();
 
     this.data.servicePageHome.login(username, password).subscribe(
       res => {
@@ -52,6 +52,8 @@ export class DialogLoginComponent implements OnInit {
           elementPassword.value = "";
           return;
         }
+        this.dialogRef.close();
+
       },
       error => {
         console.error(error);
@@ -101,19 +103,11 @@ export class DialogLoginComponent implements OnInit {
   private navigate(router: string) {
     this.data.router.navigateByUrl(router);
   }
-   
 
-     
   @HostListener('window:keyup', ['$event'])
-      keyEvent(event: KeyboardEvent) {
-        console.log(event);
-        
-        if (event.keyCode === KEY_CODE.ENTER) {
-          this.loginUser(null);
-        }
-
-    
+  keyEvent(event: KeyboardEvent) {
+    if (event.keyCode === KEY_CODE.ENTER) {
+      this.loginUser();
+    }
   }
-
-
 }
