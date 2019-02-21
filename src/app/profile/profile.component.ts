@@ -3,8 +3,8 @@ import { MatDialog } from "@angular/material";
 import { DialogEditUserComponent } from "./../dialogs/edit-user/dialog-edit-user.component";
 import { ServiceUserService } from "../services/services-user/service-user.service";
 import { DialogEditPassComponent } from "../dialogs/dialog-edit-pass/dialog-edit-pass/dialog-edit-pass.component";
-import {Router} from '@angular/router';
-import {RoutersApp} from '../util/RoutersApp';
+import { Router } from "@angular/router";
+import { RoutersApp } from "../util/RoutersApp";
 
 @Component({
   selector: "app-profile",
@@ -14,12 +14,11 @@ import {RoutersApp} from '../util/RoutersApp';
 export class ProfileComponent implements OnInit {
   panelOpenState = false;
 
-  constructor(private router: Router,
+  constructor(
+    private router: Router,
     public dialog: MatDialog,
     public userService: ServiceUserService
-  ) {
-   
-  }
+  ) {}
 
   idAlumno: number;
   dniAlumno: String;
@@ -34,6 +33,7 @@ export class ProfileComponent implements OnInit {
   diasdif;
   fechaNacimiento;
   genero;
+  sesiones;
 
   public loading = true;
 
@@ -43,34 +43,46 @@ export class ProfileComponent implements OnInit {
 
   getDataUser() {
     this.loading = true;
-    this.userService.getUserData().subscribe(res => {
-      this.loading = false;
-      res = res["value"];
-      console.log(res);
-      this.idAlumno = res["idAlumno"];
-      this.dniAlumno = res["dniAlumno"];
-      this.nombreAlumno = res["nombreAlumno"];
-      this.telefonoAlumno = res["telefonoAlumno"];
-      this.urlImagenUsuario = res["urlImagenUsuario"];
-      this.emailAlumno = res["emailAlumno"];
-      this.usuarioAlumno = res["usuarioAlumno"];
-      this.historiaMedico = res["historialMedico"];
-      this.fechaNacimiento = res["fechaNacimiento"];
-      this.historialSuscripciones = res["historialSuscripcion"];
-      this.genero = res["genero"];
-      //this.historialSuscripciones = this.historialSuscripciones.reverse();
-      this.ultimaSuscripcion = this.historialSuscripciones[0];
-      let now = new Date();
-      let date = new Date(
-        this.replaceAt(this.ultimaSuscripcion.fechaFin, 10, " ")
-      );
-      this.diasdif = date.getTime() - now.getTime();
-      this.diasdif = Math.round(this.diasdif / (1000 * 60 * 60 * 24));
-    },err=>{
-      console.log(err);
-      localStorage.removeItem("idAlumno");
-      this.router.navigateByUrl(RoutersApp.home);
-    });
+    this.userService.getUserData().subscribe(
+      res => {
+        this.loading = false;
+        res = res["value"];
+        console.log(res);
+        this.idAlumno = res["idAlumno"];
+        this.dniAlumno = res["dniAlumno"];
+        this.nombreAlumno = res["nombreAlumno"];
+        this.telefonoAlumno = res["telefonoAlumno"];
+        this.urlImagenUsuario = res["urlImagenUsuario"];
+        this.emailAlumno = res["emailAlumno"];
+        this.usuarioAlumno = res["usuarioAlumno"];
+        this.historiaMedico = res["historialMedico"];
+        this.fechaNacimiento = res["fechaNacimiento"];
+        this.historialSuscripciones = res["historialSuscripcion"];
+        this.genero = res["genero"];
+        //this.historialSuscripciones = this.historialSuscripciones.reverse();
+        this.historialSuscripciones.sort((a,b)=>{
+          return a.idSuscripcion - b.idSuscripcion;
+        });
+        this.historialSuscripciones=this.historialSuscripciones.reverse();
+        this.ultimaSuscripcion = this.historialSuscripciones[0];
+        let now = new Date();
+
+        if (this.ultimaSuscripcion.fechaFin === "") {
+          this.sesiones=this.ultimaSuscripcion.sesiones;
+        } else {
+          let date = new Date(
+            this.replaceAt(this.ultimaSuscripcion.fechaFin, 10, " ")
+          );
+          this.diasdif = date.getTime() - now.getTime();
+          this.diasdif = Math.round(this.diasdif / (1000 * 60 * 60 * 24));
+        }
+      },
+      err => {
+        console.log(err);
+        localStorage.removeItem("idAlumno");
+        this.router.navigateByUrl(RoutersApp.home);
+      }
+    );
   }
 
   openDialogEditUser() {
@@ -100,10 +112,10 @@ export class ProfileComponent implements OnInit {
 
     dialogRef.afterClosed().subscribe(result => {
       console.log("The dialog was closed");
-      if(result){
-       this.loading = true;
-       this.getDataUser();
-    }
+      if (result) {
+        this.loading = true;
+        this.getDataUser();
+      }
     });
     /* this.dialog.afterAllClosed.subscribe(data => {
       setTimeout(() => {
@@ -151,7 +163,7 @@ export class ProfileComponent implements OnInit {
   }
   replaceAt(textr, index, replace) {
     if (!textr) {
-      return '';
+      return "";
     }
     return textr.substring(0, index) + replace + textr.substring(index + 1);
   }
