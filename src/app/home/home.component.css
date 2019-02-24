@@ -2,12 +2,11 @@
   padding: 0 1em;
 }
 
-.about-div{
+.about-div {
   /* background-color:  #162a9e; */
   opacity: 0.85;
   padding: 10px;
-  color: blue
-  ;
+  color: blue;
   border-radius: 5px;
 }
 
@@ -52,9 +51,9 @@ h1 {
 
 #div-image-aboutOf h2 {
   /* text-align: center; */
- font-size: 
 }
-.center-div{
+
+.center-div {
   font-style: italic;
 }
 
@@ -70,12 +69,16 @@ h1 {
 
 #div-image-aboutOf h3 {
   font-size: 1.5rem;
-  
 }
 
-#div-image-init div, #div-image-services div {
+#div-image-init div {
   position: absolute;
   bottom: 25%;
+}
+
+#div-image-services div {
+  position: absolute;
+  margin-top: 3%;
 }
 
 #div-one-aboutOf {
@@ -228,7 +231,6 @@ table {
   color: grey;
   font-size: xx-large;
   position: relative;
-  
 }
 
 @media (max-width: 1000px) {

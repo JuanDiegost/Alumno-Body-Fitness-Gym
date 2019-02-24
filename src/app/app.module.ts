@@ -40,7 +40,7 @@ import { UploadService } from "./services/upload/upload.service";
 import { HorarioService } from "./services/horario/horario.service";
 
 // guards
-import { CanActiveVerifyLoginGuard } from "./guards/verify-login/can-active-verify-login.guard";
+import { CanActiveVerifyLoginGuardStudent } from "./guards/verify-login-student/can-active-verify-login-guard-student.service";
 
 import { RoutersApp } from "./util/RoutersApp";
 import { StudentProgressComponent } from "./student-progress/student-progress.component";
@@ -64,6 +64,11 @@ import { DialogAddProgressComponent } from "./dialogs/dialog-add-progress/dialog
 import { TrainerClassComponent } from "./trainer/class/trainer-class.component";
 import { ListStudentsComponent } from "./list-students/list-students.component";
 import { StudentDetailComponent } from './student-detail/student-detail.component';
+import {CanActiveVerifyLoginTrainer} from './guards/verify-login-trainer/can-active-verify-login-trainer-guard.service';
+import { TrainerRootComponent } from './trainer-root/trainer-root.component';
+import { ProfileTrainerComponent } from './profile-trainer/profile-trainer.component';
+import { DialogEditTrainerComponent } from './dialogs/edit-trainer/dialog-edit-trainer.component';
+import { OnlyTrainerScheduleComponent } from './only-trainer-schedule/only-trainer-schedule.component';
 //end calendar
 
 const routes: Route[] = [
@@ -71,7 +76,7 @@ const routes: Route[] = [
   {
     path: RoutersApp.student,
     component: StudentRootComponent,
-    canActivate: [CanActiveVerifyLoginGuard],
+    canActivate: [CanActiveVerifyLoginGuardStudent],
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.progress, component: StudentProgressComponent },
@@ -82,9 +87,19 @@ const routes: Route[] = [
       { path: RoutersApp.profile, component: ProfileComponent }
     ]
   },
-  { path: "list/students", component: ListStudentsComponent },
+  {
+    path: RoutersApp.trainer,
+    component: TrainerRootComponent,
+    canActivate: [CanActiveVerifyLoginTrainer],
+    children: [
+      { path: RoutersApp.schedule, component: StudentScheduleComponent },
+      { path: RoutersApp.onlyTrainerSchedule, component: OnlyTrainerScheduleComponent},
+      { path: RoutersApp.profile, component: ProfileTrainerComponent }
+    ]
+  },
+  { path: 'list/students', component: ListStudentsComponent },
   { path: RoutersApp.studentDetail, component: StudentDetailComponent },
-  { path: "**", pathMatch: "full", redirectTo: "RoutersApp.home" }
+  { path: '**', pathMatch: 'full', redirectTo: RoutersApp.home }
 
 ];
 
@@ -104,7 +119,11 @@ const routes: Route[] = [
     DialogAddProgressComponent,
     TrainerClassComponent,
     ListStudentsComponent,
-    StudentDetailComponent
+    StudentDetailComponent,
+    TrainerRootComponent,
+    ProfileTrainerComponent,
+    DialogEditTrainerComponent,
+    OnlyTrainerScheduleComponent,
   ],
   exports: [StudentScheduleComponent],
   imports: [
@@ -138,7 +157,8 @@ const routes: Route[] = [
     DialogLoginComponent,
     DialogEditUserComponent,
     DialogEditPassComponent,
-    DialogAddProgressComponent
+    DialogAddProgressComponent,
+    DialogEditTrainerComponent,
   ],
   providers: [
     ServicePageHome,

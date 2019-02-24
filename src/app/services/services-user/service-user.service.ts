@@ -7,6 +7,10 @@ import { HttpClient } from "@angular/common/http";
 export class ServiceUserService {
   constructor(public http:HttpClient) {}
 
+  getUserDataTrainer(){
+    return this.http.get("/entrenador/"+localStorage.getItem("idAlumno"));
+  }
+
   getUserData(){
     return this.http.get("/alumno/"+localStorage.getItem("idAlumno"));
   }
@@ -17,6 +21,10 @@ export class ServiceUserService {
 
   updateUser(alumno){
     return this.http.put("/alumno",alumno);
+  }
+
+  updateUserTrainer(trainer) {
+    return this.http.put('/entrenador', trainer);
   }
 
   changePass(username:string,actualPass:string,newPass:string){

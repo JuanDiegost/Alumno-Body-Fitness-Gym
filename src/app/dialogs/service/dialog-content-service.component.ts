@@ -10,7 +10,7 @@ import {ChipServices} from '../../interfaces';
 // @ts-ignore
 export class DialogContentServiceComponent {
   // @ts-ignore
-  constructor(public dialogRef: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data: ChipServices) {}
+  constructor(public dialogRef: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data) {}
 
   closeDialog() {
 

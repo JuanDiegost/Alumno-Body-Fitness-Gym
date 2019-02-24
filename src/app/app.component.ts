@@ -12,10 +12,10 @@ import * as AOS from 'aos';
 })
 // @ts-ignore
 export class AppComponent implements OnInit {
-  constructor(private router: Router,public firebase:FirebaseApp) {}
+  constructor(private router: Router, public firebase:FirebaseApp) {}
 
   ngOnInit() {
-    this.router.navigateByUrl(RoutersApp.student+"/"+RoutersApp.profile);
+    // this.router.navigateByUrl(RoutersApp.student+"/"+RoutersApp.profile);
     AOS.init();
   }
 }

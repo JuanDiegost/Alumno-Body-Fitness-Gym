@@ -11,6 +11,8 @@ import * as firebase from "firebase";
 import { Confirms } from "../../util/Confirms";
 import { Constants } from "../../util/Constants";
 import { Messages } from "../../util/Messages";
+import {ProfileTrainerComponent} from '../../profile-trainer/profile-trainer.component';
+import {ProfileComponent} from '../../profile/profile.component';
 
 @Component({
   selector: "app-dialog-edit-user",
@@ -44,6 +46,7 @@ export class DialogEditUserComponent implements OnInit {
   public dialog;
 
   constructor(
+    public dialogRef: MatDialogRef<ProfileComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any,
     public userService: ServiceUserService,
     private snackBar: MatSnackBar,
@@ -121,8 +124,9 @@ export class DialogEditUserComponent implements OnInit {
         this.loading = true;
         Confirms.showSuccessType(
           "Correcto",
-          "Se ha actualizado su infromación personal"
+          "Se ha actualizado su información personal"
         );
+        this.dialogRef.close(alumno);
       });
     });
   }
@@ -137,8 +141,9 @@ export class DialogEditUserComponent implements OnInit {
         this.loading = true;
         Confirms.showSuccessType(
           "Correcto",
-          "Se ha actualizado su infromación personal"
+          "Se ha actualizado su información personal"
         );
+        this.dialogRef.close(alumno);
       },error=>{
         Confirms.showErrorType("Error","No se ha podido cambiar, nombre de usuario ya esta en uso");
       });

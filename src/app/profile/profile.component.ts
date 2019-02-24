@@ -79,7 +79,8 @@ export class ProfileComponent implements OnInit {
       },
       err => {
         console.log(err);
-        localStorage.removeItem("idAlumno");
+        // localStorage.removeItem("idAlumno");
+        localStorage.clear();
         this.router.navigateByUrl(RoutersApp.home);
       }
     );
@@ -99,6 +100,11 @@ export class ProfileComponent implements OnInit {
         fechaNacimiento: this.fechaNacimiento,
         genero: this.genero,
         urlImg: this.urlImagenUsuario
+      }
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      if (res) {
+        this.getDataUser();
       }
     });
     this.showScreenDark(dialogRef);

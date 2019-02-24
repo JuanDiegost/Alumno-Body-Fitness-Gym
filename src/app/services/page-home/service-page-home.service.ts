@@ -15,6 +15,10 @@ export class ServicePageHome {
     return this.httpClient.get('login/alumno/'+username+"/"+password);
   }
 
+  loginTrainer(username: string, password: string) {
+    return this.httpClient.get('login/entrenador/' + username + '/' + password);
+  }
+
   getRates() {
     //return this.httpClient.get('/apirest/cities').pipe(map(data => JSON.parse(JSON.stringify(data['0']))));
   }

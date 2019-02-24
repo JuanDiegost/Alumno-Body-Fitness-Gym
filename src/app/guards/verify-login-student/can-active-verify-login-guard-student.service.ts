@@ -3,22 +3,26 @@ import {CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, CanActivateChi
 import { Observable } from 'rxjs';
 import {ServiceLogin} from '../../services/login/service-login.service';
 import {RoutersApp} from '../../util/RoutersApp';
+import {UserType} from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 // @ts-ignore
-export class CanActiveVerifyLoginGuard implements CanActivate {
+export class CanActiveVerifyLoginGuardStudent implements CanActivate {
 
   constructor(private router: Router, private serviceLogin: ServiceLogin) { }
 
   // @ts-ignore
   canActivate(): boolean {
-    if (!this.serviceLogin.isUserLoggedIn()) {
-      this.navigate(RoutersApp.home);
-      return false;
+    if (this.serviceLogin.isUserLoggedIn()) {
+      const user = this.serviceLogin.getTypeUser();
+      if (user.type === UserType.STUDENT) {
+        return true;
+      }
     }
-    return true;
+    this.navigate(RoutersApp.home);
+    return false;
   }
 
   private navigate(router: string) {

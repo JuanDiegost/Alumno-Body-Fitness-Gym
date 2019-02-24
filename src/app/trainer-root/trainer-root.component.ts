@@ -1,15 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from '@angular/router';
 import {RoutersApp} from '../util/RoutersApp';
+import {Router} from '@angular/router';
 import {ServiceLogin} from '../services/login/service-login.service';
 
 @Component({
-  selector: 'app-student-root',
-  templateUrl: './student-root.component.html',
-  styleUrls: ['./student-root.component.css']
+  selector: 'app-trainer-root',
+  templateUrl: './trainer-root.component.html',
+  styleUrls: ['./trainer-root.component.css']
 })
-// @ts-ignore
-export class StudentRootComponent implements OnInit {
+export class TrainerRootComponent implements OnInit {
   currentButtonPressedToolBar: HTMLButtonElement;
 
   constructor(private router: Router, private serviceLogin: ServiceLogin) { }
@@ -20,7 +19,7 @@ export class StudentRootComponent implements OnInit {
     } else {
       document.getElementById('div-menu-full').hidden = true;
     }
-    this.router.navigateByUrl(RoutersApp.completeStudentProfile);
+    this.router.navigateByUrl(RoutersApp.completeTrainerProfile);
   }
 
   printOfBlack(element: HTMLButtonElement) {
@@ -33,9 +32,8 @@ export class StudentRootComponent implements OnInit {
 
   printOfBlackOut(element: HTMLButtonElement){
     this.printOfBlack(element);
-    localStorage.clear();
-    // localStorage.removeItem("idAlumno");
-    // localStorage.removeItem(ServiceLogin.keyUserLocalStorage);
+    localStorage.removeItem("idAlumno");
+    localStorage.removeItem(ServiceLogin.keyUserLocalStorage);
   }
 
   getRouterHome(): string {
@@ -46,12 +44,8 @@ export class StudentRootComponent implements OnInit {
     return RoutersApp.schedule;
   }
 
-  getRouterProgress(): string {
-    return RoutersApp.progress;
-  }
-
-  getRouterMedicalHistory() {
-    return RoutersApp.medicalHistory;
+  getRouterMySchedule(): string {
+    return RoutersApp.onlyTrainerSchedule;
   }
 
   getRouterProfile() {

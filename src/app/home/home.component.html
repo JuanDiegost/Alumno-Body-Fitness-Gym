@@ -56,10 +56,10 @@
 
     <!-- <img src="assets/img/4.jpeg"> -->
     <div>
-      <h1 [@EnterLeave]="'flyIn'" class="cyan-text">Body Firness Gym</h1>
+      <h1 [@EnterLeave]="'flyIn'" class="cyan-text">Body Fitness Gym</h1>
       <h2 [@EnterLeave]="'flyIn'"class="cyan-text" >Una manera sana de desarrollar las capacidades musculares.</h2>
       <!-- <button [@EnterLeave]="'flyIn'" mat-flat-button (click)="scrollToElement('div-image-aboutOf')">Iniciar Recorrido</button> -->
-      <button [@EnterLeave]="'flyIn'" data-aos="fade-right" mdbBtn class=" btn-large" type="button" (click)="scrollToElement('div-image-aboutOf')" gradient="aqua" rounded="true" mdbWavesEffect>Iniciar Recorrido
+      <button [@EnterLeave]="'flyIn'" data-aos="fade-right" mdbBtn class="btn-large" type="button" (click)="scrollToElement('div-image-aboutOf')" gradient="aqua" rounded="true" mdbWavesEffect>Iniciar Recorrido
           <i class="fa fa-sync-alt fa-spin"></i>
       </button>
     </div>
@@ -81,7 +81,7 @@
                   <!--Title-->
                   <mdb-card-title>
                     <h4 >
-                      <strong><h3 class="text-primary "  data-aos="fade-left">Mision</h3>
+                      <strong><h3 class="text-primary "  data-aos="fade-left">Misión</h3>
                         </strong>
                     </h4>
                     <mdb-card-text>
@@ -92,7 +92,7 @@
                   </mdb-card-title>
               
                   <h5 class="indigo-text">
-                    <strong><h3 class="text-primary" data-aos="fade-right">Vision</h3></strong>
+                    <strong><h3 class="text-primary" data-aos="fade-right">Visión</h3></strong>
                   </h5>
               
                   <mdb-card-text  >
@@ -182,28 +182,28 @@
           </mdb-card-body>
           
   </mdb-card>
-  <div id="div-image-services" data-aos="fade-right">
-   
-    <div>
-      <h2 class="text-primary"style="text-decoration: underline;" aria-pressed="true" mdbWavesEffect>Servicios
+
+  <div style="text-align: center; margin-top: 5em;" data-aos="fade-right">
+    <div id="div-image-services-inside">
+      <h2 class="text-primary">Servicios
           <i class="fa fa-sync-alt fa-spin"></i></h2>
       <p style="color: white">Selecciona alguno para ver mas informacion</p>
       <!--<hr class="hr-footer">-->
-      <table>
+      <table style="margin-bottom: 3em;">
         <th>
           <mat-chip-list class="mat-chip-list-stacked">
-            <mat-chip  data-aos="fade-down-right" *ngFor="let chip of availablePrograms" selected [color]="chip.color" (click)="openDialogService(chip)">
-              {{chip.name}}
+            <mat-chip style="cursor: pointer; min-width: 10em;" data-aos="fade-down-right" *ngFor="let chip of availablePrograms" selected [color]="chip.color" (click)="openDialogService(chip)">
+              {{chip.nombreServicio}}
             </mat-chip>
           </mat-chip-list>
         </th>
       </table>
-      <hr>
       <!--<hr class="hr-footer">-->
     </div>
+    <hr style="margin-top: 5em">
   </div>
 
-  <div id="div-image-rates"  data-aos="flip-left">
+  <div id="div-image-rates" data-aos="flip-left">
     <h2 class="text-primary animated fadeInUpBig">Tarifas</h2>
     <table mat-table [dataSource]="dataSourceTableRates">
       <ng-container matColumnDef="name">

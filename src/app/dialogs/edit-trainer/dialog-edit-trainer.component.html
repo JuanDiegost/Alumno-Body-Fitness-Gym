@@ -1,0 +1,70 @@
+
+<div class="modal-content">
+  <div class="modal-header text-center">
+    <button mdbBtn type="button" outline="true" class="btn btn-rounded btn-md lg-6 md-6" id="tablink" (click)="displayContentUser()"
+            color="primary" rounded="true" mdbWavesEffect>Usuario
+      <i class="fa fa-user-circle-o " aria-hidden="true"></i>
+    </button>
+    <button mdbBtn type="button" outline="true" class="btn btn-rounded btn-md lg-6 md-6" id="tablink" (click)="displayContentPersonal()"
+            color="primary" rounded="true" mdbWavesEffect>Informacion Personal
+      <i class="fa fa-address-card-o" aria-hidden="true"></i>
+    </button>
+
+  </div>
+
+  <div id="Usuario" class="modal-body mx-3">
+
+    <div class="avatar mx-auto white">
+      <img src="" [src]="urlImg" alt="avatar mx-auto white" class="img-perfil rounded-circle mx-auto d-block">
+      <div id="progress-element" style="display: none" class="progress">
+        <div class="progress-bar" role="progressbar" [ngStyle]="{'width': progress +'%'}" aria-valuenow="{{progress}}"
+             aria-valuemin="0" aria-valuemax="100"></div>
+      </div>
+      <div class="md-form mb-5">
+        <input type="file" id="orangeForm-img" (change)="onFileSelectedListener($event)">
+      </div>
+    </div>
+
+    <div id="btnUser" class="modal-footer d-flex justify-content-center">
+      <button mdbBtn color="deep-orange" class="waves-light" (click)="saveImage()" mdbWavesEffect>Guardar Imagen</button>
+    </div>
+  </div>
+
+
+
+  <div id="Personal" class="modal-body mx-3">
+
+
+    <div class="md-form mb-5">
+      <i class="fa fa-user prefix blue-text"></i>
+      <input type="text" id="orangeForm-name" class="form-control validate" [formControl]="signupFormModalName"
+             mdbInputDirective [(ngModel)]="nombreEntrenador" (keyup)="_onlyLetters($event)" pattern="[A-Za-zñáéíóú ]+">
+      <label data-error="wrong" data-success="right" for="orangeForm-name">Nombre</label>
+    </div>
+
+    <div class="md-form mb-5">
+      <i class="fa fa-address-book prefix blue-text"></i>
+      <input type="text" id="orangeForm-documento" class="form-control validate" [formControl]="signupFormModalDni"
+             mdbInputDirective [(ngModel)]="dniEntrenador" disabled>
+      <label data-error="wrong" data-success="right" for="orangeForm-documento">Documento</label>
+    </div>
+
+    <div class="md-form mb-5">
+      <i class="fa fa-phone-square prefix blue-text"></i>
+      <input type="text" id="orangeForm-telefono" class="form-control validate" [formControl]="signupFormModalTelefono"
+             mdbInputDirective [(ngModel)]="telefonoEntrenador" (keyup)="_onlyNumbers($event)" pattern="[0-9]*">
+      <label data-error="wrong" data-success="right" for="orangeForm-telefono">Telefono</label>
+    </div>
+    <div class="md-form mb-5">
+      <i class="fa fa-envelope prefix blue-text"></i>
+      <input type="email" id="orangeForm-email" class="form-control validate" [formControl]="signupFormModalEmail"
+             mdbInputDirective [(ngModel)]="emailEntrenador">
+      <label data-error="wrong" data-success="right" for="orangeForm-email">Correo</label>
+    </div>
+
+  </div>
+
+  <div id="btnPerson" class="modal-footer d-flex justify-content-center">
+    <button mdbBtn color="deep-orange" class="waves-light" (click)="saveUser()" mdbWavesEffect>Guardar</button>
+  </div>
+</div>

@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
-import {User} from '../../interfaces';
+import {User, UserType} from '../../interfaces';
 
 @Injectable({
   providedIn: 'root'
 })
 // @ts-ignore
 export class ServiceLogin {
+  public static readonly keyUserLocalStorage = 'currentUser';
+  private keyUserLocalStorage = 'currentUser';
   private userLoggedIn;
   public userLogged: User;
-  private keyUserLocalStorage = 'currentUser';
-  private idUser='idAlumno';
+  // private idUser='idUser';
 
   constructor() {
     this.userLoggedIn = false;
@@ -26,12 +27,15 @@ export class ServiceLogin {
   }
 
   isUserLoggedIn(): boolean {
-    return localStorage.getItem(this.idUser)!=undefined;
+    return localStorage.getItem(this.keyUserLocalStorage) ? true : false;
+  }
+
+  getTypeUser(): User {
+    return JSON.parse(localStorage.getItem(this.keyUserLocalStorage)) as User;
   }
 
   closeSession() {
     this.userLoggedIn = false;
     this.userLogged = null;
-    localStorage.removeItem(this.keyUserLocalStorage);
   }
 }
