@@ -69,6 +69,8 @@ import { TrainerRootComponent } from './trainer-root/trainer-root.component';
 import { ProfileTrainerComponent } from './profile-trainer/profile-trainer.component';
 import { DialogEditTrainerComponent } from './dialogs/edit-trainer/dialog-edit-trainer.component';
 import { OnlyTrainerScheduleComponent } from './only-trainer-schedule/only-trainer-schedule.component';
+import { TrainerStudentScheduleComponent } from './trainer-student-schedule/trainer-student-schedule.component';
+import { GetMedicalHistoryComponent } from './dialogs/get-medical-history/get-medical-history.component';
 //end calendar
 
 const routes: Route[] = [
@@ -94,6 +96,7 @@ const routes: Route[] = [
     children: [
       { path: RoutersApp.schedule, component: StudentScheduleComponent },
       { path: RoutersApp.onlyTrainerSchedule, component: OnlyTrainerScheduleComponent},
+      { path: RoutersApp.listStudentForSchedule, component: TrainerStudentScheduleComponent},
       { path: RoutersApp.profile, component: ProfileTrainerComponent }
     ]
   },
@@ -124,6 +127,8 @@ const routes: Route[] = [
     ProfileTrainerComponent,
     DialogEditTrainerComponent,
     OnlyTrainerScheduleComponent,
+    TrainerStudentScheduleComponent,
+    GetMedicalHistoryComponent,
   ],
   exports: [StudentScheduleComponent],
   imports: [
@@ -159,6 +164,7 @@ const routes: Route[] = [
     DialogEditPassComponent,
     DialogAddProgressComponent,
     DialogEditTrainerComponent,
+    GetMedicalHistoryComponent
   ],
   providers: [
     ServicePageHome,

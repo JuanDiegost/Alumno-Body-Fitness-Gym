@@ -11,4 +11,8 @@ export class HorarioService {
   getHorario() {
     return this.http.get("/horario/filtroSinFechas");
   }
+
+  getStudents(idHorario){
+    return this.http.get("horario/alumnos/"+idHorario);
+  }
 }

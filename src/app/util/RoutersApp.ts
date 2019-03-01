@@ -6,6 +6,7 @@ export class RoutersApp {
   static readonly trainer = 'trainer';
   static readonly schedule = 'schedule';
   static readonly onlyTrainerSchedule = 'schedule-trainer';
+  static readonly listStudentForSchedule = 'list-Students';
   static readonly medicalHistory = 'medicalHistory';
   static readonly profile = 'profile';
 

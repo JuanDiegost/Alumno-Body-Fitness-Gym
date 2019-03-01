@@ -1,0 +1,27 @@
+
+<mdb-card class="text-center " borderColor="border-info" >
+  <mdb-card-header>Hostorial medido del alumno</mdb-card-header>
+  <mdb-card-body>
+
+    
+    <ngx-loading [show]="loading" [config]="{ backdropBorderRadius: '3px' }"></ngx-loading>
+    
+    <div class="center-div">
+      <h2>Cuestionario de Historial Medico</h2>
+      <div class="list-group" *ngFor="let pregunta of listaPreguntas">
+          <div class="d-flex w-100 justify-content-between">
+              <h5 class="mb-2 h5">List group item heading</h5>
+              <small>3 days ago</small>
+            </div>
+        <p [disabled]="isEditable" class="mb-2" [(ngModel)]="pregunta.select">{{pregunta.nombrePregunta}}</p>
+      </div>
+      
+
+
+    </div>
+  </mdb-card-body>
+
+  <div id="btnPerson" class="modal-footer d-flex justify-content-center">
+      <button mdbBtn color="deep-orange" class="waves-light" (click)="updatePass()" mdbWavesEffect mat-dialog-close>Guardar</button>
+    </div>
+</mdb-card>
