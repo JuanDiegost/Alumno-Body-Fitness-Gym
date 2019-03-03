@@ -1,10 +1,10 @@
 import { Component, OnInit } from "@angular/core";
 import { DatePipe } from "@angular/common";
-import { UploadService } from "../../services/upload/upload.service";
-import { FileUpload } from "../../util/upload";
-import * as firebase from "firebase";
 import { ServiceUserService } from "../../services/services-user/service-user.service";
 import { Confirms } from "../../util/Confirms";
+import { HttpClient, HttpResponse, HttpEventType } from '@angular/common/http';
+import {UploadFileService} from '../../upload-file.service'
+import {Constants} from '../../util/Constants'
 
 @Component({
   selector: "app-dialog-add-progress",
@@ -15,18 +15,45 @@ export class DialogAddProgressComponent implements OnInit {
   datePipeEn: DatePipe = new DatePipe("en-US");
 
   public urlImg: string;
-  public progress;
   public dateProgress;
-  public selectedFiles;
-  public currentFileUpload;
   public masaCorporal: number;
   public grasaCorporal: number;
   public loading = false;
 
-  constructor(
-    public uploadService: UploadService,
-    public userService: ServiceUserService
-  ) {}
+  selectedFiles: FileList
+  currentFileUpload: File
+  progress: { percentage: number } = { percentage: 0 }
+
+  constructor(private uploadService: UploadFileService,
+    public userService: ServiceUserService) { }
+
+  selectFile(event) {
+    const file = event.target.files.item(0)
+
+    if (file.type.match('image.*')) {
+      this.selectedFiles = event.target.files;
+      this.upload();
+    } else {
+      alert('invalid format!');
+    }
+  }
+
+  upload() {
+    this.progress.percentage = 0;
+    const file = this.selectedFiles.item(0);
+
+    this.currentFileUpload = this.selectedFiles.item(0)
+    this.uploadService.pushFileToStorage(this.currentFileUpload).subscribe(event => {
+      if (event.type === HttpEventType.UploadProgress) {
+        this.progress.percentage = Math.round(100 * event.loaded / event.total);
+      } else if (event instanceof HttpResponse) {
+        this.urlImg=Constants.URL_BACKEND+event.body;
+      }
+    })
+
+    this.selectedFiles = undefined
+  }
+
 
   ngOnInit() {}
 
@@ -52,43 +79,4 @@ export class DialogAddProgressComponent implements OnInit {
     });
   }
 
-  onFileSelectedListener(event) {
-    let myDiv = document.getElementById("progress-element");
-    myDiv.style.display = "flex";
-    this.selectedFiles = event.target.files;
-    const file = this.selectedFiles.item(0);
-    let fileExtension = "." + file.name.split(".").pop();
-    let name =
-      Math.random()
-        .toString(36)
-        .substring(7) +
-      new Date().getTime() +
-      fileExtension;
-    this.selectedFiles = undefined;
-
-    this.currentFileUpload = new FileUpload(file, name);
-    const uploadTask = this.uploadService.pushFileToStorageProgress(
-      this.currentFileUpload
-    );
-    uploadTask.on(
-      firebase.storage.TaskEvent.STATE_CHANGED,
-      snapshot => {
-        // in progress
-        const snap = snapshot as firebase.storage.UploadTaskSnapshot;
-        this.progress = Math.round(
-          (snap.bytesTransferred / snap.totalBytes) * 100
-        );
-      },
-      error => {
-        // fail
-        console.log(error);
-      },
-      () => {
-        // success
-        this.currentFileUpload.url = uploadTask.snapshot.downloadURL;
-        this.urlImg = this.currentFileUpload.url;
-        myDiv.style.display = "none";
-      }
-    );
-  }
 }

@@ -8,7 +8,7 @@ import { RoutersApp } from "../../util/RoutersApp";
 import {Confirms} from '../../util/Confirms';
 export enum KEY_CODE {
   ENTER = 13,
-  
+
 }
 
 @Component({
@@ -51,6 +51,7 @@ export class DialogLoginComponent implements OnInit {
             type: UserType.STUDENT,
             id: res[0]["dniAlumno"]
           };
+          console.log(res)
           this.data.serviceLogin.setUserLoggedIn(user);
           localStorage.setItem("idAlumno", res[0]["dniAlumno"]);
           this.dialogRef.close(res[0]);

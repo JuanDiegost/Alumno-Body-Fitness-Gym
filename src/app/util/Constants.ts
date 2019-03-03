@@ -4,5 +4,5 @@ export class Constants {
     static readonly MAXIMUM_YEARS_OF_STUDENT = 100;
     static readonly regexOnlyLetterAndSpace = '^[a-zA-ZñÑ\\s]+$';
     static readonly regexOnlyNumbers = '^[0-9]+$';
+    static readonly URL_BACKEND="http://spring-body-fitness-gym.herokuapp.com"
   }
-  

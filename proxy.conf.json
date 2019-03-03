@@ -1,6 +1,6 @@
 {
   "//*": {
-    "target": "http://3.17.83.231:8080",
+    "target": "https://spring-body-fitness-gym.herokuapp.com",
     "secure": false,
     "changeOrigin": true
   }

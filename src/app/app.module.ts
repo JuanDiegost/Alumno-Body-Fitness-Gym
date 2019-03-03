@@ -71,6 +71,7 @@ import { DialogEditTrainerComponent } from './dialogs/edit-trainer/dialog-edit-t
 import { OnlyTrainerScheduleComponent } from './only-trainer-schedule/only-trainer-schedule.component';
 import { TrainerStudentScheduleComponent } from './trainer-student-schedule/trainer-student-schedule.component';
 import { GetMedicalHistoryComponent } from './dialogs/get-medical-history/get-medical-history.component';
+import { FormUploadComponent } from './form-upload/form-upload.component';
 //end calendar
 
 const routes: Route[] = [
@@ -129,6 +130,7 @@ const routes: Route[] = [
     OnlyTrainerScheduleComponent,
     TrainerStudentScheduleComponent,
     GetMedicalHistoryComponent,
+    FormUploadComponent,
   ],
   exports: [StudentScheduleComponent],
   imports: [

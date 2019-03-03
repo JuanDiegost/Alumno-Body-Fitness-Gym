@@ -1,5 +1,6 @@
 import { Injectable } from "@angular/core";
 import { HttpClient } from "@angular/common/http";
+import {Constants} from "../../util/Constants"
 
 @Injectable({
   providedIn: "root"
@@ -44,7 +45,7 @@ export class ServiceUserService {
   }
 
   generatePdf(){
-    window.open("http://spring-body-fitness-gym.herokuapp.com/alumno/"+localStorage.getItem("idAlumno")+"/reporte.pdf",'_self')
+    window.open(Constants.URL_BACKEND+"/alumno/"+localStorage.getItem("idAlumno")+"/reporte.pdf",'_self')
   }
 
 }

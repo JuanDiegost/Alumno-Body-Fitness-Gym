@@ -8,10 +8,26 @@
     <div class="progress-bar" role="progressbar" [ngStyle]="{'width': progress +'%'}" aria-valuenow="{{progress}}"
       aria-valuemin="0" aria-valuemax="100"></div>
   </div>
-  <div class="md-form mb-5">
-    <input type="file" id="orangeForm-img" (change)="onFileSelectedListener($event)">
-  </div>
 </div>
+
+<div>
+  <div *ngIf="currentFileUpload" class="progress">
+    <div class="progress-bar progress-bar-info progress-bar-striped"
+      role="progressbar" attr.aria-valuenow="{{progress.percentage}}"
+      aria-valuemin="0" aria-valuemax="100"
+      [ngStyle]="{width:progress.percentage+'%'}">
+      {{progress.percentage}}%</div>
+  </div>
+
+  <label class="btn btn-default">
+    <input type="file" (change)="selectFile($event)">
+  </label>
+
+  <button class="btn btn-success"
+    (click)="upload()">Upload</button>
+
+</div>
+
 
 <div class="md-form mb-5">
   <i class="fa fa-user prefix blue-text" aria-hidden="true" style="color:#00cc6a;"></i>

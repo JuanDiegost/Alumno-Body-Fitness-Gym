@@ -87,10 +87,10 @@
   <div class="justify-content-center">
     <div class="col-md-12">
       <div class="list-group">
-        <p *ngFor="let item of student.historialProgresoImagen" class="list-group-item waves-light" mdbWavesEffect>
+        <p *ngFor="let item of student.historialProgresoImagen; let i=index" class="list-group-item waves-light">
           Fecha: {{item.fechaProgresoImagen}}, Masa Corporal: {{item.masaCorporal}}, Grasa Corporal:
           {{item.grasaCorporal}}
-          <button type="button" mdbBtn color="danger" (click)="eliminarProgeso(item.id)" mdbWavesEffect>Borrar</button>
+          <button *ngIf="i!=0" class="align-self-end" type="button" mdbBtn color="danger" (click)="eliminarProgeso(item.id)" mdbWavesEffect>Borrar</button>
         </p>
       </div>
     </div>
