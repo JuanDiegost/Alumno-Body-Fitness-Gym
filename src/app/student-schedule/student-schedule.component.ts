@@ -255,7 +255,7 @@ export class StudentScheduleComponent implements OnInit {
 }
 
      diaSemana(anio,mes,dia){
-      var dias=["dom", "lunes", "martes", "mie", "jue", "vie", "sab"];
+      var dias=["domingo", "lunes", "martes", "mie", "jue", "vie", "sab"];
       var dt = new Date(mes+' '+dia+', '+anio+' 12:00:00');
       var result = dias[dt.getUTCDay()];
 

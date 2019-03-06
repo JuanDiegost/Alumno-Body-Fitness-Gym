@@ -33,6 +33,7 @@ export class ProfileTrainerComponent implements OnInit {
       res => {
         this.loading = false;
         res = res['value'];
+        console.log(res);
         if (res) {
           this.trainer = res;
         }

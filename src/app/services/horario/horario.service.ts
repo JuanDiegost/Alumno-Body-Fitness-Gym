@@ -13,7 +13,11 @@ export class HorarioService {
     return this.http.get(Constants.API_TEXT+"/horario/filtroSinFechas");
   }
 
+  getHorarioTrainer() {
+    return this.http.get(Constants.API_TEXT+"/horario/filtroSinFechas/entrenador/"+localStorage.getItem("idAlumno"));
+  }
+
   getStudents(idHorario){
-    return this.http.get(Constants.API_TEXT+"horario/alumnos/"+idHorario);
+    return this.http.get(Constants.API_TEXT+"/horario/"+idHorario);
   }
 }
