@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input } from '@angular/core';
 import { GetStudentsService } from '../services/getStudents/get-students.service';
 import { Router } from '@angular/router';
 import { HorarioService } from '../services/horario/horario.service';
@@ -13,20 +13,26 @@ import { GetMedicalHistoryComponent } from '../dialogs/get-medical-history/get-m
   styleUrls: ['./trainer-student-schedule.component.css']
 })
 export class TrainerStudentScheduleComponent implements OnInit {
-
+  assistance = null;
   students = null;
+  idShedule = null;
+  public loading = false;
   constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router,public dialog: MatDialog ) {
     
    }
 
  ngOnInit( ) {
-
-  this.students = this._horarioService.getStudents(this.getStudents.shedule).subscribe(data=>{
+  this.loading= true;
+  this.idShedule=this.getStudents.shedule;
+  this.students = this._horarioService.getStudents(this.idShedule).subscribe(data=>{
+    data = data["value"];
+    this.assistance= data["asistencia"];
     
+    this.loading= false;
   });
 
   }
-  openDialogShowMedicalHistory(student) {
+  /* openDialogShowMedicalHistory(student) {
     const dialogRef = this.dialog.open(GetMedicalHistoryComponent, {
       width: "35%",
       height: "90%",
@@ -34,7 +40,7 @@ export class TrainerStudentScheduleComponent implements OnInit {
     });
     
     this.showScreenDark(dialogRef);
-  }
+  } */
 
   private showScreenDark(dialogRef) {
     if (this.isScreenLow()) {

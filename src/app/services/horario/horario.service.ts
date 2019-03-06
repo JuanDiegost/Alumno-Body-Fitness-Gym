@@ -12,7 +12,11 @@ export class HorarioService {
     return this.http.get("/horario/filtroSinFechas");
   }
 
+  getHorarioTrainer() {
+    return this.http.get("/horario/filtroSinFechas/entrenador/"+localStorage.getItem("idAlumno"));
+  }
+
   getStudents(idHorario){
-    return this.http.get("horario/alumnos/"+idHorario);
+    return this.http.get("/horario/"+idHorario);
   }
 }

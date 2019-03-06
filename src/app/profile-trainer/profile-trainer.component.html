@@ -21,12 +21,12 @@
           </div>
 
           <!--Avatar-->
-          <div class="avatar mx-auto white"><img src="{{trainer.urlImagenEntrenador}}" alt="avatar mx-auto white" class="img-perfil rounded-circle img-fluid">
+          <div class="avatar mx-auto white"><img *ngIf="trainer" src="{{trainer.urlImagenEntrenador}}" alt="avatar mx-auto white" class="img-perfil rounded-circle img-fluid">
           </div>
 
           <div class="card-body">
             <!--Name-->
-            <h4 class="card-title mt-1">{{trainer.nombreEntrenador}}<p class="user">(dni: {{trainer.dniEntrenador}})</p>
+            <h4 class="card-title mt-1" *ngIf="trainer">{{trainer.nombreEntrenador}}<p class="user">(dni: {{trainer.dniEntrenador}})</p>
             </h4>
             <hr>
 
