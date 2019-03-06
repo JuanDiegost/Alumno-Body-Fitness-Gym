@@ -11,7 +11,7 @@ import { RoutersApp } from '../util/RoutersApp';
 })
 export class OnlyTrainerScheduleComponent implements OnInit {
 
-  constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router  ) { 
+  constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router  ) {
 
   }
 
@@ -19,7 +19,8 @@ export class OnlyTrainerScheduleComponent implements OnInit {
 
   }
 
-  showStudents(horario){
+  showStudents(){
+    let horario;
     this.getStudents.shedule = horario;
     this.router.navigateByUrl(RoutersApp.trainer+"/"+RoutersApp.listStudentForSchedule);
   }

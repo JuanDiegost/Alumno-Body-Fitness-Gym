@@ -26,7 +26,6 @@ import { StudentMedicalHistoryComponent } from "./student-medical-history/studen
 import { AppComponent } from "./app.component";
 
 // cover-flow news
-import { KSSwiperModule } from "angular2-swiper";
 
 // carousel news
 import { NgxHmCarouselModule } from "ngx-hm-carousel";
@@ -140,7 +139,6 @@ const routes: Route[] = [
     BrowserAnimationsModule,
     MaterialModules,
     HttpClientModule,
-    KSSwiperModule,
     NgxHmCarouselModule,
     NgxGalleryModule,
     MDBBootstrapModule.forRoot(),

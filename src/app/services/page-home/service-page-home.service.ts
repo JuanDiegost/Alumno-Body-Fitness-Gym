@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {map} from 'rxjs/operators';
+import {Constants} from '../../util/Constants'
+
 // import 'rxjs/add/operator/map';
 
 @Injectable({
@@ -12,11 +14,11 @@ export class ServicePageHome {
   constructor(private httpClient: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.httpClient.get('login/alumno/'+username+"/"+password);
+    return this.httpClient.get(Constants.API_TEXT+'login/alumno/'+username+"/"+password);
   }
 
   loginTrainer(username: string, password: string) {
-    return this.httpClient.get('login/entrenador/' + username + '/' + password);
+    return this.httpClient.get(Constants.API_TEXT+'login/entrenador/' + username + '/' + password);
   }
 
   getRates() {
