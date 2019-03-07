@@ -211,4 +211,9 @@ _onliNumbers(event: any) {
   replaceAt(textr, index, replace) {
     return textr.substring(0, index) + replace + textr.substring(index + 1);
   }
+
+  closeDialogEditUser() {
+    this.dialogRef.close();
+  }
+
 }

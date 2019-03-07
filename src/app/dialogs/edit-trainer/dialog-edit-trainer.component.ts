@@ -184,4 +184,9 @@ export class DialogEditTrainerComponent implements OnInit {
       event.preventDefault();
     }
   }
+
+  closeDialogEditUser() {
+    this.dialogRef.close();
+  }
+
 }

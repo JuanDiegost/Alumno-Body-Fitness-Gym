@@ -7,9 +7,8 @@
     <!-- Section heading -->
     <h2 class="h1-responsive font-weight-bold my-5">Alumnos</h2>
     <!-- Section description -->
-    <p class="dark-grey-text w-responsive mx-auto mb-5"><i class="fa fa-quote-left "></i>En esta seccion puedes observar el listado de alumnos relacionados
-      por cada horario dependiendo de una clase en la cual dictas<i class="fa fa-quote-right "></i>
-    </p>
+    <p class="dark-grey-text w-responsive mx-auto mb-5"><i class="fa fa-quote-left "></i>En esta seccion puedes observar el listado de alumnos 
+      por cada horario dependiendo de una clase en la cual dictas<i class="fa fa-quote-right "></i></p>
     <button type="button" class="btn btn-outline-info waves-effect px-13"><i class="fa fa-address-card"></i>generar listado</button>
     <br>
     <!--Grid row-->
@@ -30,11 +29,8 @@
             <i class="fa fa-phone"></i>{{student.telefonoAlumno}}</p>
           <!--Review-->
           <div class="orange-text">
-            <i class="fa fa-star"> </i>
-            <i class="fa fa-star"> </i>
-            <i class="fa fa-star"> </i>
-            <i class="fa fa-star"> </i>
-            <i class="fa fa-star"> </i>
+            <button mdbBtn type="button" color="cyan" size="sm" (click)="openDialogShowMedicalHistory(student.historialMedico)" mdbWavesEffect>historial medico</button>
+
           </div>
         </div>
   

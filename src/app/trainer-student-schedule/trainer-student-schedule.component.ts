@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { HorarioService } from '../services/horario/horario.service';
 import { MatDialog } from '@angular/material';
 import { GetMedicalHistoryComponent } from '../dialogs/get-medical-history/get-medical-history.component';
+import { TrainerStudentMedicalHistoryComponent } from '../dialogs/trainer-student-medical-history/trainer-student-medical-history.component';
 
 
 
@@ -17,6 +18,7 @@ export class TrainerStudentScheduleComponent implements OnInit {
   students = null;
   idShedule = null;
   public loading = false;
+  medicalHistory = null;
   constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router,public dialog: MatDialog ) {
     
    }
@@ -27,20 +29,19 @@ export class TrainerStudentScheduleComponent implements OnInit {
   this.students = this._horarioService.getStudents(this.idShedule).subscribe(data=>{
     data = data["value"];
     this.assistance= data["asistencia"];
-    
     this.loading= false;
   });
 
   }
-  /* openDialogShowMedicalHistory(student) {
-    const dialogRef = this.dialog.open(GetMedicalHistoryComponent, {
-      width: "35%",
+  openDialogShowMedicalHistory(student) {
+    const dialogRef = this.dialog.open(TrainerStudentMedicalHistoryComponent, {
+      width: "70%",
       height: "90%",
-      data:  student.historialMedico
+      data:  student
     });
     
     this.showScreenDark(dialogRef);
-  } */
+  }
 
   private showScreenDark(dialogRef) {
     if (this.isScreenLow()) {

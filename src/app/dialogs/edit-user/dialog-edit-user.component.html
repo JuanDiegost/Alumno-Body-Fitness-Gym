@@ -32,7 +32,9 @@
     </div>
 
     <div id="btnUser" class="modal-footer d-flex justify-content-center">
-      <button mdbBtn color="deep-orange" class="waves-light" (click)="guardarDatos()"  mdbWavesEffect>Guardar Cambios</button>
+      <button mdbBtn color="cyan" class="waves-light" (click)="guardarDatos()"  mdbWavesEffect>Guardar</button>
+      <button mdbBtn color="light" class="waves-light" (click)="closeDialogEditUser()" mdbWavesEffect mat-dialog-close>Cancelar</button>      
+    
     </div>
   </div>
 
@@ -83,6 +85,7 @@
   </div>
 
   <div id="btnPerson" class="modal-footer d-flex justify-content-center">
-    <button mdbBtn color="deep-orange" class="waves-light" (click)="saveUser()" mdbWavesEffect>Guardar</button>
+    <button mdbBtn color="cyan" class="waves-light" (click)="saveUser()" mdbWavesEffect>Guardar</button>
+    <button mdbBtn color="light" class="waves-light" (click)="closeDialogEditUser()" mdbWavesEffect mat-dialog-close>Cancelar</button>
   </div>
 </div>
