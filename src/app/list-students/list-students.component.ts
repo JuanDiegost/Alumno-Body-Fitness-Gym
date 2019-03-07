@@ -9,8 +9,8 @@ import { ServiceUserService } from "../services/services-user/service-user.servi
 export class ListStudentsComponent implements OnInit {
   constructor(public service:ServiceUserService) {}
 
-  private students;
-  private loading=true;
+  public students;
+  public loading=true;
 
   ngOnInit() {
     this.loadStudents();

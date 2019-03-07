@@ -37,12 +37,12 @@
               {{ultimaSuscripcion.servicio.nombreServicio}}</p>
             <p class="estado">Estado de suscripción:
               <span *ngIf="diasdif > 0 && diasdif < 8 && !ultimaSuscripcion.fechaFin == ''" class="porTerminar">Termina
-                el
+                en
                 {{replaceAt(ultimaSuscripcion.fechaFin,10," ") | date:'mediumDate'}}</span>
-              <span *ngIf="diasdif > 8 && !ultimaSuscripcion.fechaFin == ''" class="lejosdevencer">Termina el
+              <span *ngIf="diasdif > 8 && !ultimaSuscripcion.fechaFin == ''" class="lejosdevencer">Termina en
                 {{replaceAt(ultimaSuscripcion.fechaFin,10," ")
                 | date:'mediumDate'}}</span>
-              <span *ngIf="diasdif <= 0 && !ultimaSuscripcion.fechaFin == ''" class="vencido">Termino el
+              <span *ngIf="diasdif <= 0 && !ultimaSuscripcion.fechaFin == ''" class="vencido">Termino en
                 {{replaceAt(ultimaSuscripcion.fechaFin,10," ") |
                 date:'mediumDate'}}</span>
               <span *ngIf="ultimaSuscripcion.fechaFin == '' && ultimaSuscripcion.sesiones < 3" class="vencido">Te

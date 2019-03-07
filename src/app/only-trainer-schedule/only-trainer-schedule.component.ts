@@ -15,7 +15,7 @@ export class OnlyTrainerScheduleComponent implements OnInit {
   scheludes= null;
   idEntrenador = null;
   public loading = false;
-  constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router  ) { 
+  constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router  ) {
 
   }
 

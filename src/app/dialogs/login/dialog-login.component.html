@@ -4,11 +4,11 @@
   <mat-label id="label-login">Iniciar Sesión</mat-label>
   <br>
   <mat-form-field id="mat-form-name-user">
-    <input matInput value="1234567" placeholder="Nombre de Usuario" id="userName" required #inputUserName>
+    <input matInput placeholder="Nombre de Usuario" id="userName" required #inputUserName>
   </mat-form-field>
   <br>
   <mat-form-field id="mat-form-password">
-    <input matInput value="123456" type="password" placeholder="Constraseña" id="password" required #inputPassword>
+    <input matInput type="password" placeholder="Constraseña" id="password" required #inputPassword>
   </mat-form-field>
   <div class="alert alert-danger" role="alert" *ngIf="activateAlertInsertData">
     <p style="text-align: justify">Debe diligenciar los campos <br>nombre de usuario y contraseña</p>

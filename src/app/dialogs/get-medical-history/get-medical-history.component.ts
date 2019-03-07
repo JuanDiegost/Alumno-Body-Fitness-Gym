@@ -10,13 +10,18 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 export class GetMedicalHistoryComponent implements OnInit {
 
   listaPreguntas = null;
+  loading=false;
   constructor(public dialogRef: MatDialogRef<TrainerStudentScheduleComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any) {
-      
+
      }
 
   ngOnInit() {
     this.listaPreguntas= this.data;
+  }
+
+  updatePass(){
+
   }
 
 }

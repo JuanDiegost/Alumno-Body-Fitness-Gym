@@ -5,7 +5,6 @@ import {DialogLoginComponent} from '../dialogs/login/dialog-login.component';
 import {ServicePageHome} from '../services/page-home/service-page-home.service';
 
 // Cover Flow
-import {KSSwiperContainer, KSSwiperSlide} from 'angular2-swiper';
 
 // Animations
 import { trigger, state, style, animate, transition } from '@angular/animations';
@@ -15,6 +14,7 @@ import {Router} from '@angular/router';
 import {ServiceLogin} from '../services/login/service-login.service';
 import {RoutersApp} from '../util/RoutersApp';
 import {Messages} from '../util/Messages';
+import { Constants } from '../util/Constants';
 
 
 declare var $: any;
@@ -44,8 +44,6 @@ export class HomeComponent implements OnInit {
     infinite: true,
   };
   // @ts-ignore
-  @ViewChild(KSSwiperContainer) swiperContainer: KSSwiperContainer;
-  example1SwipeOptions: any;
 
   title = 'Body-Fitness-Gym';
   // dataSourceTableRates = this.servicePageHome.getRates();
@@ -92,18 +90,13 @@ export class HomeComponent implements OnInit {
 
   constructor(public dialog: MatDialog, private servicePageHome: ServicePageHome, private serviceLogin: ServiceLogin,
               private router: Router) {
-    this.example1SwipeOptions = {
-      slidesPerView: 1,
-      loop: false,
-      spaceBetween: 5
-    };
     this.updateNews();
     this.updateService();
   }/*#58B957*/
 
   updateNews() {
     this.dataSourceNews = [];
-    const s = this.servicePageHome.read(Messages.urlAllNews);
+    const s = this.servicePageHome.read(Constants.API_TEXT+Messages.urlAllNews);
     s.subscribe(res => {
         // @ts-ignore
         this.dataSourceNews = res;
@@ -114,7 +107,7 @@ export class HomeComponent implements OnInit {
 
   updateService() {
     this.dataSourceNews = [];
-    const s = this.servicePageHome.read(Messages.urlAllServices);
+    const s = this.servicePageHome.read(Constants.API_TEXT+Messages.urlAllServices);
     s.subscribe(res => {
         // @ts-ignore
         this.availablePrograms = res;

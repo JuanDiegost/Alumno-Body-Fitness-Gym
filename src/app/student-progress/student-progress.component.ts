@@ -54,7 +54,7 @@ export class StudentProgressComponent implements OnInit {
       this.loading = true;
       setTimeout(() => {
         this.getData();
-      }, 3000);
+      }, 10000);
     });
   }
 
@@ -128,6 +128,8 @@ export class StudentProgressComponent implements OnInit {
   eliminarProgeso(id){
     this.servicesUser.deletProgres(id).subscribe(data=>{
       console.log(data);
+      this.loading = true;
+      this.getData();
     });
   }
 
