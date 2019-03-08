@@ -37,7 +37,7 @@ export class ServiceUserService {
   }
 
   deletProgres(id){
-    return this.http.delete(Constants.API_TEXT+"progresoImagen/"+id);
+    return this.http.delete(Constants.API_TEXT+"/progresoImagen/"+id);
   }
 
   getListAlumn(){

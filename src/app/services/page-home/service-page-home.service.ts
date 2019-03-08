@@ -14,11 +14,11 @@ export class ServicePageHome {
   constructor(private httpClient: HttpClient) { }
 
   login(username: string, password: string) {
-    return this.httpClient.get(Constants.API_TEXT+'login/alumno/'+username+"/"+password);
+    return this.httpClient.get(Constants.API_TEXT+'/login/alumno/'+username+"/"+password);
   }
 
   loginTrainer(username: string, password: string) {
-    return this.httpClient.get(Constants.API_TEXT+'login/entrenador/' + username + '/' + password);
+    return this.httpClient.get(Constants.API_TEXT+'/login/entrenador/' + username + '/' + password);
   }
 
   getRates() {
