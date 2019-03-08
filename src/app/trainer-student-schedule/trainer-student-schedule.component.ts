@@ -5,6 +5,7 @@ import { HorarioService } from '../services/horario/horario.service';
 import { MatDialog } from '@angular/material';
 import { GetMedicalHistoryComponent } from '../dialogs/get-medical-history/get-medical-history.component';
 import { TrainerStudentMedicalHistoryComponent } from '../dialogs/trainer-student-medical-history/trainer-student-medical-history.component';
+import { Constants } from '../util/Constants';
 
 
 
@@ -20,7 +21,7 @@ export class TrainerStudentScheduleComponent implements OnInit {
   public loading = false;
   medicalHistory = null;
   constructor(private _horarioService: HorarioService,private getStudents: GetStudentsService,private router: Router,public dialog: MatDialog ) {
-    
+
    }
 
  ngOnInit( ) {
@@ -39,7 +40,7 @@ export class TrainerStudentScheduleComponent implements OnInit {
       height: "90%",
       data:  student
     });
-    
+
     this.showScreenDark(dialogRef);
   }
 
@@ -60,6 +61,10 @@ export class TrainerStudentScheduleComponent implements OnInit {
     dialogRef.beforeClosed().subscribe(result => {
       this.setOpacityScreenRegular(divMain);
     });
+  }
+
+  private generatePdf(){
+    window.open(Constants.API_TEXT+"/horarios/"+this.idShedule+"/reporte.pdf",'_self')
   }
 
   private setOpacityScreenLight(divMain: HTMLElement) {

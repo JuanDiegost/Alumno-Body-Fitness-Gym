@@ -28,7 +28,7 @@ export class DialogEditUserComponent implements OnInit {
   signupFormModalGenero = new FormControl("", Validators.required);
   signupFormModalTelefono = new FormControl("", Validators.required);
   signupFormModalDate = new FormControl("", Validators.required);
-  
+
   BirthDate: Date;
   idAlumno;
   dniAlumno;
@@ -103,21 +103,13 @@ export class DialogEditUserComponent implements OnInit {
       //TODO Borrar imagen angular     //this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
       alumno = alumno["value"];
       console.log(alumno);
-      alumno["nombreAlumno"] = this.nombreAlumno;
-      if (this.nombreAlumno.match(Constants.regexOnlyLetterAndSpace) === null) {
-        Confirms.showErrorType(Messages.titleErrorPatternOnlyLettersAndSpace, Messages.messageErrorPatternOnlyLettersAndSpace);
-        return;
-      }
       alumno["telefonoAlumno"] = this.telefonoAlumno;
       if (this.telefonoAlumno.match(Constants.regexOnlyNumbers) === null) {
         Confirms.showErrorType(Messages.titleErrorPatternOnlyLettersAndSpace, Messages.messageErrorPatternOnlyNumbers);
         return;
       }
       alumno["emailAlumno"] = this.emailAlumno;
-      alumno["usuarioAlumno"] = this.usuarioAlumno;
-      alumno["genero"] = this.genero;
-      alumno["fechaNacimiento"] =
-        this.datePipeEn.transform(this.BirthDate, "yyyy-MM-dd") + "-00:00:00";
+      alumno["urlImagenUsuario"] = this.urlImg;
       alumno["historialSuscripcion"] = alumno["historialSuscripcion"].reverse();
       this.loading = true;
       this.userService.updateUser(alumno).subscribe(dt => {

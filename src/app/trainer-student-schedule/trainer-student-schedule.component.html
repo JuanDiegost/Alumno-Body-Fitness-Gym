@@ -7,16 +7,16 @@
     <!-- Section heading -->
     <h2 class="h1-responsive font-weight-bold my-5">Alumnos</h2>
     <!-- Section description -->
-    <p class="dark-grey-text w-responsive mx-auto mb-5"><i class="fa fa-quote-left "></i>En esta seccion puedes observar el listado de alumnos 
+    <p class="dark-grey-text w-responsive mx-auto mb-5"><i class="fa fa-quote-left "></i>En esta seccion puedes observar el listado de alumnos
       por cada horario dependiendo de una clase en la cual dictas<i class="fa fa-quote-right "></i></p>
-    <button type="button" class="btn btn-outline-info waves-effect px-13"><i class="fa fa-address-card"></i>generar listado</button>
+    <button type="button" class="btn btn-outline-info waves-effect px-13" (click)="generatePdf()" ><i class="fa fa-address-card"></i>generar listado</button>
     <br>
     <!--Grid row-->
     <div class="row text-center" >
-  
+
       <!--Grid column-->
       <div class="col-md-4 mb-md-0 mb-5" *ngFor="let student of assistance; let i = index">
-  
+
         <div class="testimonial">
           <!--Avatar-->
           <div class="avatar mx-auto" style="width: 200px;height: 200px;">
@@ -33,13 +33,13 @@
 
           </div>
         </div>
-  
+
       </div>
       <!--Grid column-->
-  
-  
+
+
     </div>
     <!--Grid row-->
-  
+
   </section>
   <!-- Section: Testimonials v.3 -->

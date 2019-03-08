@@ -86,11 +86,7 @@ export class DialogEditTrainerComponent implements OnInit {
       // TODO Borrar imagen angular     // this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
       trainer = trainer['value'];
       console.log(trainer);
-      trainer['nombreEntrenador'] = this.nombreEntrenador;
-      if (this.nombreEntrenador.match(Constants.regexOnlyLetterAndSpace) === null) {
-        Confirms.showErrorType(Messages.titleErrorPatternOnlyLettersAndSpace, Messages.messageErrorPatternOnlyLettersAndSpace);
-        return;
-      }
+      trainer['urlImagenEntrenador'] = this.urlImg;
       trainer['telefonoEntrenador'] = this.telefonoEntrenador;
       if (this.telefonoEntrenador.match(Constants.regexOnlyNumbers) === null) {
         Confirms.showErrorType(Messages.titleErrorPatternOnlyLettersAndSpace, Messages.messageErrorPatternOnlyNumbers);
