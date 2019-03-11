@@ -6,6 +6,7 @@ import { MatDialog } from '@angular/material';
 import { GetMedicalHistoryComponent } from '../dialogs/get-medical-history/get-medical-history.component';
 import { TrainerStudentMedicalHistoryComponent } from '../dialogs/trainer-student-medical-history/trainer-student-medical-history.component';
 import { Constants } from '../util/Constants';
+import {Messages} from '../util/Messages';
 
 
 
@@ -64,7 +65,10 @@ export class TrainerStudentScheduleComponent implements OnInit {
   }
 
   private generatePdf(){
-    window.open(Constants.API_TEXT+"/horarios/"+this.idShedule+"/reporte.pdf",'_self')
+    console.log(this.idShedule);
+    const URL_PDF:string =  Messages.urlAllSchedules + '/' + this.idShedule + Messages.report_PDF_Schedule;
+    window.open(URL_PDF,'_self');
+    // window.open(Constants.API_TEXT+"/horarios/"+this.idShedule+"/reporte.pdf",'_self')
   }
 
   private setOpacityScreenLight(divMain: HTMLElement) {

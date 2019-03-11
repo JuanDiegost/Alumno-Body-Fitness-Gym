@@ -15,6 +15,7 @@ import {ServiceLogin} from '../services/login/service-login.service';
 import {RoutersApp} from '../util/RoutersApp';
 import {Messages} from '../util/Messages';
 import { Constants } from '../util/Constants';
+import {DialogContentNewsComponent} from '../dialogs/content-news/dialog-content-news.component';
 
 
 declare var $: any;
@@ -155,8 +156,8 @@ export class HomeComponent implements OnInit {
 
   openDialogService(chipServices) {
     const dialogRef = this.dialog.open(DialogContentServiceComponent, {
-      width: '80%',
-      height: '80%',
+      width: '70%',
+      height: 'max-content',
       data: chipServices,
     });
     this.setEventOpacityScreen(dialogRef);
@@ -230,6 +231,11 @@ export class HomeComponent implements OnInit {
   }
 
   openNews(news) {
-    console.log(news);
+    const dialogRef = this.dialog.open(DialogContentNewsComponent, {
+      width: '70%',
+      height: 'max-content',
+      data: news,
+    });
+    this.setEventOpacityScreen(dialogRef);
   }
 }

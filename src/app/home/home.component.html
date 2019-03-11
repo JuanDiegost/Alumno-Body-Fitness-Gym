@@ -57,7 +57,7 @@
     <!-- <img src="assets/img/4.jpeg"> -->
     <div>
       <h1 [@EnterLeave]="'flyIn'" class="cyan-text">Body Fitness Gym</h1>
-      <h2 [@EnterLeave]="'flyIn'"class="cyan-text" >Una manera sana de desarrollar las capacidades musculares.</h2>
+      <h2 [@EnterLeave]="'flyIn'" class="cyan-text">Una manera sana de desarrollar las capacidades musculares.</h2>
       <!-- <button [@EnterLeave]="'flyIn'" mat-flat-button (click)="scrollToElement('div-image-aboutOf')">Iniciar Recorrido</button> -->
       <button [@EnterLeave]="'flyIn'" data-aos="fade-right" mdbBtn class="btn-large" type="button" (click)="scrollToElement('div-image-aboutOf')" gradient="aqua" rounded="true" mdbWavesEffect>Iniciar Recorrido
           <i class="fa fa-sync-alt fa-spin"></i>
@@ -133,7 +133,7 @@
                                       onclick="document.getElementById('article-news').click()" class="carousel">
 
                                       <section ngx-hm-carousel-container class="content">
-                                        <article (click)="openNews(news)" id="article-news" class="item cursor-pointer visible_important"
+                                        <article (mwlClick)="openNews(news)" id="article-news" class="item cursor-pointer visible_important"
                                           ngx-hm-carousel-item *ngFor="let news of dataSourceNews; let i = index">
                                           <div class="img" [style.backgroundImage]="'url('+news.urlImagen+')'">
                                           </div>
@@ -276,10 +276,10 @@
     Footer Elements -->
 
     <!-- Copyright -->
-    <div class="footer-copyright text-center py-3">© 2018 Copyright:
+    <div class="footer-copyright text-center py-3">© 2019 Copyright:
         <p>Body Fitness Gym</p>
-        <p>Contact information: <a href="mailto:someone@example.com">
-            someone@example.com</a>.</p>
+        <p>Correo de contacto (Peticiones, Quejas, Reclamos, Sugerencias): <a href="mailto:cesar.cardozo@uptc.edu.co">
+          cesar.cardozo@uptc.edu.co</a>.</p>
     </div>
     <!-- Copyright -->
 

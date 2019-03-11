@@ -72,6 +72,7 @@ import { TrainerStudentScheduleComponent } from './trainer-student-schedule/trai
 import { GetMedicalHistoryComponent } from './dialogs/get-medical-history/get-medical-history.component';
 import { FormUploadComponent } from './form-upload/form-upload.component';
 import { TrainerStudentMedicalHistoryComponent } from './dialogs/trainer-student-medical-history/trainer-student-medical-history.component';
+import { DialogContentNewsComponent } from './dialogs/content-news/dialog-content-news.component';
 //end calendar
 
 const routes: Route[] = [
@@ -132,6 +133,7 @@ const routes: Route[] = [
     GetMedicalHistoryComponent,
     FormUploadComponent,
     TrainerStudentMedicalHistoryComponent,
+    DialogContentNewsComponent,
   ],
   exports: [StudentScheduleComponent],
   imports: [
@@ -167,7 +169,8 @@ const routes: Route[] = [
     DialogAddProgressComponent,
     DialogEditTrainerComponent,
     GetMedicalHistoryComponent,
-    TrainerStudentMedicalHistoryComponent
+    TrainerStudentMedicalHistoryComponent,
+    DialogContentNewsComponent,
   ],
   providers: [
     ServicePageHome,

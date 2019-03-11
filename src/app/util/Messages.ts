@@ -2,6 +2,8 @@
 export class Messages {
   static readonly urlNews = '/noticia';
   static readonly urlAllNews = '/noticias';
+  static readonly urlAllSchedules = '/horarios';
+  static readonly report_PDF_Schedule = '/reporte.pdf';
 
   static readonly titleErrorAdd = 'No se pudo Agregar el elemento.';
   static readonly titleErrorEdit = 'No se pudo Editar el elemento.';

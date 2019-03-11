@@ -85,7 +85,6 @@ export class DialogEditTrainerComponent implements OnInit {
     this.userService.getUserDataTrainer().subscribe(trainer => {
       // TODO Borrar imagen angular     // this.uploadService.deleteFileUpload(alumno["urlImagenUsuario"]);
       trainer = trainer['value'];
-      console.log(trainer);
       trainer['urlImagenEntrenador'] = this.urlImg;
       trainer['telefonoEntrenador'] = this.telefonoEntrenador;
       if (this.telefonoEntrenador.match(Constants.regexOnlyNumbers) === null) {
@@ -93,6 +92,7 @@ export class DialogEditTrainerComponent implements OnInit {
         return;
       }
       trainer['emailEntrenador'] = this.emailEntrenador;
+      trainer['contraseniaEntrenador'] = this.telefonoEntrenador;
       this.loading = true;
       this.userService.updateUserTrainer(trainer).subscribe(dt => {
         this.loading = true;

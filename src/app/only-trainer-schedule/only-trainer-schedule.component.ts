@@ -34,6 +34,4 @@ export class OnlyTrainerScheduleComponent implements OnInit {
     this.getStudents.shedule = horario;
     this.router.navigateByUrl(RoutersApp.trainer+"/"+RoutersApp.listStudentForSchedule);
   }
-
-
 }

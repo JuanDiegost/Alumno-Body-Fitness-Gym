@@ -13,7 +13,6 @@ export class DialogContentServiceComponent {
   constructor(public dialogRef: MatDialogRef<HomeComponent>, @Inject(MAT_DIALOG_DATA) public data) {}
 
   closeDialog() {
-
     this.dialogRef.close();
   }
 }
